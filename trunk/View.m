@@ -9,6 +9,8 @@
 #import "View.h"
 #import <QuartzCore/QuartzCore.h>
 
+
+/*test SCM*/
 @implementation View
 
 - (id)initWithFrame:(NSRect)frame {
