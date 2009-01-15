@@ -1,5 +1,0 @@
-/Volumes/users/code/juggle/Controller.m: In function '-[Controller initialize:]':
-/Volumes/users/code/juggle/Controller.m:19: warning: assignment from incompatible pointer type
-/Volumes/users/code/juggle/Controller.m:20: warning: invalid receiver type 'Pattern *'
-/Volumes/users/code/juggle/Controller.m:21: warning: invalid receiver type 'Pattern *'
-/Volumes/users/code/juggle/Controller.m:23: warning: invalid receiver type 'Pattern *'
