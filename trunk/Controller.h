@@ -15,10 +15,14 @@
 
 
 @interface Controller : NSObject {
+	Juggler *myself;
 	SiteswapPattern *pat;
 	IBOutlet NSButton *btJuggle;
 }
-- (IBAction)initialize:(id)sender;
--(IBAction)juggle:(id)sender;
+
+-(IBAction)initialize:(id)sender;
+-(IBAction)juggleButtonClick:(id)sender;
+-(id)definePattern;
+-(void)juggle;
 
 @end

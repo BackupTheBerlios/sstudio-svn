@@ -37,7 +37,7 @@
 	return listSiteswap;
 }
 
-- (id)addSiteswap:(Siteswap *)siteswap;
+- (void)addSiteswap:(Siteswap *)siteswap;
 {
 	[listSiteswap addObject:siteswap];
 }

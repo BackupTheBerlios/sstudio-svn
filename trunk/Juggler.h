@@ -11,6 +11,7 @@
 
 @interface Juggler : NSObject {
 	float beatTime;
+	Throwable *ball;
 	Hand *hRight;
 	Hand *hLeft;
 }
@@ -19,5 +20,6 @@
 -(id)leftHand;
 -(float)beatTime;
 -(id)setBeatTime:(float)t;
+-(id)ballNumber:(int)num;
 
 @end

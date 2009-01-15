@@ -6,6 +6,11 @@
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
+/*
+Siteswap: element unitaire
+Pattern: ensemble de siteswap
+ */
+
 #import <Cocoa/Cocoa.h>
 #import "Siteswap.h"
 
@@ -15,7 +20,7 @@
 	NSMutableArray *listSiteswap;
 }
 
-- (id)addSiteswap:(Siteswap *)siteswap;
+- (void)addSiteswap:(Siteswap *)siteswap;
 - (id)listSiteswap;
 
 @end

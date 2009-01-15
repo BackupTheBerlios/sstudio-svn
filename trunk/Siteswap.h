@@ -6,6 +6,13 @@
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
+/*
+ Steswap: element unitaire
+ Pattern: ensemble de siteswap
+  => definir un move?
+ 
+ */
+
 #import <Cocoa/Cocoa.h>
 
 

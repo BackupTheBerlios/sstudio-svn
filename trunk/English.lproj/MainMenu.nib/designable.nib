@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="372"/>
 			<integer value="29"/>
+			<integer value="372"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -803,7 +803,7 @@
 						<object class="NSCustomView" id="464287981">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{60, 133}, {350, 214}}</string>
+							<string key="NSFrame">{{43, 120}, {360, 242}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<string key="NSClassName">View</string>
 						</object>
@@ -1163,11 +1163,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">juggle:</string>
+						<string key="label">juggleButtonClick:</string>
 						<reference key="source" ref="514423944"/>
 						<reference key="destination" ref="835504550"/>
 					</object>
-					<int key="connectionID">392</int>
+					<int key="connectionID">393</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1785,8 +1785,8 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="695668157"/>
-							<reference ref="464287981"/>
 							<reference ref="835504550"/>
+							<reference ref="464287981"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -2156,8 +2156,8 @@
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{265, 310}, {480, 400}}</string>
-					<string>{{265, 310}, {480, 400}}</string>
+					<string>{{288, 182}, {480, 400}}</string>
+					<string>{{288, 182}, {480, 400}}</string>
 					<reference ref="9"/>
 					<string>{{285, 300}, {480, 400}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2223,7 +2223,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">392</int>
+			<int key="maxID">393</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2236,7 +2236,7 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>initialize:</string>
-							<string>juggle:</string>
+							<string>juggleButtonClick:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>

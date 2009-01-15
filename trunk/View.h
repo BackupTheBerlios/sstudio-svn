@@ -8,14 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface View : NSView {
 	CGMutablePathRef *path;
 	CALayer *layerBall;
-	CGImageRef ballImg;	
+	CGImageRef ballImg;
 }
 
 - (id)loadThrowablePath;
+-(void)loadGraphics;
 -(void)createObject;
 //-(void)moveLayer:(CALayer*)layer to:(CGPoint)point;
 -(void)vibAnimation:(CALayer*)layer;

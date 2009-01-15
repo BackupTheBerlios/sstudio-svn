@@ -15,9 +15,10 @@
 {
 	[super init];
 	NSLog(@"init Juggler");	
+	ball = [[Throwable alloc] init];
 	hRight = [[Hand alloc] init];
 	hLeft = [[Hand alloc] init];
-	[self setBeatTime:1.0];
+	[self setBeatTime:0.25];
 	return self;
 }
 
@@ -38,9 +39,14 @@
 	return [self beatTime];
 }
 
--(id)setBeatTime:(float)t;
+-(void)setBeatTime:(float)t;
 {
 	beatTime=t;
+}
+
+-(id)ballNumber:(int)num
+{
+	return ball;
 }
 
 @end

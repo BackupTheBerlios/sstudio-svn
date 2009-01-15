@@ -10,7 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-/*test SCM*/
 @implementation View
 
 - (id)initWithFrame:(NSRect)frame {
@@ -25,22 +24,55 @@
 -(void)awakeFromNib
 {
 	//img
-    NSURL *url = [NSURL URLWithString:@"http://medent.usyd.edu.au/fact/flea.gif"]; 
-    CGImageSourceRef imageSource = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
-    ballImg = CGImageSourceCreateImageAtIndex(imageSource, 0, NULL);
-    CFRelease(imageSource);
+   // NSURL *url = [NSURL URLWithString:@"http://www.toocharger.com/img/graphiques/gifs_animes/sport/basket_ball/sbasket_ball.26559.gif"]; 
+	//NSURL *url = [NSURL URLWithString:@"/Volumes/Home/code/juggle/trunk/ballGreen.png"]; 
+
+	//CGImageSourceRef imageSource = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
 	
+    //chargement de la balle
+	//NSString *imagePath = [NSString stringWithString:@"/Volumes/Home/code/juggle/trunk/ballGreen.png"];
+	//NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
+	//Loads the image.
+	//CGDataProviderRef source = (CGDataProviderRef)imageData;
+	//CGImageSourceRef imageSource = CGImageSourceCreateWithDataProvider(source, 0);
+	
+	
+	//ballImg = CGImageSourceCreateImageAtIndex(imageSource, 0, NULL);
+	//ballImg = CGImageSourceCreateImageAtIndex(imageSource, 0, NULL);
+    //CFRelease(imageSource);
+	
+    CGDataProviderRef provider;	
+    CFStringRef path2;	
+    CFURLRef url;	
+    path2 = CFStringCreateWithCString (NULL, "/Volumes/Home/code/juggle/trunk/ballGreen.jpg", kCFStringEncodingUTF8);
+    url = CFURLCreateWithFileSystemPath (NULL, path2, kCFURLPOSIXPathStyle, NULL);
+    CFRelease(path2);
+    provider = CGDataProviderCreateWithURL (url);// 3
+    CFRelease (url);
+    ballImg = CGImageCreateWithJPEGDataProvider (provider,// 4
+											   NULL,
+											   true,
+											   kCGRenderingIntentDefault);
+    CGDataProviderRelease (provider);// 5
+    //CGImageRelease (image);
+	
+	//
     layerBall = [CALayer layer]; 
     CGColorSpaceRef colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
     CGFloat components[4] = {0.0f, 0.0f, 0.0f, 1.0f};
     CGColorRef blackColor = CGColorCreate(colorSpace, components);
     layerBall.backgroundColor = blackColor; 
-    self.bounds = NSMakeRect(0.0, 0.0, 200.0, 100.0);
+    self.bounds = NSMakeRect(0.0, 0.0, 50.0, 50.0);
     [self setLayer:layerBall]; 
     [self setWantsLayer:YES];
     CGColorRelease(blackColor);
     CGColorSpaceRelease(colorSpace);
 	[self createObject];
+}
+
+-(void)loadGraphics
+{
+
 }
 
 -(void)createObject
@@ -49,8 +81,9 @@
 	CABasicAnimation *theAnimation;
     float parentWidth = CGRectGetWidth( layerBall.bounds);
     float parentHeight = CGRectGetHeight(layerBall.bounds);
-    layer.position = CGPointMake(40,60);
-    layer.bounds = CGRectMake(0.0, 0.0, parentWidth*0.4, parentHeight*0.4);
+    layer.position = CGPointMake(200,200);
+	//taille de CALayer
+    layer.bounds = CGRectMake(0.0, 0.0, 30, 30);
     layer.opacity = 0.9;
     
     // Set image
@@ -69,17 +102,6 @@
 	[self vibAnimation:layer];
     return layer;
 }
-
-/*-(void)moveLayer:(CALayer*)layer to:(CGPoint)point
-{
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-	animation.duration =5.0;
-	animation.autoreverses=YES;
-    animation.toValue = [NSValue valueWithPoint:NSPointFromCGPoint(point)];
-	[self vibAnimation:layer];
-    //[layer addAnimation:animation forKey:nil];
-    //layer.position = point;
-}*/
 
 - (void)vibAnimation:(CALayer*)layer
 {
@@ -106,6 +128,7 @@
 - (id)loadThrowablePath
 {
 	NSLog(@"Load path");
+	
 	return self;
 }
 
