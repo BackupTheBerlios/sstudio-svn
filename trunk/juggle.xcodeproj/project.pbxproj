@@ -119,7 +119,6 @@
 		29B97314FDCFA39411CA2CEA /* juggle */ = {
 			isa = PBXGroup;
 			children = (
-				DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -141,6 +140,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */,
 				DBF531400F1FEFE700AAB49A /* ballGreen.jpg */,
 				DBF5307B0F1FDC1000AAB49A /* diag classe.graffle */,
 				8D1107310486CEB800E47090 /* Info.plist */,

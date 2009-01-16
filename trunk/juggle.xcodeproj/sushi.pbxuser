@@ -71,7 +71,7 @@
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
 					20,
-					536,
+					502,
 					20,
 					48,
 					43,
@@ -202,6 +202,11 @@
 			DBA8EF3B0F21314A007C2D51 /* PBXTextBookmark */ = DBA8EF3B0F21314A007C2D51 /* PBXTextBookmark */;
 			DBA8EF3C0F21314A007C2D51 /* PBXTextBookmark */ = DBA8EF3C0F21314A007C2D51 /* PBXTextBookmark */;
 			DBA8EF3D0F21314A007C2D51 /* PBXTextBookmark */ = DBA8EF3D0F21314A007C2D51 /* PBXTextBookmark */;
+			DBA8EF470F213215007C2D51 /* PBXTextBookmark */ = DBA8EF470F213215007C2D51 /* PBXTextBookmark */;
+			DBA8EF480F213215007C2D51 /* PBXTextBookmark */ = DBA8EF480F213215007C2D51 /* PBXTextBookmark */;
+			DBA8EF490F213215007C2D51 /* PBXTextBookmark */ = DBA8EF490F213215007C2D51 /* PBXTextBookmark */;
+			DBA8EF4A0F213215007C2D51 /* PBXTextBookmark */ = DBA8EF4A0F213215007C2D51 /* PBXTextBookmark */;
+			DBA8EF4B0F213215007C2D51 /* PBXTextBookmark */ = DBA8EF4B0F213215007C2D51 /* PBXTextBookmark */;
 			DBF530480F1FD8FA00AAB49A = DBF530480F1FD8FA00AAB49A /* PBXTextBookmark */;
 			DBF530810F1FDDBE00AAB49A = DBF530810F1FDDBE00AAB49A /* PBXTextBookmark */;
 			DBF530820F1FDDBE00AAB49A = DBF530820F1FDDBE00AAB49A /* PBXTextBookmark */;
@@ -508,9 +513,9 @@
 	};
 	DB1F05640F0A956A00484976 /* Controller.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {587, 966}}";
-			sepNavSelRange = "{928, 0}";
-			sepNavVisRange = "{490, 701}";
+			sepNavIntBoundsRect = "{{0, 0}, {704, 966}}";
+			sepNavSelRange = "{703, 0}";
+			sepNavVisRange = "{490, 835}";
 			sepNavWindowFrame = "{{287, 168}, {646, 578}}";
 		};
 	};
@@ -609,6 +614,13 @@
 		lineNumber = 1;
 		modificationTime = 253832935.164989;
 		state = 1;
+	};
+	DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {724, 458}}";
+			sepNavSelRange = "{33, 0}";
+			sepNavVisRect = "{{0, 0}, {724, 458}}";
+		};
 	};
 	DBA8ED7F0F20F399007C2D51 /* PBXBookmark */ = {
 		isa = PBXBookmark;
@@ -1591,6 +1603,56 @@
 		vrLoc = 490;
 	};
 	DBA8EF3D0F21314A007C2D51 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DB1F04A30F0A585000484976 /* View.m */;
+		name = "View.m: 39";
+		rLen = 0;
+		rLoc = 727;
+		rType = 0;
+		vrLen = 1102;
+		vrLoc = 430;
+	};
+	DBA8EF470F213215007C2D51 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DB1F05640F0A956A00484976 /* Controller.m */;
+		name = "Controller.m: 42";
+		rLen = 0;
+		rLoc = 703;
+		rType = 0;
+		vrLen = 835;
+		vrLoc = 490;
+	};
+	DBA8EF480F213215007C2D51 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */;
+		name = "useful functions.rtf: 1";
+		rLen = 0;
+		rLoc = 33;
+		rType = 0;
+		vrLen = 89;
+		vrLoc = 0;
+	};
+	DBA8EF490F213215007C2D51 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DB1F05640F0A956A00484976 /* Controller.m */;
+		name = "Controller.m: 42";
+		rLen = 0;
+		rLoc = 703;
+		rType = 0;
+		vrLen = 835;
+		vrLoc = 490;
+	};
+	DBA8EF4A0F213215007C2D51 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */;
+		name = "useful functions.rtf: 1";
+		rLen = 0;
+		rLoc = 33;
+		rType = 0;
+		vrLen = 89;
+		vrLoc = 0;
+	};
+	DBA8EF4B0F213215007C2D51 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = DB1F04A30F0A585000484976 /* View.m */;
 		name = "View.m: 39";
