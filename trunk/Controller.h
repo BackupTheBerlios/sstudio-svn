@@ -12,12 +12,17 @@
 #import "Pattern.h"
 #import "Hand.h"
 #import "Throwable.h"
-
+#import "View.h"
 
 @interface Controller : NSObject {
-	Juggler *myself;
+	View *show;
+	IBOutlet Juggler *myself;
 	SiteswapPattern *pat;
 	IBOutlet NSButton *btJuggle;
+	
+	//test
+	IBOutlet NSSlider *slide;
+	IBOutlet NSButton *btTest;
 }
 
 -(IBAction)initialize:(id)sender;

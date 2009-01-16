@@ -12,6 +12,16 @@
 
 @implementation View
 
+-(CGMutablePathRef *)path
+{
+	return path;
+}
+
+-(void)setPath:(CGMutablePathRef *)newPath
+{
+	path = newPath;
+}
+
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -20,43 +30,23 @@
     return self;
 }
 
-
--(void)awakeFromNib
+-(void)loadGraphics
 {
-	//img
-   // NSURL *url = [NSURL URLWithString:@"http://www.toocharger.com/img/graphiques/gifs_animes/sport/basket_ball/sbasket_ball.26559.gif"]; 
-	//NSURL *url = [NSURL URLWithString:@"/Volumes/Home/code/juggle/trunk/ballGreen.png"]; 
-
-	//CGImageSourceRef imageSource = CGImageSourceCreateWithURL((CFURLRef)url, NULL);
-	
-    //chargement de la balle
-	//NSString *imagePath = [NSString stringWithString:@"/Volumes/Home/code/juggle/trunk/ballGreen.png"];
-	//NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
-	//Loads the image.
-	//CGDataProviderRef source = (CGDataProviderRef)imageData;
-	//CGImageSourceRef imageSource = CGImageSourceCreateWithDataProvider(source, 0);
-	
-	
-	//ballImg = CGImageSourceCreateImageAtIndex(imageSource, 0, NULL);
-	//ballImg = CGImageSourceCreateImageAtIndex(imageSource, 0, NULL);
-    //CFRelease(imageSource);
-	
     CGDataProviderRef provider;	
     CFStringRef path2;	
     CFURLRef url;	
     path2 = CFStringCreateWithCString (NULL, "/Volumes/Home/code/juggle/trunk/ballGreen.jpg", kCFStringEncodingUTF8);
-    url = CFURLCreateWithFileSystemPath (NULL, path2, kCFURLPOSIXPathStyle, NULL);
+    url = CFURLCreateWithFileSystemPath (NULL, path2, kCFURLPOSIXPathStyle, false);
     CFRelease(path2);
     provider = CGDataProviderCreateWithURL (url);// 3
     CFRelease (url);
-    ballImg = CGImageCreateWithJPEGDataProvider (provider,// 4
-											   NULL,
-											   true,
-											   kCGRenderingIntentDefault);
+    ballImg = CGImageCreateWithJPEGDataProvider (provider, NULL, true, kCGRenderingIntentDefault);
     CGDataProviderRelease (provider);// 5
-    //CGImageRelease (image);
-	
-	//
+}
+
+-(void)awakeFromNib
+{
+	[self loadGraphics];	
     layerBall = [CALayer layer]; 
     CGColorSpaceRef colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
     CGFloat components[4] = {0.0f, 0.0f, 0.0f, 1.0f};
@@ -70,18 +60,11 @@
 	[self createObject];
 }
 
--(void)loadGraphics
-{
 
-}
 
 -(void)createObject
 {
 	CALayer *layer = [CALayer layer];
-	CABasicAnimation *theAnimation;
-    float parentWidth = CGRectGetWidth( layerBall.bounds);
-    float parentHeight = CGRectGetHeight(layerBall.bounds);
-    layer.position = CGPointMake(200,200);
 	//taille de CALayer
     layer.bounds = CGRectMake(0.0, 0.0, 30, 30);
     layer.opacity = 0.9;
@@ -89,46 +72,30 @@
     // Set image
     layer.contents = (id)ballImg;
     [layerBall addSublayer:layer];
-    
-	
-	theAnimation=[CABasicAnimation animationWithKeyPath:@"opacity"];
-	theAnimation.duration=3.0;
-	theAnimation.repeatCount=2;
-	theAnimation.autoreverses=YES;
-	theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
-	theAnimation.toValue=[NSNumber numberWithFloat:0.0];
-	//[layer addAnimation:theAnimation forKey:@"animateOpacity"];
-	//[self moveLayer:layer to:CGPointMake(100, 50)];
-	[self vibAnimation:layer];
-    return layer;
+	[self initAnimation:layer];
 }
 
-- (void)vibAnimation:(CALayer*)layer
+- (void)initAnimation:(CALayer*)layer
 {
-	int i;
     CAKeyframeAnimation *vibAnimation = [CAKeyframeAnimation animation];
-    CGMutablePathRef vibPath = CGPathCreateMutable();
-    CGPathMoveToPoint(vibPath, NULL, 0, 0);
-    // move left 20%
-	for (i=-10; i< 10; i++)
-	{
-		CGPathAddLineToPoint(vibPath, NULL, i*i, i*5);
-	}
-    //CGPathCloseSubpath(vibPath);
-    vibAnimation.path = vibPath;
-    // set the duration to whatever looks good
+    vibAnimation.path = [self path];
     vibAnimation.duration = 1.0;
-    // paced makes it smooth throughout the animation
     vibAnimation.calculationMode = kCAAnimationLinear;
 	vibAnimation.autoreverses=YES;
 	[layer addAnimation: vibAnimation forKey:@"position"];
 }
 
 
-- (id)loadThrowablePath
+- (id)loadThrowablePath:(Throwable*) throwObj
 {
+	int i;
 	NSLog(@"Load path");
-	
+	[self setPath: CGPathCreateMutable()];
+    CGPathMoveToPoint(path, NULL, 0, 0);
+	for (i=-10; i< 10; i++)
+	{
+		CGPathAddLineToPoint(path, NULL, i*i, i*5);
+	}
 	return self;
 }
 

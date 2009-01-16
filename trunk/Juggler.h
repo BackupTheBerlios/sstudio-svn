@@ -16,6 +16,7 @@
 	Hand *hLeft;
 }
 
+
 -(id)rightHand;
 -(id)leftHand;
 -(float)beatTime;

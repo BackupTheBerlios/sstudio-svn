@@ -8,17 +8,22 @@
 
 #import "Controller.h"
 
-
 @implementation Controller
+
+
 - (IBAction)initialize:(id)sender
 {
 	myself = [[Juggler alloc]init];
-	
+	show = [View alloc];
 	NSLog(@"init");
 	pat = [SiteswapPattern alloc];
 	[pat init];
 	[self definePattern];
+	
+	//init slider
 }
+
+
 
 -(id)definePattern
 {
@@ -36,8 +41,13 @@
 
 -(IBAction)juggleButtonClick:(id)sender
 {
+	double val;
 	NSLog(@"juggle started");	
 	[self juggle];
+	NSLog(@"btTest %@",[ btTest stringValue]);
+	val = [slide doubleValue];
+	NSLog(@"%@", [NSString stringWithFormat:@"%f", val ]);
+	//NSLog(@"%@",);
 }
 
 -(void)juggle
@@ -52,6 +62,7 @@
 	
 	[ [myself rightHand] throw:[myself ballNumber:1] to: [myself leftHand]];
 	NSLog(@"test %@",[[myself ballNumber:1] showTrajectory]);	
+	
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Throwable.h"
 
 @interface View : NSView {
 	CGMutablePathRef *path;
@@ -14,10 +15,13 @@
 	CGImageRef ballImg;
 }
 
-- (id)loadThrowablePath;
+//getter
+-(CGMutablePathRef *)path;
+-(void)setPath:(CGMutablePathRef *)newPath;
+- (id)loadThrowablePath:(Throwable*) throwObj;
 -(void)loadGraphics;
 -(void)createObject;
 //-(void)moveLayer:(CALayer*)layer to:(CGPoint)point;
--(void)vibAnimation:(CALayer*)layer;
+-(void)initAnimation:(CALayer*)layer;
 
 @end

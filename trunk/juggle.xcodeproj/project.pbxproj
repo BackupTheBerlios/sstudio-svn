@@ -22,6 +22,7 @@
 		DB1F05650F0A956A00484976 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F05640F0A956A00484976 /* Controller.m */; };
 		DB7E5C6A0F0FDD7600C9BFFB /* Juggler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7E5C690F0FDD7600C9BFFB /* Juggler.m */; };
 		DBA23CBD0F1D50C600D4F14D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */; };
+		DBA8ED7B0F20F125007C2D51 /* useful functions.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */; };
 		DBF5307C0F1FDC1000AAB49A /* diag classe.graffle in Resources */ = {isa = PBXBuildFile; fileRef = DBF5307B0F1FDC1000AAB49A /* diag classe.graffle */; };
 		DBF531410F1FEFE700AAB49A /* ballGreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBF531400F1FEFE700AAB49A /* ballGreen.jpg */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		DB7E5C680F0FDD7600C9BFFB /* Juggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Juggler.h; sourceTree = "<group>"; };
 		DB7E5C690F0FDD7600C9BFFB /* Juggler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Juggler.m; sourceTree = "<group>"; };
 		DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "useful functions.rtf"; sourceTree = "<group>"; };
 		DBF5307B0F1FDC1000AAB49A /* diag classe.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "diag classe.graffle"; sourceTree = "<group>"; };
 		DBF531400F1FEFE700AAB49A /* ballGreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ballGreen.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 		29B97314FDCFA39411CA2CEA /* juggle */ = {
 			isa = PBXGroup;
 			children = (
+				DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -243,6 +246,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				DBF5307C0F1FDC1000AAB49A /* diag classe.graffle in Resources */,
 				DBF531410F1FEFE700AAB49A /* ballGreen.jpg in Resources */,
+				DBA8ED7B0F20F125007C2D51 /* useful functions.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
