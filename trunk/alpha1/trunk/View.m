@@ -12,7 +12,7 @@
 
 @implementation View
 
--(CGMutablePathRef *)path
+/*-(CGMutablePathRef *)path
 {
 	return path;
 }
@@ -20,7 +20,7 @@
 -(void)setPath:(CGMutablePathRef *)newPath
 {
 	path = newPath;
-}
+}*/
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
@@ -57,7 +57,6 @@
     [self setWantsLayer:YES];
     CGColorRelease(blackColor);
     CGColorSpaceRelease(colorSpace);
-	[self createObject];
 }
 
 
@@ -78,7 +77,7 @@
 - (void)initAnimation:(CALayer*)layer
 {
     CAKeyframeAnimation *vibAnimation = [CAKeyframeAnimation animation];
-    vibAnimation.path = [self path];
+    vibAnimation.path = path;
     vibAnimation.duration = 1.0;
     vibAnimation.calculationMode = kCAAnimationLinear;
 	vibAnimation.autoreverses=YES;
@@ -90,7 +89,7 @@
 {
 	int i;
 	NSLog(@"Load path");
-	[self setPath: CGPathCreateMutable()];
+	path= CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, 0, 0);
 	for (i=-10; i< 10; i++)
 	{
