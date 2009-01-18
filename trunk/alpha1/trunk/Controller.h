@@ -15,7 +15,7 @@
 #import "View.h"
 
 @interface Controller : NSObject {
-	View *show;
+	IBOutlet View *show;
 	IBOutlet Juggler *myself;
 	SiteswapPattern *pat;
 	IBOutlet NSButton *btJuggle;

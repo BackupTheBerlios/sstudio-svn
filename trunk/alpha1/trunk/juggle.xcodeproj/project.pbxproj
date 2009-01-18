@@ -13,7 +13,7 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		DB1041880F0D1EF6006FEFCB /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041870F0D1EF6006FEFCB /* Hand.m */; };
 		DB1041BF0F0D22CE006FEFCB /* Throwable.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041BE0F0D22CE006FEFCB /* Throwable.m */; };
-		DB1042F40F0D62B2006FEFCB /* Point.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1042F30F0D62B2006FEFCB /* Point.m */; };
+		DB1042F40F0D62B2006FEFCB /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1042F30F0D62B2006FEFCB /* Position.m */; };
 		DB1F04A40F0A585000484976 /* View.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04A30F0A585000484976 /* View.m */; };
 		DB1F04B90F0A613200484976 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1F04B70F0A613200484976 /* GLUT.framework */; };
 		DB1F04BA0F0A613200484976 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1F04B80F0A613200484976 /* OpenGL.framework */; };
@@ -42,8 +42,8 @@
 		DB1041870F0D1EF6006FEFCB /* Hand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hand.m; sourceTree = "<group>"; };
 		DB1041BD0F0D22CE006FEFCB /* Throwable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Throwable.h; sourceTree = "<group>"; };
 		DB1041BE0F0D22CE006FEFCB /* Throwable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Throwable.m; sourceTree = "<group>"; };
-		DB1042F20F0D62B2006FEFCB /* Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point.h; sourceTree = "<group>"; };
-		DB1042F30F0D62B2006FEFCB /* Point.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Point.m; sourceTree = "<group>"; };
+		DB1042F20F0D62B2006FEFCB /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
+		DB1042F30F0D62B2006FEFCB /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Position.m; sourceTree = "<group>"; };
 		DB1F04A20F0A585000484976 /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
 		DB1F04A30F0A585000484976 /* View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = View.m; sourceTree = "<group>"; };
 		DB1F04B70F0A613200484976 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
@@ -172,8 +172,8 @@
 				DB1F04DC0F0A76AA00484976 /* Pattern.m */,
 				DB1041860F0D1EF6006FEFCB /* Hand.h */,
 				DB1041870F0D1EF6006FEFCB /* Hand.m */,
-				DB1042F20F0D62B2006FEFCB /* Point.h */,
-				DB1042F30F0D62B2006FEFCB /* Point.m */,
+				DB1042F20F0D62B2006FEFCB /* Position.h */,
+				DB1042F30F0D62B2006FEFCB /* Position.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -264,7 +264,7 @@
 				DB1F05650F0A956A00484976 /* Controller.m in Sources */,
 				DB1041880F0D1EF6006FEFCB /* Hand.m in Sources */,
 				DB1041BF0F0D22CE006FEFCB /* Throwable.m in Sources */,
-				DB1042F40F0D62B2006FEFCB /* Point.m in Sources */,
+				DB1042F40F0D62B2006FEFCB /* Position.m in Sources */,
 				DB7E5C6A0F0FDD7600C9BFFB /* Juggler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

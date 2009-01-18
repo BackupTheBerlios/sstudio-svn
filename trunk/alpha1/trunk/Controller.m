@@ -14,7 +14,7 @@
 - (IBAction)initialize:(id)sender
 {
 	myself = [[Juggler alloc]init];
-	show = [View alloc];
+	//show = [View alloc];
 	NSLog(@"init");
 	pat = [SiteswapPattern alloc];
 	[pat init];
@@ -47,7 +47,9 @@
 	NSLog(@"btTest %@",[ btTest stringValue]);
 	val = [slide doubleValue];
 	NSLog(@"%@", [NSString stringWithFormat:@"%f", val ]);
-	//NSLog(@"%@",);
+	[show mainLayer];
+	[show animateTrajectory:[myself ballNumber:1]];
+	//[show basicAnimationForLayer];
 }
 
 -(void)juggle
@@ -56,13 +58,15 @@
 	NSLog(@"%@", [myself ballNumber:1]);
 	
 	NSLog(@"myself:%@", myself);
-	[[myself leftHand] setPosX:0.5];
+	[[myself leftHand] setPosX:0];
+	[[myself rightHand] setPosX:0];
+	[[myself leftHand] setPosY:0];
+	[[myself leftHand] setPosY:1];
 	NSLog(@"%@",[myself rightHand]);
 	[[myself ballNumber:1] deleteTrajectory];
 	
 	[ [myself rightHand] throw:[myself ballNumber:1] to: [myself leftHand]];
 	NSLog(@"test %@",[[myself ballNumber:1] showTrajectory]);	
-	
 }
 
 @end

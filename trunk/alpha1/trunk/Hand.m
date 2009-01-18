@@ -50,11 +50,12 @@
 	Position *temp;	
 	NSLog(@"throw");
 
-	NSLog(@"HAND position x:%d y:%d", x, y);
-	[self setThrowSpeed:hDest inSeconds:0.5];
+	NSLog(@"throw position x:%d y:%d", x, y);
+	NSLog(@"catch position x:%d y:%d", [hDest getPosX], [hDest getPosY]);
+	[self setThrowSpeed:hDest inSeconds:5.0];
 	
 	//a mettre dans Throwable
-	for ( time=0.0; time <= 1; time += 0.05)
+	for ( time=0.0; time <= 5; time += 0.05)
 	{
 		newY = ([objThrowed getSpeedY]*time) - (0.5*9.81*time*time)+[self getPosY];
 		newX = [objThrowed getSpeedX]*time;

@@ -62,12 +62,12 @@
 	return vy;
 }
 
-- (id)trajectory
+- (NSMutableArray *)trajectory
 {
 	return trajectory;
 }
 
-- (NSString *)showTrajectory
+- (NSArray *)showTrajectory
 {
 	int i;
 	NSMutableString *result= [[NSMutableString alloc] init];

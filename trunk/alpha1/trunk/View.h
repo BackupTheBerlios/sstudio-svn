@@ -10,17 +10,20 @@
 #import "Throwable.h"
 
 @interface View : NSView {
-	CGMutablePathRef *path;
+	CGMutablePathRef path;
+	CALayer *mainLayer;
 	CALayer *layerBall;
 	CGImageRef ballImg;
 }
 
-//getter
--(CGMutablePathRef *)path;
--(void)setPath:(CGMutablePathRef *)newPath;
 - (id)loadThrowablePath:(Throwable*) throwObj;
+-(CALayer *)mainLayer;
 -(void)loadGraphics;
+-(void)loadGraphicsFromURL;
 -(void)createObject;
+-(void)animateTrajectory:(Throwable *)objThrowed;
+//-(void)animateTrajectoryToLayer:(CALayer *)layer;
+-(void)basicAnimationForLayer;
 //-(void)moveLayer:(CALayer*)layer to:(CGPoint)point;
 -(void)initAnimation:(CALayer*)layer;
 

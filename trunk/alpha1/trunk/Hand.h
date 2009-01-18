@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Throwable.h"
-#import "Point.h"
+#import "Position.h"
 
 
 @interface Hand : NSObject {
