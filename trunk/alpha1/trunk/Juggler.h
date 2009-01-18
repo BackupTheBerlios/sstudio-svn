@@ -17,8 +17,8 @@
 }
 
 
--(id)rightHand;
--(id)leftHand;
+-(Hand *)rightHand;
+-(Hand *)leftHand;
 -(float)beatTime;
 -(id)setBeatTime:(float)t;
 -(id)ballNumber:(int)num;

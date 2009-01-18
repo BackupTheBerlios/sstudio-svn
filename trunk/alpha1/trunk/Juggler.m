@@ -24,13 +24,13 @@
 	return self;
 }
 
--(id)rightHand
+-(Hand *)rightHand
 {
 	NSLog (@"RH returned");
 	return hRight;
 }
 
--(id)leftHand
+-(Hand *)leftHand
 {
 	NSLog (@"RH returned");
 	return hLeft;
