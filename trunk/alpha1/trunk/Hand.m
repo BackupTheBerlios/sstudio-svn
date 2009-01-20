@@ -14,31 +14,31 @@
 - (id)init
 {
 	[super init];
-	x = 0;
-	y = 0;
+	x = [[NSNumber alloc]numberWithFloat:0.0];
+	y = [[NSNumber alloc]numberWithFloat:0.0];
 	return self;
 }
 
 - (float)getPosX
 {
-	return x;
+	return [x floatValue];
 }
 
 - (id)setPosX:(float)posX
 {
-	x = posX;
+	[x initWithFloat: posX];
 	return self;
 }
 
 - (id)setPosY:(float)posY
 {
-	y = posY;
+	[y initWithFloat: posY];
 	return self;
 }
 
 - (float)getPosY
 {
-	return y;
+	return [y floatValue];
 }
 
 - (id)throw:(Throwable *)obj to:(Hand *)hDest
@@ -52,10 +52,10 @@
 
 	NSLog(@"throw position x:%d y:%d", x, y);
 	NSLog(@"catch position x:%d y:%d", [hDest getPosX], [hDest getPosY]);
-	[self setThrowSpeed:hDest inSeconds:5.0];
+	[self setThrowSpeed:hDest inSeconds:1.0];
 	
 	//a mettre dans Throwable
-	for ( time=0.0; time <= 5; time += 0.05)
+	for ( time=0.0; time <= 1; time += 0.05)
 	{
 		newY = ([objThrowed getSpeedY]*time) - (0.5*9.81*time*time)+[self getPosY];
 		newX = [objThrowed getSpeedX]*time;
@@ -77,7 +77,7 @@
 
 - (float)speedToGoToX:(float)posX inSeconds:(float)t
 {
-	return (posX/t-0.5*9.81*t- [objThrowed posX]/t);
+	return (posX/t- [objThrowed posX]/t);
 }
 
 - (float)speedToGoToY:(float)posY inSeconds:(float)t
@@ -87,8 +87,8 @@
 
 - (id)setPositionX:(float)posX y:(float)posY
 {
-	x= posX;
-	y= posY;
+	[x initWithFloat: posX];
+	[y initWithFloat:posY];
 	return self;
 }
 

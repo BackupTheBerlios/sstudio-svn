@@ -18,8 +18,8 @@
 	[super init];
 	NSLog(@"init Juggler");	
 	ball = [[Throwable alloc] init];
-	hRight = [[Hand alloc] init];
-	hLeft = [[Hand alloc] init];
+	hRight = [[[Hand alloc] init] retain];
+	hLeft = [[[Hand alloc] init] retain];
 	[self setBeatTime:0.25];
 	return self;
 }
@@ -32,7 +32,7 @@
 
 -(Hand *)leftHand
 {
-	NSLog (@"RH returned");
+	NSLog (@"LH returned");
 	return hLeft;
 }
 

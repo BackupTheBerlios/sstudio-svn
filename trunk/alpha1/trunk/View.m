@@ -131,7 +131,7 @@
 	{
 		pos = [[objThrowed trajectory] objectAtIndex:i ];
 		NSLog(@"i %i pos: %@", i, pos);
-		CGPathAddLineToPoint(path, NULL, [pos x]*(-1), [pos y]);
+		CGPathAddLineToPoint(path, NULL, [pos x]*(-100), [pos y]*100);
 	}
     traj.path = path;
     traj.duration = 1.0;
@@ -152,7 +152,7 @@
 	{
 		pos = [[throwObj trajectory] objectAtIndex:i ];
 		NSLog(@"i %i pos: %@", i, pos);
-		CGPathAddLineToPoint(path, NULL, 30+[pos x]*10, 30+[pos y]*10);
+		CGPathAddLineToPoint(path, NULL, (30+[pos x])*100, (30+[pos y])*100);
 	}
 	NSLog(@"path %@", path);
 	return self;

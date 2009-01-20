@@ -59,9 +59,9 @@
 	
 	NSLog(@"myself:%@", myself);
 	[[myself leftHand] setPosX:0];
-	[[myself rightHand] setPosX:0];
+	[[myself leftHand] setPosY:0];	
+	[[myself rightHand] setPosX:4];
 	[[myself leftHand] setPosY:0];
-	[[myself leftHand] setPosY:1];
 	NSLog(@"%@",[myself rightHand]);
 	[[myself ballNumber:1] deleteTrajectory];
 	

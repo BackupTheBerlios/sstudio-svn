@@ -12,8 +12,8 @@
 
 
 @interface Hand : NSObject {
-	float x;
-	float y;
+	NSNumber *x;
+	NSNumber *y;
 	Throwable *objThrowed;
 }
 
