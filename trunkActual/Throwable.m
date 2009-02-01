@@ -67,7 +67,7 @@
 	return trajectory;
 }
 
-- (NSArray *)showTrajectory
+- (NSString *)showTrajectory
 {
 	int i;
 	NSMutableString *result= [[NSMutableString alloc] init];
@@ -77,7 +77,7 @@
 		str = [[NSString alloc] initWithFormat: @"%@", [trajectory objectAtIndex:i]];
 		[result appendString:str];
 	}
-	return result;
+	return str;
 }
 
 - (id)deleteTrajectory

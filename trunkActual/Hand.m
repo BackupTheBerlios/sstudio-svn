@@ -14,8 +14,10 @@
 - (id)init
 {
 	[super init];
-	x = [[NSNumber alloc]numberWithFloat:0.0];
-	y = [[NSNumber alloc]numberWithFloat:0.0];
+	NSLog(@"ici");
+	x = [NSNumber numberWithFloat:0.0];
+	y = [NSNumber numberWithFloat:0.0];
+	NSLog(@"ici");
 	return self;
 }
 
@@ -26,13 +28,13 @@
 
 - (id)setPosX:(float)posX
 {
-	[x initWithFloat: posX];
+	x =[NSNumber numberWithFloat: posX];
 	return self;
 }
 
 - (id)setPosY:(float)posY
 {
-	[y initWithFloat: posY];
+	y = [NSNumber numberWithFloat: posY];
 	return self;
 }
 

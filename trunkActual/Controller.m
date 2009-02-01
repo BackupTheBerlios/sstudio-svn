@@ -14,13 +14,10 @@
 - (IBAction)initialize:(id)sender
 {
 	myself = [[Juggler alloc]init];
-	//show = [View alloc];
 	NSLog(@"init");
 	pat = [SiteswapPattern alloc];
 	[pat init];
 	[self definePattern];
-	
-	//init slider
 }
 
 
@@ -60,8 +57,8 @@
 	NSLog(@"myself:%@", myself);
 	[[myself leftHand] setPosX:0];
 	[[myself leftHand] setPosY:0];	
-	[[myself rightHand] setPosX:4];
-	[[myself leftHand] setPosY:0];
+	[[myself rightHand] setPosX:6];
+	[[myself rightHand] setPosY:0];
 	NSLog(@"%@",[myself rightHand]);
 	[[myself ballNumber:1] deleteTrajectory];
 	

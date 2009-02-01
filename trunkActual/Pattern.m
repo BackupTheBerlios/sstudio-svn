@@ -14,6 +14,7 @@
 {
 	[super init];
 	listSiteswap = [[NSMutableArray alloc] init];
+	return self;
 }
 - (NSString *)description;
 {
