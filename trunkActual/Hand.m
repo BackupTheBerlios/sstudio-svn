@@ -52,8 +52,8 @@
 	Position *temp;	
 	NSLog(@"throw");
 
-	NSLog(@"throw position x:%d y:%d", x, y);
-	NSLog(@"catch position x:%d y:%d", [hDest getPosX], [hDest getPosY]);
+	NSLog(@"throw position x:%f y:%f", [self getPosX], [self getPosY]);
+	NSLog(@"catch position x:%f y:%f", [hDest getPosX], [hDest getPosY]);
 	[self setThrowSpeed:hDest inSeconds:1.0];
 	
 	//a mettre dans Throwable
@@ -77,15 +77,17 @@
 	return self;
 }
 
+//equation du mouvement sur X
 - (float)speedToGoToX:(float)posX inSeconds:(float)t
 {
 	return (posX/t- [objThrowed posX]/t);
 }
 
+//equation du mouvement sur Y
 - (float)speedToGoToY:(float)posY inSeconds:(float)t
 {
 	return (posY/t+(0.5*9.81*t)- ([objThrowed posY]/t));
-}
+
 
 - (id)setPositionX:(float)posX y:(float)posY
 {
