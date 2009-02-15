@@ -26,6 +26,9 @@
 		DB7E5C6A0F0FDD7600C9BFFB /* Juggler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7E5C690F0FDD7600C9BFFB /* Juggler.m */; };
 		DBA23CBD0F1D50C600D4F14D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */; };
 		DBA8ED7B0F20F125007C2D51 /* useful functions.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */; };
+		DBB946E60F3EEB36002C2B19 /* testJuggler.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB946E50F3EEB36002C2B19 /* testJuggler.m */; };
+		DBB9473C0F3EEE8D002C2B19 /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041870F0D1EF6006FEFCB /* Hand.m */; };
+		DBB947410F3EEF05002C2B19 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1042F30F0D62B2006FEFCB /* Position.m */; };
 		DBF5307C0F1FDC1000AAB49A /* diag classe.graffle in Resources */ = {isa = PBXBuildFile; fileRef = DBF5307B0F1FDC1000AAB49A /* diag classe.graffle */; };
 		DBF531410F1FEFE700AAB49A /* ballGreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBF531400F1FEFE700AAB49A /* ballGreen.jpg */; };
 /* End PBXBuildFile section */
@@ -66,6 +69,8 @@
 		DB7E5C690F0FDD7600C9BFFB /* Juggler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Juggler.m; sourceTree = "<group>"; };
 		DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "useful functions.rtf"; sourceTree = "<group>"; };
+		DBB946E40F3EEB36002C2B19 /* testJuggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testJuggler.h; sourceTree = "<group>"; };
+		DBB946E50F3EEB36002C2B19 /* testJuggler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testJuggler.m; sourceTree = "<group>"; };
 		DBF5307B0F1FDC1000AAB49A /* diag classe.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "diag classe.graffle"; sourceTree = "<group>"; };
 		DBF531400F1FEFE700AAB49A /* ballGreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ballGreen.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +187,8 @@
 		DB0C1FC20F360F20000AEEA2 /* Test Cases */ = {
 			isa = PBXGroup;
 			children = (
+				DBB946E40F3EEB36002C2B19 /* testJuggler.h */,
+				DBB946E50F3EEB36002C2B19 /* testJuggler.m */,
 				DB0C1FC60F361271000AEEA2 /* testSiteswap.h */,
 				DB0C1FC70F361271000AEEA2 /* testSiteswap.m */,
 			);
@@ -344,8 +351,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBB947410F3EEF05002C2B19 /* Position.m in Sources */,
+				DBB9473C0F3EEE8D002C2B19 /* Hand.m in Sources */,
 				DB0C1FF50F3613D6000AEEA2 /* Siteswap.m in Sources */,
 				DB0C1FC80F361271000AEEA2 /* testSiteswap.m in Sources */,
+				DBB946E60F3EEB36002C2B19 /* testJuggler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
