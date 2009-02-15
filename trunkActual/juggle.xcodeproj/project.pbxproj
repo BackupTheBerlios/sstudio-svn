@@ -64,6 +64,7 @@
 		DB1F04DF0F0A76B700484976 /* Siteswap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Siteswap.m; sourceTree = "<group>"; };
 		DB1F05630F0A956A00484976 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		DB1F05640F0A956A00484976 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
+		DB2EE84A0F48D29500FD9A4C /* classes.xcclassmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcclassmodel; path = classes.xcclassmodel; sourceTree = "<group>"; };
 		DB7E5C680F0FDD7600C9BFFB /* Juggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Juggler.h; sourceTree = "<group>"; };
 		DB7E5C690F0FDD7600C9BFFB /* Juggler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Juggler.m; sourceTree = "<group>"; };
 		DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
@@ -139,8 +140,8 @@
 		29B97314FDCFA39411CA2CEA /* juggle */ = {
 			isa = PBXGroup;
 			children = (
-				DB0C1FC20F360F20000AEEA2 /* Test Cases */,
 				080E96DDFE201D6D7F000001 /* Classes */,
+				DB0C1FC20F360F20000AEEA2 /* Test Cases */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -168,6 +169,7 @@
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+				DB2EE84A0F48D29500FD9A4C /* classes.xcclassmodel */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
