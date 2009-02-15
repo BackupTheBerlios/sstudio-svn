@@ -25,6 +25,6 @@
 - (id)setThrowSpeed:(Hand *)hDest inSeconds:(float)t;
 - (float)speedToGoToX:(float)posX inSeconds:(float)t;
 - (float)speedToGoToY:(float)posY inSeconds:(float)t;
-- (id)setPositionX:(float)posX y:(float)posY;
+- (id)setPositionX:(float)posX positionY:(float)posY;
 
 @end

@@ -14,9 +14,10 @@
 - (id)init
 {
 	[super init];
-	NSLog(@"ici");
-	x = [NSNumber numberWithFloat:0.0];
-	y = [NSNumber numberWithFloat:0.0];
+	//x = [NSNumber alloc];
+	//[x initWithFloat:1.0];
+	x = [NSNumber numberWithFloat:2.0];
+	y = [NSNumber numberWithFloat:2.0];
 	NSLog(@"ici");
 	return self;
 }
@@ -87,12 +88,13 @@
 - (float)speedToGoToY:(float)posY inSeconds:(float)t
 {
 	return (posY/t+(0.5*9.81*t)- ([objThrowed posY]/t));
+}
 
-
-- (id)setPositionX:(float)posX y:(float)posY
+//
+-(id)setPositionX:(float)posX positionY:(float)posY
 {
-	[x initWithFloat: posX];
-	[y initWithFloat:posY];
+	x = [NSNumber numberWithFloat: posX];
+	y = [NSNumber numberWithFloat: posY];
 	return self;
 }
 
