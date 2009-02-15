@@ -7,6 +7,7 @@
 //
 
 #import "testSiteswap.h"
+#import "Siteswap.h"
 
 
 @implementation testSiteswap

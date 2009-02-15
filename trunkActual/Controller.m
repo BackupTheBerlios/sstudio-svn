@@ -57,12 +57,13 @@
 	NSLog(@"myself:%@", myself);
 	[[myself leftHand] setPosX:0];
 	[[myself leftHand] setPosY:0];	
-	[[myself rightHand] setPosX:6];
+	[[myself rightHand] setPosX:1];
 	[[myself rightHand] setPosY:0];
 	NSLog(@"%@",[myself rightHand]);
 	[[myself ballNumber:1] deleteTrajectory];
 	
-	[ [myself rightHand] throw:[myself ballNumber:1] to: [myself leftHand]];
+	//[ [myself rightHand] throw:[myself ballNumber:1] to: [myself leftHand]];
+	[[myself leftHand] throw:[myself ballNumber:1] to:[myself rightHand]];
 	NSLog(@"test %@",[[myself ballNumber:1] showTrajectory]);	
 }
 
