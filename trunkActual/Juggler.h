@@ -11,9 +11,10 @@
 
 @interface Juggler : NSObject {
 	float beatTime;
-	Throwable *ball;
-	Hand *hRight;
+	Throwable *ball; //liste des balles
+	Hand *hRight; 
 	Hand *hLeft;
+	//
 }
 
 

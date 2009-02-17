@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Juggler.h"
-#import "Siteswap.h"
+#import "Movement.h"
 #import "Pattern.h"
 #import "Hand.h"
 #import "Throwable.h"

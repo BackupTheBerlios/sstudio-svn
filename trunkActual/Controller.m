@@ -22,10 +22,10 @@
 
 -(id)definePattern
 {
-	Siteswap *ss;	ss = [Siteswap alloc];
+	Movement *ss;	ss = [Movement alloc];
 	[ss initSiteswap:@"3" time:@"2" throwSite:@"l"];
 	[pat addSiteswap:ss];	
-	ss = [Siteswap alloc];
+	ss = [Movement alloc];
 	[ss initSiteswap:@"3" time:@"1" throwSite:@"r"];
 	[pat addSiteswap:ss];
 	NSLog(@"ss%@", ss );

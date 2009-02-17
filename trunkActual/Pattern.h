@@ -12,15 +12,17 @@ Pattern: ensemble de siteswap
  */
 
 #import <Cocoa/Cocoa.h>
-#import "Siteswap.h"
+#import "Movement.h"
 
 
 @interface SiteswapPattern : NSObject {
 	NSString *identifier;
 	NSMutableArray *listSiteswap;
+	
+	NSMutableDictionary *dicMovements; 
 }
 
-- (void)addSiteswap:(Siteswap *)siteswap;
+- (void)addSiteswap:(Movement *)siteswap;
 - (id)listSiteswap;
 
 @end
