@@ -14,8 +14,11 @@
 {
 	[super init];
 	listSiteswap = [[NSMutableArray alloc] init];
+	
+	dicMovements = [[NSMutableDictionary] init];
 	return self;
 }
+
 - (NSString *)description;
 {
 	NSString *result;
@@ -38,7 +41,7 @@
 	return listSiteswap;
 }
 
-- (void)addSiteswap:(Siteswap *)siteswap;
+- (void)addSiteswap:(Movement *)siteswap;
 {
 	[listSiteswap addObject:siteswap];
 }
