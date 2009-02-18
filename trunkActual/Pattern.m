@@ -14,8 +14,7 @@
 {
 	[super init];
 	listSiteswap = [[NSMutableArray alloc] init];
-	
-	dicMovements = [[NSMutableDictionary] init];
+	dicMovements = [[NSMutableDictionary alloc] initWithCapacity:0];
 	return self;
 }
 

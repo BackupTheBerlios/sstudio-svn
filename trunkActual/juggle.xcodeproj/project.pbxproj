@@ -14,6 +14,7 @@
 		DB0C1FB70F360EE5000AEEA2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C1FB60F360EE5000AEEA2 /* SenTestingKit.framework */; };
 		DB0C1FC80F361271000AEEA2 /* testSiteswap.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0C1FC70F361271000AEEA2 /* testSiteswap.m */; };
 		DB0C1FF50F3613D6000AEEA2 /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04DF0F0A76B700484976 /* Movement.m */; };
+		DB0E8B9E0F4CC12C00A91983 /* PatternGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0E8B9D0F4CC12C00A91983 /* PatternGrid.m */; };
 		DB1041880F0D1EF6006FEFCB /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041870F0D1EF6006FEFCB /* Hand.m */; };
 		DB1041BF0F0D22CE006FEFCB /* Throwable.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041BE0F0D22CE006FEFCB /* Throwable.m */; };
 		DB1042F40F0D62B2006FEFCB /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1042F30F0D62B2006FEFCB /* Position.m */; };
@@ -48,6 +49,8 @@
 		DB0C1FB60F360EE5000AEEA2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DB0C1FC60F361271000AEEA2 /* testSiteswap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testSiteswap.h; sourceTree = "<group>"; };
 		DB0C1FC70F361271000AEEA2 /* testSiteswap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testSiteswap.m; sourceTree = "<group>"; };
+		DB0E8B9C0F4CC12C00A91983 /* PatternGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternGrid.h; sourceTree = "<group>"; };
+		DB0E8B9D0F4CC12C00A91983 /* PatternGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternGrid.m; sourceTree = "<group>"; };
 		DB1041860F0D1EF6006FEFCB /* Hand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hand.h; sourceTree = "<group>"; };
 		DB1041870F0D1EF6006FEFCB /* Hand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hand.m; sourceTree = "<group>"; };
 		DB1041BD0F0D22CE006FEFCB /* Throwable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Throwable.h; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 		DB1F04E40F0A79F600484976 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DB0E8B9C0F4CC12C00A91983 /* PatternGrid.h */,
+				DB0E8B9D0F4CC12C00A91983 /* PatternGrid.m */,
 				DB1F04A20F0A585000484976 /* View.h */,
 				DB1F04A30F0A585000484976 /* View.m */,
 			);
@@ -341,6 +346,7 @@
 				DB1041BF0F0D22CE006FEFCB /* Throwable.m in Sources */,
 				DB1042F40F0D62B2006FEFCB /* Position.m in Sources */,
 				DB7E5C6A0F0FDD7600C9BFFB /* Juggler.m in Sources */,
+				DB0E8B9E0F4CC12C00A91983 /* PatternGrid.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
