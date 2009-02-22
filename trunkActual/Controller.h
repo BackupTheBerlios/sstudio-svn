@@ -9,10 +9,12 @@
 #import <Cocoa/Cocoa.h>
 #import "Juggler.h"
 #import "Movement.h"
-#import "Pattern.h"
+#import "SiteswapPattern.h"
 #import "Hand.h"
 #import "Throwable.h"
+#import "PatternGrid.h"
 #import "View.h"
+
 
 @interface Controller : NSObject {
 	IBOutlet View *show;
@@ -21,8 +23,9 @@
 	IBOutlet NSButton *btJuggle;
 	
 	//test
-	IBOutlet NSSlider *slide;
 	IBOutlet NSButton *btTest;
+	IBOutlet PatternGrid *patGrid;
+	SiteswapPattern *patMove;
 }
 
 -(IBAction)initialize:(id)sender;

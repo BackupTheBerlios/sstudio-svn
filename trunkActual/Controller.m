@@ -23,6 +23,7 @@
 -(id)definePattern
 {
 	Movement *ss;	ss = [Movement alloc];
+	Movement *newSS = [[Movement alloc] init];
 	[ss initSiteswap:@"3" time:@"2" throwSite:@"l"];
 	[pat addSiteswap:ss];	
 	ss = [Movement alloc];
@@ -30,6 +31,10 @@
 	[pat addSiteswap:ss];
 	NSLog(@"ss%@", ss );
 	NSLog(@"Pat: %@", [pat listSiteswap]);
+	
+	//nouveau fonctionnement
+	patMove = [[SiteswapPattern alloc] init];
+	[patMove addMovement: [newSS initMovement]];
 	return self;
 }
 
@@ -39,7 +44,6 @@
 	NSLog(@"juggle started");	
 	[self juggle];
 	NSLog(@"btTest %@",[ btTest stringValue]);
-	val = [slide doubleValue];
 	NSLog(@"%@", [NSString stringWithFormat:@"%f", val ]);
 	[show mainLayer];
 	[show animateTrajectory:[myself ballNumber:1]];

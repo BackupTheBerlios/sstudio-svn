@@ -22,7 +22,7 @@
 	NSString *throwSite;
 	
 	NSNumber *thrTime;
-	NSNumber *ssBase;
+	NSString *ssBase;
 	NSString *thrSite;
 	NSString *thrPos;
 	NSString *catPos;
@@ -31,5 +31,7 @@
 }
 
 -(id)initSiteswap:(NSString *)ss time:(NSString *)t throwSite:(NSString *)site;
+-(void)setThrTime:(float)t;
+-(void)setSsBase:(NSString *)s;
 
 @end
