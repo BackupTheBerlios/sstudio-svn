@@ -17,20 +17,23 @@
 
 
 @interface Controller : NSObject {
+	//animation
 	IBOutlet View *show;
-	IBOutlet Juggler *myself;
-	SiteswapPattern *pat;
 	IBOutlet NSButton *btJuggle;
-	
-	//test
-	IBOutlet NSButton *btTest;
+	IBOutlet NSButton *btTest;	
+	Juggler *myself;
+	SiteswapPattern *pat;
+
+	//grile
 	IBOutlet PatternGrid *patGrid;
-	SiteswapPattern *patMove;
+	IBOutlet NSButton *btAdd;
+	IBOutlet NSButton *btRemove;
 }
 
 -(IBAction)initialize:(id)sender;
 -(IBAction)juggleButtonClick:(id)sender;
 -(id)definePattern;
 -(void)juggle;
+-(IBAction)addNewMove:(id)sender;
 
 @end

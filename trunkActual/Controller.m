@@ -33,8 +33,8 @@
 	NSLog(@"Pat: %@", [pat listSiteswap]);
 	
 	//nouveau fonctionnement
-	patMove = [[SiteswapPattern alloc] init];
-	[patMove addMovement: [newSS initMovement]];
+	pat = [[SiteswapPattern alloc] init];
+	[pat addMovement: [newSS initMovement]];
 	return self;
 }
 
@@ -59,6 +59,15 @@
 	[[myself ballNumber:1] deleteTrajectory];
 	[[myself leftHand] throw:[myself ballNumber:1] to:[myself rightHand]];
 	NSLog(@"test %@",[[myself ballNumber:1] showTrajectory]);	
+}
+
+//ajoute une colonne a la grille de moves
+-(IBAction)addNewMove:(id)sender;
+{
+	/*NSTableColumn *newCol;
+	newCol = [[NSTableColumn alloc] initWithIdentifier:@"col"];
+	 */
+	[patGrid addColumn];	
 }
 
 @end

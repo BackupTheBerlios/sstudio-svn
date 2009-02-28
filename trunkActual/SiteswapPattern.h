@@ -24,6 +24,7 @@ Pattern: ensemble de siteswap
 
 - (void)addSiteswap:(Movement *)siteswap;
 - (id)listSiteswap;
+
 -(void)addMovement:(Movement *)move;
 
 @end
