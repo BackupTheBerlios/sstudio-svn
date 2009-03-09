@@ -7,14 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SSPattern.h"
 
 
 @interface PatternGrid : NSTableView {
 	NSMutableArray *pattern;
-	NSMutableArray *move;
+	//NSMutableArray *move;
+	SSPattern *patJuggler;
 }
 
-- (void) addColumn;
-- (void)defineTable;
+-(id)initWithPattern:(SSPattern *)pat;
+-(void)loadPattern:(SSPattern *)pat;
+-(void)addColumn;
+-(void)defineTable;
 
 @end

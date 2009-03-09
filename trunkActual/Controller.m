@@ -15,13 +15,16 @@
 {
 	myself = [[Juggler alloc]init];
 	NSLog(@"init");
-	pat = [SiteswapPattern alloc];
-	[pat init];
-	[self definePattern];
+	pat = [[SSPattern alloc] init];
+	[pat defineTestPattern];
+	NSLog(@"pat:%@", pat);
+	//connecte grille avec un pattern
+	//[patGrid initWithPattern:pat];
 }
 
 -(id)definePattern
 {
+	/*
 	Movement *ss;	ss = [Movement alloc];
 	Movement *newSS = [[Movement alloc] init];
 	[ss initSiteswap:@"3" time:@"2" throwSite:@"l"];
@@ -30,13 +33,20 @@
 	[ss initSiteswap:@"3" time:@"1" throwSite:@"r"];
 	[pat addSiteswap:ss];
 	NSLog(@"ss%@", ss );
-	NSLog(@"Pat: %@", [pat listSiteswap]);
+	//NSLog(@"Pat: %@", [pat listSiteswap]);
 	
 	//nouveau fonctionnement
-	pat = [[SiteswapPattern alloc] init];
+	pat = [[SSPattern alloc] init];
 	[pat addMovement: [newSS initMovement]];
 	return self;
+	 */
+	SSPattern *mvt;
+	mvt = [[Movement alloc] init];
+	[mvt setValue:@"L" forKey:@"thrPos"];
+	NSLog(@"move1:%@", [mvt valueForKey:@"thrPos"]);
+	return self;
 }
+
 
 -(IBAction)juggleButtonClick:(id)sender
 {
@@ -51,7 +61,7 @@
 
 -(void)juggle
 {
-	NSLog(@"Pat: %@", [pat listSiteswap]);	
+	//NSLog(@"Pat: %@", [pat listSiteswap]);	
 	NSLog(@"myself:%@", myself);
 	[[myself leftHand] setPositionX:0.0	positionY:0.0];
 	[[myself rightHand] setPositionX:0.8	positionY:0.2];
@@ -61,13 +71,33 @@
 	NSLog(@"test %@",[[myself ballNumber:1] showTrajectory]);	
 }
 
+/*
 //ajoute une colonne a la grille de moves
 -(IBAction)addNewMove:(id)sender;
 {
-	/*NSTableColumn *newCol;
-	newCol = [[NSTableColumn alloc] initWithIdentifier:@"col"];
-	 */
-	[patGrid addColumn];	
+	Movement *move;
+	move = [[Movement alloc] init];
+	[pat addMovement:move];
+	[patGrid addColumn];
+	[patGrid setNeedsDisplay:YES];
+	[patGrid reloadData];
 }
+
+
+-(id)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    return 2;
+}
+
+
+- (id)tableView:(NSTableView *)tableView
+objectValueForTableColumn:(NSTableColumn *)tableColumn
+			row:(int)row
+{
+	//Movement *move;
+	//move = [[patJuggler arrMovements] objectAtIndex: row];
+	return @"3";//[move thrTime ];
+}
+ */
 
 @end

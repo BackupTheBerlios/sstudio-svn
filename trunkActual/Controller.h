@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Juggler.h"
 #import "Movement.h"
-#import "SiteswapPattern.h"
+#import "SSPattern.h"
 #import "Hand.h"
 #import "Throwable.h"
 #import "PatternGrid.h"
@@ -22,18 +22,18 @@
 	IBOutlet NSButton *btJuggle;
 	IBOutlet NSButton *btTest;	
 	Juggler *myself;
-	SiteswapPattern *pat;
+	SSPattern *pat;
 
 	//grile
-	IBOutlet PatternGrid *patGrid;
-	IBOutlet NSButton *btAdd;
-	IBOutlet NSButton *btRemove;
+	//IBOutlet PatternGrid *patGrid;
+	//IBOutlet NSButton *btAdd;
+	//IBOutlet NSButton *btRemove;
 }
 
 -(IBAction)initialize:(id)sender;
 -(IBAction)juggleButtonClick:(id)sender;
 -(id)definePattern;
 -(void)juggle;
--(IBAction)addNewMove:(id)sender;
+//-(IBAction)addNewMove:(id)sender;
 
 @end

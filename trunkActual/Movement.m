@@ -19,13 +19,21 @@
 	siteswap = [[NSNumber alloc] initWithInt:[ss intValue]];
 	time = [[NSNumber alloc] initWithInt:[t intValue]];
 	throwSite =[[NSString alloc] initWithString: site];
-	NSLog(@"init: %d", [siteswap intValue]);
+	
+	//NSLog(@"init: %d", [siteswap intValue]);
+	[self setValue:@"3" forKey:@"thrTime"];
+	return self;
+}
+
+-(id)init
+{
+	[super init];
 	return self;
 }
 
 - (NSString *)description;
 {
-	NSString *desc = [[NSString alloc] initWithFormat:@"T:%@ SS: %@ TH:%@",time, siteswap, throwSite];
+	NSString *desc = [[NSString alloc] initWithFormat:@"thrPos",thrPos];
 	return desc;
 }
 
@@ -34,10 +42,73 @@
 	thrTime = [[NSNumber alloc] initWithFloat:t];
 }
 
--(void)setSsBase:(NSString *)s;
+-(NSString *)thrTime
 {
-	ssBase = [NSString stringWithString:s];
+	return thrTime;	
 }
+
+-(void)setSsBase:(NSString *)base;
+{
+	ssBase = base;
+}
+
+-(NSString *)ssBase;
+{
+	return ssBase;	
+}
+
+-(void)setThrSite:(NSString *)site;
+{
+	thrSite = site;
+}
+
+-(NSString *)thrSite;
+{
+	return thrSite;	
+}
+
+-(void)setThrPos:(NSString *)pos;
+{
+	NSLog(@"setThrPos called");
+	thrPos = pos;
+}
+
+-(NSString *)thrPos;
+{
+	return thrPos;
+}
+
+-(void)setCatPos:(NSString *)pos;
+{
+	catPos = pos;
+}
+
+-(NSString *)catPos;
+{
+	return catPos;	
+}
+
+-(void)setCatSite:(NSString *)site;
+{
+	catSite = site;
+}
+
+-(NSString *)catSite;
+{
+	return catSite;	
+}
+
+-(void)setAirMin:(NSNumber *)air;
+{
+	airMin = air;
+}
+
+-(NSNumber *)airMin;
+{
+	return airMin;	
+}
+
+
 
 -(Movement*)initMovement;
 {
