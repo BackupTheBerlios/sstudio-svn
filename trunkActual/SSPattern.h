@@ -23,6 +23,7 @@ Pattern: ensemble de siteswap
 -(id)defineTestPattern;
 -(void)addMovement:(Movement *)move;
 -(id)arrMovements;
+-(int)ballNumberNeeded;
 
 
 @end

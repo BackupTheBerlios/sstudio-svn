@@ -51,4 +51,23 @@
 	return ball;
 }
 
+-(void)prepareHandForMove:(Movement *)move;
+{
+	if ( [move valueForKey:@"thrSite"] = @"R")
+	{
+		[hRight setPositionX:0.5f positionY:0.0f];
+	}
+}
+
+-(void)jugglePattern:(SSPattern *)pat;
+{
+	//place les mains
+	int iMove=0;
+	Movement *move;
+	for (iMove =0; [[pat arrMovements] count]; i++)
+	{
+		move = [[pat arrMovements] objectAtIndex:i];
+	}
+}
+
 @end

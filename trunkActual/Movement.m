@@ -108,8 +108,6 @@
 	return airMin;	
 }
 
-
-
 -(Movement*)initMovement;
 {
 	Movement *move;

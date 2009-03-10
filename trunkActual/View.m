@@ -105,12 +105,11 @@
     vibAnimation.path = path;
     vibAnimation.duration = 1.0;
     vibAnimation.calculationMode = kCAAnimationLinear;
-	vibAnimation.autoreverses=YES;
+	vibAnimation.autoreverses=NO;
 	[layer addAnimation: vibAnimation forKey:@"position"];
 }
 
 -(void)animateTrajectory:(Throwable *)objThrowed
-//-(void)animateTrajectoryToLayer:(CALayer *)layer
 {
 	int i;
 	Position *pos;
@@ -119,24 +118,19 @@
 	//[self loadThrowablePath:objThrowed];
 	path= CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, 0, 0);
-	/*
-	for (i=-0; i< 20 ; i++)
-	{
-		//pos = [[throwObj trajectory] objectAtIndex:i ];
-		//NSLog(@"i %i pos: %@", i, pos);
-		CGPathAddLineToPoint(path, NULL, 30+i*10, 30+i*i);
-	}
-	 */
+	
 	for (i=-0; i< [[objThrowed trajectory] count] ; i++)
 	{
 		pos = [[objThrowed trajectory] objectAtIndex:i ];
 		NSLog(@"i %i pos: %@", i, pos);
 		CGPathAddLineToPoint(path, NULL, [pos x]*(-100), [pos y]*100);
 	}
+	
     traj.path = path;
     traj.duration = 1.0;
     traj.calculationMode = kCAAnimationLinear;
-	traj.autoreverses=YES;
+	traj.autoreverses=NO;
+	
 	[layerBall addAnimation:traj forKey:@"position"];
 }
 

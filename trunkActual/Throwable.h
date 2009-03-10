@@ -19,6 +19,7 @@
 
 - (float)posX;
 - (float)posY;
+//mettre les speed dans Hand
 - (id)setSpeedX:(float)speedX y:(float)speedY;
 - (float)getSpeedX;
 - (float)getSpeedY;

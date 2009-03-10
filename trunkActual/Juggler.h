@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Hand.h"
+#import "SSPattern.h"
 
 @interface Juggler : NSObject {
 	float beatTime;
@@ -17,11 +18,12 @@
 	//
 }
 
-
 -(Hand *)rightHand;
 -(Hand *)leftHand;
 -(float)beatTime;
 -(void)setBeatTime:(float)t;
 -(id)ballNumber:(int)num;
+-(void)jugglePattern:(SSPattern *)pat;
+-(void)prepareHandForMove:(Movement *)move;
 
 @end

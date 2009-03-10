@@ -39,15 +39,26 @@
 -(id)defineTestPattern;
 {
 	Movement *move;
+	//[move setValue:@" " forKey:@" "];	
+	//cascade 3B
+	//1er mouvement
 	move = [[Movement alloc] init];
 	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
-	//[move setValue:@" " forKey:@" "];
 	[move setValue:@"3" forKey:@"ssBase"];
 	[move setValue:@"R" forKey:@"thrSite"];
-	[move setValue:@"R" forKey:@"thrPos"];
+	[move setValue:@"m" forKey:@"thrPos"];
 	[move setValue:@"L" forKey:@"catSite"];
-	[move setValue:@"L" forKey:@"catPos"];
+	[move setValue:@"m" forKey:@"catPos"];
 	[self addMovement:move];
+	//2eme mouvement
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:2] forKey:@"thrTime"];
+	[move setValue:@"3" forKey:@"ssBase"];
+	[move setValue:@"L" forKey:@"thrSite"];
+	[move setValue:@"m" forKey:@"thrPos"];
+	[move setValue:@"R" forKey:@"catSite"];
+	[move setValue:@"m" forKey:@"catPos"];
+	[self addMovement:move];	
 	return self;
 }
 
@@ -59,5 +70,18 @@
 -(id)arrMovements
 {
 	return arrMovements;	
+}
+
+//TODO: unit test
+-(int)ballNumberNeeded;
+{
+	int sumSS=0;
+	int i;
+	for(i=0; i < [arrMovements count]; i++)
+	{
+		sumSS += [[[arrMovements objectAtIndex:i] valueForKey:@"ssBase"] intValue];
+	}
+	
+	return (sumSS/i);
 }
 @end
