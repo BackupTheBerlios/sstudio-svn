@@ -18,7 +18,6 @@
 	//[x initWithFloat:1.0];
 	x = [NSNumber numberWithFloat:2.0];
 	y = [NSNumber numberWithFloat:2.0];
-	NSLog(@"ici");
 	return self;
 }
 

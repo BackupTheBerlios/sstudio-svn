@@ -51,21 +51,18 @@
 -(IBAction)juggleButtonClick:(id)sender
 {
 	NSLog(@"ball needed %d",[pat ballNumberNeeded]);
-	/*
-	double val;
+	
+	//double val;
 	NSLog(@"juggle started");	
 	[self juggle];
-	NSLog(@"btTest %@",[ btTest stringValue]);
-	NSLog(@"%@", [NSString stringWithFormat:@"%f", val ]);
+	//NSLog(@"btTest %@",[ btTest stringValue]);
+	//NSLog(@"%@", [NSString stringWithFormat:@"%f", val ]);
 	//[show mainLayer];
-	[show animateTrajectory:[myself ballNumber:1]];
-	 */
+	//[show animateTrajectory:[myself ballNumber:1]];
 }
 
 -(void)juggle
 {
-	
-	/*
 	NSLog(@"myself:%@", myself);
 	[[myself leftHand] setPositionX:0.0	positionY:0.0];
 	[[myself rightHand] setPositionX:0.8	positionY:0.2];
@@ -73,10 +70,11 @@
 	[[myself ballNumber:1] deleteTrajectory];
 	[[myself leftHand] throw:[myself ballNumber:1] to:[myself rightHand]];
 	NSLog(@"test %@",[[myself ballNumber:1] showTrajectory]);	
-	*/
 }
 
 /*
+saisie des siteswap dans une grid
+ 
 //ajoute une colonne a la grille de moves
 -(IBAction)addNewMove:(id)sender;
 {

@@ -14,11 +14,13 @@
 #import "Throwable.h"
 #import "PatternGrid.h"
 #import "View.h"
+#import "SSView.h"
 
 
 @interface Controller : NSObject {
 	//animation
 	IBOutlet View *show;
+	IBOutlet SSView *oglShow;
 	IBOutlet NSButton *btJuggle;
 	IBOutlet NSButton *btTest;	
 	Juggler *myself;

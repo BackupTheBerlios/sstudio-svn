@@ -24,12 +24,11 @@
 		DB1F04E00F0A76B700484976 /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04DF0F0A76B700484976 /* Movement.m */; };
 		DB1F05650F0A956A00484976 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F05640F0A956A00484976 /* Controller.m */; };
 		DB7E5C6A0F0FDD7600C9BFFB /* Juggler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7E5C690F0FDD7600C9BFFB /* Juggler.m */; };
+		DBA02DAC0F99D1BB00F1AEC0 /* SSView.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA02DAB0F99D1BB00F1AEC0 /* SSView.m */; };
 		DBA21BA90F519B6400E676EE /* PatternGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA21BA80F519B6400E676EE /* PatternGrid.m */; };
 		DBA23CBD0F1D50C600D4F14D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */; };
-		DBA8ED7B0F20F125007C2D51 /* useful functions.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */; };
 		DBB9473C0F3EEE8D002C2B19 /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041870F0D1EF6006FEFCB /* Hand.m */; };
 		DBB947410F3EEF05002C2B19 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1042F30F0D62B2006FEFCB /* Position.m */; };
-		DBF5307C0F1FDC1000AAB49A /* diag classe.graffle in Resources */ = {isa = PBXBuildFile; fileRef = DBF5307B0F1FDC1000AAB49A /* diag classe.graffle */; };
 		DBF531410F1FEFE700AAB49A /* ballGreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBF531400F1FEFE700AAB49A /* ballGreen.jpg */; };
 /* End PBXBuildFile section */
 
@@ -67,11 +66,11 @@
 		DB1F05640F0A956A00484976 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
 		DB7E5C680F0FDD7600C9BFFB /* Juggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Juggler.h; sourceTree = "<group>"; };
 		DB7E5C690F0FDD7600C9BFFB /* Juggler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Juggler.m; sourceTree = "<group>"; };
+		DBA02DAA0F99D1BB00F1AEC0 /* SSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSView.h; sourceTree = "<group>"; };
+		DBA02DAB0F99D1BB00F1AEC0 /* SSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSView.m; sourceTree = "<group>"; };
 		DBA21BA70F519B6400E676EE /* PatternGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternGrid.h; sourceTree = "<group>"; };
 		DBA21BA80F519B6400E676EE /* PatternGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternGrid.m; sourceTree = "<group>"; };
 		DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
-		DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "useful functions.rtf"; sourceTree = "<group>"; };
-		DBF5307B0F1FDC1000AAB49A /* diag classe.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = "diag classe.graffle"; sourceTree = "<group>"; };
 		DBF531400F1FEFE700AAB49A /* ballGreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ballGreen.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,9 +164,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DBA8ED7A0F20F125007C2D51 /* useful functions.rtf */,
 				DBF531400F1FEFE700AAB49A /* ballGreen.jpg */,
-				DBF5307B0F1FDC1000AAB49A /* diag classe.graffle */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
@@ -215,6 +212,8 @@
 		DB1F04E40F0A79F600484976 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DBA02DAA0F99D1BB00F1AEC0 /* SSView.h */,
+				DBA02DAB0F99D1BB00F1AEC0 /* SSView.m */,
 				DBA21BA70F519B6400E676EE /* PatternGrid.h */,
 				DBA21BA80F519B6400E676EE /* PatternGrid.m */,
 				DB1F04A20F0A585000484976 /* View.h */,
@@ -299,9 +298,7 @@
 			files = (
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
-				DBF5307C0F1FDC1000AAB49A /* diag classe.graffle in Resources */,
 				DBF531410F1FEFE700AAB49A /* ballGreen.jpg in Resources */,
-				DBA8ED7B0F20F125007C2D51 /* useful functions.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +342,7 @@
 				DB1042F40F0D62B2006FEFCB /* Position.m in Sources */,
 				DB7E5C6A0F0FDD7600C9BFFB /* Juggler.m in Sources */,
 				DBA21BA90F519B6400E676EE /* PatternGrid.m in Sources */,
+				DBA02DAC0F99D1BB00F1AEC0 /* SSView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
