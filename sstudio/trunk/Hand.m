@@ -5,9 +5,8 @@
 //  Created by clem on 01/01/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
-
 #import "Hand.h"
-
+#import "Movement.h"
 
 @implementation Hand
 
@@ -41,6 +40,18 @@
 - (float)getPosY
 {
 	return [y floatValue];
+}
+
+-(void)prepareThrowSiteForMove:(Movement *)move;
+{
+	if ( [[move valueForKey:@"thrSite"] isEqual: @"R"])
+	{
+		[self setPositionX:0.5f positionY:0.0f];
+	}
+	if ( [[move valueForKey:@"thrSite"]  isEqual: @"L"])
+	{
+		[self setPositionX: -0.5f positionY:0.0f];
+	}
 }
 
 - (id)throw:(Throwable *)obj to:(Hand *)hDest

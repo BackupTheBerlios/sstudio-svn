@@ -13,13 +13,11 @@
 
 - (IBAction)initialize:(id)sender
 {
-	myself = [[Juggler alloc]init];
+	myself = [[Juggler alloc] init];
 	NSLog(@"init");
-	pat = [[SSPattern alloc] init];
-	[pat defineTestPattern];
-	NSLog(@"pat:%@", pat);
 	//connecte grille avec un pattern
 	//[patGrid initWithPattern:pat];
+	
 }
 
 -(id)definePattern
@@ -50,11 +48,15 @@
 
 -(IBAction)juggleButtonClick:(id)sender
 {
-	NSLog(@"ball needed %d",[pat ballNumberNeeded]);
+	//NSLog(@"ball needed %d",[pat ballNumberNeeded]);
 	
 	//double val;
+	Movement *tMove;
 	NSLog(@"juggle started");	
-	[self juggle];
+	tMove = [[[myself patt] arrMovements] objectAtIndex:1];
+	//NSLog("juggleButtonClick: ssbase= %@", [tMove valueForKey:@"ssBase"]);
+	[myself juggleMove:tMove];
+	//[self juggle];
 	//NSLog(@"btTest %@",[ btTest stringValue]);
 	//NSLog(@"%@", [NSString stringWithFormat:@"%f", val ]);
 	//[show mainLayer];

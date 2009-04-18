@@ -12,18 +12,21 @@
 
 @interface Juggler : NSObject {
 	float beatTime;
-	Throwable *ball; //liste des balles
 	Hand *hRight; 
 	Hand *hLeft;
-	//
+	Throwable *ball; //liste des balles
+	SSPattern *patt;
 }
 
 -(Hand *)rightHand;
 -(Hand *)leftHand;
+-(SSPattern *)patt;
 -(float)beatTime;
 -(void)setBeatTime:(float)t;
+//-(void)setPattern:(SSPattern *)tPat;
 -(id)ballNumber:(int)num;
--(void)jugglePattern:(SSPattern *)pat;
--(void)prepareHandForMove:(Movement *)move;
+-(void)juggleMove:(Movement *)tMove;
+-(void)jugglePattern:(SSPattern *)tPat;
+//-(void)prepareHandForMove:(Movement *)move;
 
 @end

@@ -24,7 +24,6 @@
 	IBOutlet NSButton *btJuggle;
 	IBOutlet NSButton *btTest;	
 	Juggler *myself;
-	SSPattern *pat;
 
 	//grile
 	//IBOutlet PatternGrid *patGrid;
