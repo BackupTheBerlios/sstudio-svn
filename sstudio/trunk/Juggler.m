@@ -16,12 +16,18 @@
 	[super init];
 	NSLog(@"init Juggler");	
 	ball = [[Throwable alloc] init];
-	hRight = [[Hand alloc] init];
-	hLeft = [[Hand alloc] init];
 	
+	//init les mains
+	hRight = [[Hand alloc] init];
+	[hRight setPositionX:0.5f positionY:0.0f];
+	hLeft = [[Hand alloc] init];
+	[hLeft setPositionX:-0.5f positionY:0.0f];
+	
+	//init le pattern
 	patt = [[SSPattern alloc] init];
 	[patt defineTestPattern];
 	[self setBeatTime:0.25];
+	
 	return self;
 }
 
@@ -43,7 +49,7 @@
 }
 	
 
-//retourne la main designée par str
+//retourne la main designée par @"R" ou @"L"
 -(Hand *)getHand:(NSString *)str;
 {
 	if ([str isEqualToString:@"R"])
@@ -88,7 +94,19 @@
 // next: afficher avec Ogl depuis View
 -(void)juggleMove:(Movement *)tMove
 {
+	Hand* hThrow;
+	Hand* hCatch;
 	NSLog(@"juggleMove:ssBase=%@", [tMove valueForKey:@"ssBase"]);
+	//catch
+	hCatch = [self getHand:[tMove valueForKey:@"catSite"]];
+	[hCatch placeAtPos:[tMove valueForKey:@"catPos"]];
+	
+	//throw
+	hThrow = [self getHand:[tMove valueForKey:@"thrSite"]];
+	[hThrow placeAtPos:[tMove valueForKey:@"thrPos"]];
+	
+	[hThrow throw:ball to:hCatch];
+	NSLog("juggleMove:trajectoire=%@",[ball trajectory]);
 }
 
 -(void)jugglePattern:(SSPattern *)tPat;

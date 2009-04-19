@@ -72,6 +72,7 @@
 	{
 		newY = ([objThrowed getSpeedY]*time) - (0.5*9.81*time*time)+[self getPosY];
 		newX = [objThrowed getSpeedX]*time;
+		NSLog(@"throw: x=%f ; y=%f", newX, newY);
 		temp = [[Position alloc] initTime:time posX:newX posY:newY];
 		[[objThrowed trajectory] addObject: temp];		
 	}
@@ -108,4 +109,21 @@
 	return self;
 }
 
+//positionne la main a la position representée par la lettre
+- (id)placeAtPos:(NSString*)tMark
+{
+	if ([tMark isEqualToString:@"m"])
+	{
+		[self setPositionX:0.0f positionY:0.0f];
+	}
+	if ([tMark isEqualToString:@"r"])
+	{
+		[self setPositionX:0.5f positionY:0.0f];
+	}
+	if ([tMark isEqualToString:@"l"])
+	{
+		[self setPositionX:-0.5f positionY:0.0f];
+	}
+	return self;
+}
 @end

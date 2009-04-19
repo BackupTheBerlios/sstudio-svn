@@ -48,7 +48,7 @@
 	[move setValue:@"R" forKey:@"thrSite"];
 	[move setValue:@"m" forKey:@"thrPos"];
 	[move setValue:@"L" forKey:@"catSite"];
-	[move setValue:@"m" forKey:@"catPos"];
+	[move setValue:@"l" forKey:@"catPos"];
 	[self addMovement:move];
 	//2eme mouvement
 	move = [[Movement alloc] init];
@@ -57,14 +57,14 @@
 	[move setValue:@"L" forKey:@"thrSite"];
 	[move setValue:@"m" forKey:@"thrPos"];
 	[move setValue:@"R" forKey:@"catSite"];
-	[move setValue:@"m" forKey:@"catPos"];
+	[move setValue:@"l" forKey:@"catPos"];
 	[self addMovement:move];	
 	return self;
 }
 
 -(void)addMovement:(Movement *)move;
 {
-	[arrMovements addObject:move];
+	[arrMovements addObject:move ];
 }
 
 -(id)arrMovements
