@@ -62,6 +62,14 @@
 	return vy;
 }
 
+-(void)positionAtTime:(NSNumber *)time
+{
+	x = [self getSpeedX]*[time floatValue];
+	y = ([self getSpeedY]*[time floatValue]) - (0.5*9.81*[time floatValue]*[time floatValue])+[self posY];
+
+	//NSLog(@"Throwable:positionAtTime: x=%f ; y=%f", x, y);
+}
+
 - (NSMutableArray *)trajectory
 {
 	return trajectory;

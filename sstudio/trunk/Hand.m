@@ -54,6 +54,9 @@
 	}
 }
 
+//TODO: a renommer
+//calcule les trajectoires pour une plage donnée
+//=> calculer pr un temps donné
 - (id)throw:(Throwable *)obj to:(Hand *)hDest
 {
 	float time = 0.0;
@@ -62,7 +65,6 @@
 	//if (objThrowed = nil) return nil;
 	Position *temp;	
 	NSLog(@"throw");
-
 	NSLog(@"throw position x:%f y:%f", [self getPosX], [self getPosY]);
 	NSLog(@"catch position x:%f y:%f", [hDest getPosX], [hDest getPosY]);
 	[self setThrowSpeed:hDest inSeconds:1.0];

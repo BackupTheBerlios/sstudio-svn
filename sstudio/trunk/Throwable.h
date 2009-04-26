@@ -23,6 +23,7 @@
 - (id)setSpeedX:(float)speedX y:(float)speedY;
 - (float)getSpeedX;
 - (float)getSpeedY;
+-(void)positionAtTime:(NSNumber *)time;
 - (NSMutableArray *)trajectory;
 - (NSString *)showTrajectory;
 - (id)deleteTrajectory;

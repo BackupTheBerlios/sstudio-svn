@@ -25,6 +25,9 @@
 	IBOutlet NSButton *btTest;	
 	Juggler *myself;
 
+	//timer
+	NSTimer *timer;
+	NSNumber *countTime;
 	//grile
 	//IBOutlet PatternGrid *patGrid;
 	//IBOutlet NSButton *btAdd;
@@ -35,6 +38,7 @@
 -(IBAction)juggleButtonClick:(id)sender;
 -(id)definePattern;
 -(void)juggle;
+-(void)startSimulation;
 //-(IBAction)addNewMove:(id)sender;
 
 @end

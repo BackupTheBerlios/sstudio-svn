@@ -52,10 +52,12 @@
 	
 	//double val;
 	Movement *tMove;
-	NSLog(@"juggle started");	
-	tMove = [[[myself patt] arrMovements] objectAtIndex:1];
+	NSLog(@"juggle started");
+	[self juggle];
+	[self startSimulation];
+	//tMove = [[[myself patt] arrMovements] objectAtIndex:1];
 	//NSLog("juggleButtonClick: ssbase= %@", [tMove valueForKey:@"ssBase"]);
-	[myself juggleMove:tMove];
+	//[myself juggleMove:tMove];
 	//[self juggle];
 	//NSLog(@"btTest %@",[ btTest stringValue]);
 	//NSLog(@"%@", [NSString stringWithFormat:@"%f", val ]);
@@ -104,5 +106,35 @@ objectValueForTableColumn:(NSTableColumn *)tableColumn
 	return @"3";//[move thrTime ];
 }
  */
+
+-(void)startSimulation;
+{
+	const ts =0.050;
+	countTime = [[NSNumber numberWithFloat:0.0f] retain];
+	timer = [[NSTimer scheduledTimerWithTimeInterval:ts 
+											  target:self
+											selector:@selector(tmrInterrupt:)
+											userInfo:nil 
+											 repeats:YES] retain];
+	
+	//on definit les parametres de la simulation
+	
+	
+	//[[myself rightHand] setThrowSpeed:hDest inSeconds:1.0]];
+}
+
+-(void)tmrInterrupt:(NSTimer *)aTimer;
+{
+	float old;
+	old = [countTime floatValue];
+	[countTime release]; 
+	countTime = [[NSNumber numberWithFloat: (old+0.05)] retain];
+	//NSLog(@"timer:%f",[countTime floatValue]);
+	
+	//process
+	///calcule +affichage ici
+	[[myself ballNumber:1] positionAtTime:countTime];
+	[oglShow setNeedsDisplay:YES];
+}
 
 @end
