@@ -19,7 +19,6 @@
 
 @interface Controller : NSObject {
 	//animation
-	IBOutlet View *show;
 	IBOutlet SSView *oglShow;
 	IBOutlet NSButton *btJuggle;
 	IBOutlet NSButton *btTest;	
@@ -28,10 +27,6 @@
 	//timer
 	NSTimer *timer;
 	NSNumber *countTime;
-	//grile
-	//IBOutlet PatternGrid *patGrid;
-	//IBOutlet NSButton *btAdd;
-	//IBOutlet NSButton *btRemove;
 }
 
 -(IBAction)initialize:(id)sender;

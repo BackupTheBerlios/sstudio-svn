@@ -76,37 +76,6 @@
 	NSLog(@"test %@",[[myself ballNumber:1] showTrajectory]);	
 }
 
-/*
-saisie des siteswap dans une grid
- 
-//ajoute une colonne a la grille de moves
--(IBAction)addNewMove:(id)sender;
-{
-	Movement *move;
-	move = [[Movement alloc] init];
-	[pat addMovement:move];
-	[patGrid addColumn];
-	[patGrid setNeedsDisplay:YES];
-	[patGrid reloadData];
-}
-
-
--(id)numberOfRowsInTableView:(NSTableView *)tableView
-{
-    return 2;
-}
-
-
-- (id)tableView:(NSTableView *)tableView
-objectValueForTableColumn:(NSTableColumn *)tableColumn
-			row:(int)row
-{
-	//Movement *move;
-	//move = [[patJuggler arrMovements] objectAtIndex: row];
-	return @"3";//[move thrTime ];
-}
- */
-
 -(void)startSimulation;
 {
 	const ts =0.050;
