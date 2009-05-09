@@ -17,12 +17,13 @@ Pattern: ensemble de siteswap
 
 @interface SSPattern : NSObject {
 	NSString *identifier;
-	NSMutableArray *arrMovements; 
+	NSMutableArray *movements; 
 }
 
+-(NSString *)description;
 -(id)defineTestPattern;
 -(void)addMovement:(Movement *)move;
--(id)arrMovements;
+-(id)movements;
 -(int)ballNumberNeeded;
 
 

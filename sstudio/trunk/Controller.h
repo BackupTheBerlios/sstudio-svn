@@ -22,8 +22,8 @@
 	IBOutlet SSView *oglShow;
 	IBOutlet NSButton *btJuggle;
 	IBOutlet NSButton *btTest;	
-	Juggler *myself;
-
+	//Juggler *myself;
+	SSPattern *aPattern;
 	//timer
 	NSTimer *timer;
 	NSNumber *countTime;
@@ -31,9 +31,8 @@
 
 -(IBAction)initialize:(id)sender;
 -(IBAction)juggleButtonClick:(id)sender;
--(id)definePattern;
--(void)juggle;
+//-(id)definePattern;
+//-(void)juggle;
 -(void)startSimulation;
-//-(IBAction)addNewMove:(id)sender;
 
 @end

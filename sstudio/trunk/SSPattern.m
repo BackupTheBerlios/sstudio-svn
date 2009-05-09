@@ -13,46 +13,64 @@
 - (id)init;
 {
 	[super init];
-	arrMovements = [[NSMutableArray alloc] initWithCapacity:0];
+	movements = [[NSMutableArray alloc] initWithCapacity:0];
 	return self;
 }
 
-/*
+//affichage du siteswap sous forme de tableau recapitulatif
  - (NSString *)description;
 {
-	NSString *result;
-	unsigned int i;
-	//result = [[NSString alloc] initWithString:@"desc"];
-	if ( listSiteswap != nil)
+	NSMutableString *result;
+	unsigned int nbMovements,i;
+	unsigned int nbInfos ,j;
+	Movement *aMove;
+	NSString *info, *value;
+	NSArray *listInfos = [[NSArray alloc] initWithObjects:
+						@"thrTime", @"ssBase", @"thrSite", @"thrPos", @"catSite", @"catPos", nil];	
+	result = [[NSMutableString alloc] initWithString:@"\nPattern\n"];
+	nbMovements = [movements count];
+	nbInfos = [listInfos count];
+
+	for (j=0; j < nbInfos; j++)
 	{
-	//NSLog(@"%@", [[listSiteswap count] intValue]);
-		for (i=0; i < ([listSiteswap count]-1); i++)
+		info = [listInfos objectAtIndex:j];
+		[result appendString: [info stringByPaddingToLength:10 withString:@" " startingAtIndex:0] ];
+		for (i=0; i < nbMovements; i++)
 		{
-			NSLog(@"%d",i);
-			NSLog(@"%d %@\n", i, [listSiteswap objectAtIndex:i]);
+			aMove = [movements objectAtIndex:i];
+			value = [aMove valueForKeyPath:info];
+			if  (!value){
+				value = [[NSString alloc] initWithString:@" "];
+			}
+			[result appendString:value];			
+			[result appendString:@" | "];
 		}
+		[result appendString:@"\n"];
 	}
 	return result;
 }
- */
 
 -(id)defineTestPattern;
 {
 	Movement *move;
 	//[move setValue:@" " forKey:@" "];	
 	//cascade 3B
+	identifier = [[NSString alloc] initWithString:@"cascade 3 balles"];
 	//1er mouvement
 	move = [[Movement alloc] init];
 	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
+	[move setValue:@"1" forKey:@"thrTime"];	
 	[move setValue:@"3" forKey:@"ssBase"];
 	[move setValue:@"R" forKey:@"thrSite"];
 	[move setValue:@"m" forKey:@"thrPos"];
 	[move setValue:@"L" forKey:@"catSite"];
 	[move setValue:@"l" forKey:@"catPos"];
 	[self addMovement:move];
+	
 	//2eme mouvement
 	move = [[Movement alloc] init];
 	[move setValue:[NSNumber numberWithInt:2] forKey:@"thrTime"];
+	[move setValue:@"2" forKey:@"thrTime"];	
 	[move setValue:@"3" forKey:@"ssBase"];
 	[move setValue:@"L" forKey:@"thrSite"];
 	[move setValue:@"m" forKey:@"thrPos"];
@@ -64,12 +82,13 @@
 
 -(void)addMovement:(Movement *)move;
 {
-	[arrMovements addObject:move ];
+	[move setMoveOwner: self];
+	[movements addObject:move ];
 }
 
--(id)arrMovements
+-(id)movements;
 {
-	return arrMovements;	
+	return movements;	
 }
 
 //TODO: unit test
@@ -77,9 +96,9 @@
 {
 	int sumSS=0;
 	int i;
-	for(i=0; i < [arrMovements count]; i++)
+	for(i=0; i < [movements count]; i++)
 	{
-		sumSS += [[[arrMovements objectAtIndex:i] valueForKey:@"ssBase"] intValue];
+		sumSS += [[[movements objectAtIndex:i] valueForKey:@"ssBase"] intValue];
 	}
 	
 	return (sumSS/i);

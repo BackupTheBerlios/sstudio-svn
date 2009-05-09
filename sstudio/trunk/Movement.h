@@ -17,11 +17,8 @@
 
 
 @interface Movement : NSObject {
-	NSNumber *time;
-	NSNumber *siteswap;
-	NSString *throwSite;
-	
-	NSNumber *thrTime;
+	id *moveOwner;
+	NSString *thrTime;
 	NSString *ssBase;
 	NSString *thrSite;
 	NSString *thrPos;
@@ -30,9 +27,15 @@
 	NSNumber *airMin;
 }
 
--(id)initSiteswap:(NSString *)ss time:(NSString *)t throwSite:(NSString *)site;
+
 -(id)init;
--(void)setThrTime:(float)t;
+-(id)initMovement;
+-(void)juggleIt;
+-(void)setMoveOwner:(id)aPat;
+-(id)moveOwner;
+
+/* Getter - Setter */
+-(void)setThrTime:(NSString *)t;
 -(NSString *)thrTime;
 -(void)setSsBase:(NSString *)s;
 -(NSString *)ssBase;
