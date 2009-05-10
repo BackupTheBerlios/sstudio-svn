@@ -35,9 +35,11 @@
 	aPat = [self sourcePattern] ;
 	rH = [aPat rightHand];
 	lH = [aPat leftHand];
-	[rH setPositionX:1.0f positionY:0.0f];
-	[lH setPositionX:0.0f positionY:0.0f];
-	[rH setThrowSpeed:lH inSeconds: 1.0f]; //temps total de la trajectoire
+	NSLog(@"juggleItAtTime\n");	
+	[rH setPositionX:1.0f positionY:1.2f];
+	[lH setPositionX:0.0f positionY:1.2f];
+	//ici
+	//[rH setThrowSpeed:lH inSeconds: 2.0f]; //temps total de la trajectoire
 	[rH trajectoryMovement:self atTime:t];
 }
 

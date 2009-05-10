@@ -17,6 +17,7 @@
 	IBOutlet NSButton *btTest;	
 	//Juggler *myself;
 	SSPattern *aPattern;
+	
 	//timer
 	NSTimer *timer;
 	NSNumber *countTime;

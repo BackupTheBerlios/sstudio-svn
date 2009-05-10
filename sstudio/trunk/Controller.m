@@ -26,14 +26,15 @@
 {
 	Movement *tMove;
 	NSLog(@"juggle started");
+	[oglShow setPattern:aPattern];
 	tMove = [[aPattern movements] objectAtIndex:1];
-	[tMove juggleItAtTime:0.5f];
-	//[self startSimulation];
+	//[tMove juggleItAtTime:0.5f];
+	[self startSimulation];
 }
 
 -(void)startSimulation;
 {
-	const ts =0.050;
+	const ts =0.05f;
 	countTime = [[NSNumber numberWithFloat:0.0f] retain];
 	timer = [[NSTimer scheduledTimerWithTimeInterval:ts 
 											  target:self
@@ -46,13 +47,20 @@
 -(void)tmrInterrupt:(NSTimer *)aTimer;
 {
 	float old;
+	Movement *tMove;
 	old = [countTime floatValue];
 	[countTime release]; 
 	countTime = [[NSNumber numberWithFloat: (old+0.05)] retain];
 	
 	//process
 	///calcule +affichage ici
+	NSLog(@"boucle %f\n", old);
+	tMove = [[aPattern movements] objectAtIndex:1];
+	[tMove juggleItAtTime:[countTime floatValue]];
 	[oglShow setNeedsDisplay:YES];
+	if([countTime floatValue] > 2.0f){
+		[timer invalidate];
+	}
 }
 
 @end

@@ -2,6 +2,17 @@
 
 @implementation SSView
 
+-(void)awakeFromNib;
+{
+	NSLog(@"Awake!");
+}
+
+-(void) setPattern:(SSPattern *)aPat;
+{
+	patternToShow = aPat;
+	[patternToShow retain];
+}
+
 void drawAnObject()
 {
 	glColor3f(1.0f, 0.0f, 0.0f);
@@ -13,16 +24,22 @@ void drawAnObject()
 		glVertex3f( 0, 0 ,0.0);
 	}
 	glEnd();
-	NSLog(@"drawRect: OK test");
+	//NSLog(@"drawRect: OK test");
 }
 
 //dessine
 -(void) drawRect: (NSRect) bounds
 {
+	Throwable *tBall;
+	tBall = [patternToShow ballNumber:0];
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glLoadIdentity();
-	drawAnObject();
+	if (tBall){
+		glTranslatef([tBall x]/10,[tBall y]/10, 0.0f);
+		drawAnObject();
+		NSLog(@"ball:%f;%f",[tBall x],[tBall y] );
+	}
 	glFlush();
 }
 

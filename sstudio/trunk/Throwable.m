@@ -14,17 +14,15 @@
 - (id)init
 {
 	[super init];
-	/*x = [NSNumber numberWithFloat:0];
-	x = [NSNumber numberWithFloat:0];;
-	vx = [NSNumber numberWithFloat:0];
-	vy = [NSNumber numberWithFloat:0];*/
-	x=1;
-	y=0;
-	vx=0;
-	vy=0;
-	NSLog(@"x:%f",x);
+	x = [NSNumber numberWithFloat:0];
+	[x retain];
+	y = [NSNumber numberWithFloat:0];
+	[y retain];
+	vx = [NSNumber numberWithFloat:1.0f];
+	[vx retain];
+	vy = [NSNumber numberWithFloat:2.0f];
+	[vy retain];
 	trajectory = [[NSMutableArray alloc] init];
-	NSLog(@"init");
 	return self;
 }
 
@@ -43,40 +41,48 @@
 	return str;
 }
 
-- (float)posX
-{
-	return x;
+- (void)setX:(float)tX;{
+	NSLog(@"setX");
+	[x release];
+	x = [NSNumber numberWithFloat:tX];
+	[x retain];	
+}
+- (float)x{
+	return [x floatValue];
 }
 
-- (float)posY
-{
-	return y;
+- (void)setY:(float)tY;{
+	NSLog(@"setY");
+	[y release];
+	y = [NSNumber numberWithFloat:tY];
+	[y retain];	
+}
+- (float)y{
+	return [y floatValue];
 }
 
 - (id)setSpeedX:(float)speedX y:(float)speedY
 {
-	vx = speedX;
-	vy = speedY;
+	[vx initWithFloat:speedX];
+	[vy initWithFloat:speedY];
 	NSLog(@"x:%f y:%f",x,y);
 	return self;
 }
 
 - (float)getSpeedX
 {
-	return vx;
+	return [vx floatValue];
 }
 
 - (float)getSpeedY
 {
-	return vy;
+	return [vy floatValue];
 }
 
 -(void)positionAtTime:(NSNumber *)time
 {
-	x = [self getSpeedX]*[time floatValue];
-	y = ([self getSpeedY]*[time floatValue]) - (0.5*9.81*[time floatValue]*[time floatValue])+[self posY];
-
-	//NSLog(@"Throwable:positionAtTime: x=%f ; y=%f", x, y);
+	[self setX: ([self getSpeedX]*[time floatValue])];
+	[self setY: (([self getSpeedY]*[time floatValue]) - (0.5*9.81*[time floatValue]*[time floatValue])+[self y])];
 }
 
 - (NSMutableArray *)trajectory

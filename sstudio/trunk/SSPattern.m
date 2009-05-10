@@ -128,13 +128,11 @@
 
 -(Hand *)rightHand
 {
-	NSLog (@"RH returned");
 	return [hands objectAtIndex:0];
 }
 
 -(Hand *)leftHand
 {
-	NSLog (@"LH returned");
 	return [hands objectAtIndex:1];
 }
 

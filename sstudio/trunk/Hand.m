@@ -17,7 +17,9 @@
 	//x = [NSNumber alloc];
 	//[x initWithFloat:1.0];
 	x = [NSNumber numberWithFloat:2.0];
+	[x retain];
 	y = [NSNumber numberWithFloat:2.0];
+	[y retain];
 	return self;
 }
 
@@ -28,13 +30,13 @@
 
 - (id)setPosX:(float)posX
 {
-	x =[NSNumber numberWithFloat: posX];
+	[x initWithFloat: posX];
 	return self;
 }
 
 - (id)setPosY:(float)posY
 {
-	y = [NSNumber numberWithFloat: posY];
+	[y initWithFloat: posY];
 	return self;
 }
 
@@ -84,6 +86,7 @@
 }
  */
 
+//ici
 - (void)trajectoryMovement:(Movement *)aMove atTime:(float)t; 
 {
 	float newY, newX;
@@ -92,23 +95,27 @@
 	Hand *hDest;
 	tObjThrowed = [[aMove sourcePattern] ballNumber:0];
 	hDest = [[aMove sourcePattern] leftHand];
-	NSLog(@"throw position x:%f y:%f", [self getPosX], [self getPosY]);
-	NSLog(@"catch position x:%f y:%f", [hDest getPosX], [hDest getPosY]);
-	[self setThrowSpeed:hDest inSeconds:1.0];
+	NSLog(@"trajectoryMovement\n");
+	//NSLog(@"throw position x:%f y:%f", [self getPosX], [self getPosY]);
+	//NSLog(@"catch position x:%f y:%f", [hDest getPosX], [hDest getPosY]);
+	[self setThrowSpeed:hDest inSeconds:2.0];
 	newY = ([tObjThrowed getSpeedY]*t) - (0.5*9.81*t*t)+[self getPosY];
 	newX = [tObjThrowed getSpeedX]*t;
-	NSLog(@"throw: x=%f ; y=%f", newX, newY);
-	temp = [[Position alloc] initTime:t posX:newX posY:newY];
+	NSLog(@"%f;%f", newX, newY);
+	[ tObjThrowed setX:newX];
+	[ tObjThrowed setY:newY];
+	//temp = [[Position alloc] initTime:t posX:newX posY:newY];
 }
 
 
 
 - (id)setThrowSpeed:(Hand *)hDest inSeconds:(float)t
 {
+	NSLog(@"setThrowSpeed\n");
 	float speedx = [self speedToGoToX:[hDest getPosX] inSeconds:t];
-	NSLog(@"speedx: %f", speedx);
+	//NSLog(@"speedx: %f", speedx);
 	float speedy = [self speedToGoToY:[hDest getPosY] inSeconds:t];
-	NSLog(@"speedy: %f", speedy);
+	//NSLog(@"speedy: %f", speedy);
 	[objThrowed setSpeedX:speedx y:speedy ];
 	return self;
 }
@@ -116,20 +123,24 @@
 //equation du mouvement sur X
 - (float)speedToGoToX:(float)posX inSeconds:(float)t
 {
-	return (posX/t- [objThrowed posX]/t);
+	return ( (posX/t)-[objThrowed x]/t);
 }
 
 //equation du mouvement sur Y
 - (float)speedToGoToY:(float)posY inSeconds:(float)t
 {
-	return (posY/t+(0.5*9.81*t)- ([objThrowed posY]/t));
+	return (posY/t+(0.5*9.81*t)-([objThrowed y]/t));
 }
 
 //
 -(id)setPositionX:(float)posX positionY:(float)posY
 {
+	[x release];
 	x = [NSNumber numberWithFloat: posX];
+	[x retain];
+	[y release];
 	y = [NSNumber numberWithFloat: posY];
+	[y retain];
 	return self;
 }
 
