@@ -106,7 +106,7 @@
 	[hThrow placeAtPos:[tMove valueForKey:@"thrPos"]];
 	
 	[hThrow throw:ball to:hCatch];
-	NSLog("juggleMove:trajectoire=%@",[ball trajectory]);
+	//NSLog("juggleMove:trajectoire=%@",[ball trajectory]);
 }
 
 -(void)jugglePattern:(SSPattern *)tPat;
@@ -114,9 +114,9 @@
 	//place les mains
 	int iMove=0;
 	Movement *move;
-	for (iMove =0; [[tPat arrMovements] count]; iMove++)
+	for (iMove =0; [[tPat movements] count]; iMove++)
 	{
-		move = [[tPat arrMovements] objectAtIndex:iMove];
+		move = [[tPat movements] objectAtIndex:iMove];
 	}
 }
 

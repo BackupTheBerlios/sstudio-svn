@@ -7,17 +7,15 @@
 //
 
 /*
- Steswap: element unitaire
- Pattern: ensemble de siteswap
-  => definir un move?
- 
+ Movement: element unitaire
+ SSPattern: ensemble de Movement
  */
 
 #import <Cocoa/Cocoa.h>
 
 
 @interface Movement : NSObject {
-	id *moveOwner;
+	id *sourcePattern;
 	NSString *thrTime;
 	NSString *ssBase;
 	NSString *thrSite;
@@ -31,8 +29,8 @@
 -(id)init;
 -(id)initMovement;
 -(void)juggleIt;
--(void)setMoveOwner:(id)aPat;
--(id)moveOwner;
+-(void)setSourcePattern:(id *)aPat;
+-(id)sourcePattern;
 
 /* Getter - Setter */
 -(void)setThrTime:(NSString *)t;

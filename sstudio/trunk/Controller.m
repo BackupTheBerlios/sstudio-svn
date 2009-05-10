@@ -21,7 +21,7 @@
 
 -(IBAction)juggleButtonClick:(id)sender
 {
-	Movement *tMove;
+	//Movement *tMove;
 	NSLog(@"juggle started");
 	[self startSimulation];
 }

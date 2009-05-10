@@ -13,11 +13,14 @@ Pattern: ensemble de siteswap
 
 #import <Cocoa/Cocoa.h>
 #import "Movement.h"
+#import "Hand.h"
 
 
 @interface SSPattern : NSObject {
 	NSString *identifier;
-	NSMutableArray *movements; 
+	NSMutableArray *movements;
+	NSArray *hands;
+	NSArray *balls;
 }
 
 -(NSString *)description;
@@ -25,6 +28,8 @@ Pattern: ensemble de siteswap
 -(void)addMovement:(Movement *)move;
 -(id)movements;
 -(int)ballNumberNeeded;
+-(Hand *)rightHand;
+-(Hand *)leftHand;
 
 
 @end

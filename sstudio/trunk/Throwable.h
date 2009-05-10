@@ -10,6 +10,7 @@
 
 
 @interface Throwable : NSObject {
+	NSNumber *number;
 	float x;
 	float y;
 	float vx;
@@ -17,6 +18,7 @@
 	NSMutableArray *trajectory;
 }
 
+- (id)initWithNumber:(int)tNum;
 - (float)posX;
 - (float)posY;
 //mettre les speed dans Hand

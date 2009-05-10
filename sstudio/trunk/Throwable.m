@@ -28,6 +28,15 @@
 	return self;
 }
 
+- (id)initWithNumber:(int)tNum
+{
+	[self init];
+	number = [NSNumber numberWithInt:tNum];
+	[number retain];
+	return self;
+}
+
+
 - (NSString *)description
 {
 	NSString *str = [[NSString alloc] initWithFormat: @"position:%d",x ];

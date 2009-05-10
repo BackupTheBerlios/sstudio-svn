@@ -26,18 +26,19 @@
 	return move;
 }
 
--(void)juggleIt;
+-(void)juggleItAtTime:(float)t;
 {
 	//positionner les mains
+	[[self sourcePattern] rightHand];
 }
 
--(void)setMoveOwner:(id *)aPat;
+-(void)setSourcePattern:(id *)aPat;
 {
-	moveOwner = aPat;
+	sourcePattern = aPat;
 }
--(id)owner;
+-(id)sourcePattern;
 {
-	return (id)moveOwner;
+	return (id)sourcePattern;
 }
 
 - (NSString *)description;

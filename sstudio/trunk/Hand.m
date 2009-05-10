@@ -81,6 +81,8 @@
 	return self;	
 }
 
+
+
 - (id)setThrowSpeed:(Hand *)hDest inSeconds:(float)t
 {
 	float speedx = [self speedToGoToX:[hDest getPosX] inSeconds:t];

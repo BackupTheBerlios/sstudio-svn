@@ -10,9 +10,30 @@
 
 
 @implementation SSPattern
+
 - (id)init;
 {
+	NSMutableArray *tHands;
+	NSMutableArray *tBalls;
+	Throwable *tBall;
+	int i, nbBalls = 3;
 	[super init];
+	
+	//alloc hands
+	tHands = [[NSMutableArray alloc] initWithCapacity:2];
+	[ tHands addObject:[[Hand alloc] init] ];
+	[ tHands addObject:[[Hand alloc] init] ];
+	hands = tHands;
+	
+	//alloc ball
+	tBalls = [[NSMutableArray alloc] initWithCapacity:3];
+	for (i=0; i < nbBalls; i++){
+		tBall = [[Throwable alloc] initWithNumber:i];
+		[ tBalls addObject: tBall];
+	}
+	balls = tBalls;
+	
+	//alloc movements
 	movements = [[NSMutableArray alloc] initWithCapacity:0];
 	return self;
 }
@@ -31,6 +52,7 @@
 	nbMovements = [movements count];
 	nbInfos = [listInfos count];
 
+	//parcours tous les moves pour chaque info
 	for (j=0; j < nbInfos; j++)
 	{
 		info = [listInfos objectAtIndex:j];
@@ -82,7 +104,7 @@
 
 -(void)addMovement:(Movement *)move;
 {
-	[move setMoveOwner: self];
+	[move setSourcePattern: &self];
 	[movements addObject:move ];
 }
 
@@ -103,4 +125,17 @@
 	
 	return (sumSS/i);
 }
+
+-(Hand *)rightHand
+{
+	NSLog (@"RH returned");
+	return [hands objectAtIndex:0];
+}
+
+-(Hand *)leftHand
+{
+	NSLog (@"LH returned");
+	return [hands objectAtIndex:1];
+}
+
 @end
