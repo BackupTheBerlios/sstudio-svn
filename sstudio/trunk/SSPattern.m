@@ -104,7 +104,7 @@
 
 -(void)addMovement:(Movement *)move;
 {
-	[move setSourcePattern: &self];
+	[move setSourcePattern: self];
 	[movements addObject:move ];
 }
 
@@ -136,6 +136,11 @@
 {
 	NSLog (@"LH returned");
 	return [hands objectAtIndex:1];
+}
+
+-(Throwable *)ballNumber:(int)num;
+{
+	return [balls objectAtIndex:num];	
 }
 
 @end

@@ -7,6 +7,9 @@
 //
 
 #import "Controller.h"
+#import "Throwable.h"
+#import "View.h"
+
 
 @implementation Controller
 
@@ -21,9 +24,11 @@
 
 -(IBAction)juggleButtonClick:(id)sender
 {
-	//Movement *tMove;
+	Movement *tMove;
 	NSLog(@"juggle started");
-	[self startSimulation];
+	tMove = [[aPattern movements] objectAtIndex:1];
+	[tMove juggleItAtTime:0.5f];
+	//[self startSimulation];
 }
 
 -(void)startSimulation;

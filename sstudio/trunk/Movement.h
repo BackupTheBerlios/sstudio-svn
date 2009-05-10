@@ -15,7 +15,7 @@
 
 
 @interface Movement : NSObject {
-	id *sourcePattern;
+	id sourcePattern;
 	NSString *thrTime;
 	NSString *ssBase;
 	NSString *thrSite;
@@ -28,8 +28,8 @@
 
 -(id)init;
 -(id)initMovement;
--(void)juggleIt;
--(void)setSourcePattern:(id *)aPat;
+-(void)juggleItAtTime:(float)t;
+-(void)setSourcePattern:(id)aPat;
 -(id)sourcePattern;
 
 /* Getter - Setter */

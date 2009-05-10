@@ -7,6 +7,7 @@
 //
 
 #import "Movement.h"
+#import "SSPattern.h"
 
 
 @implementation Movement
@@ -29,12 +30,23 @@
 -(void)juggleItAtTime:(float)t;
 {
 	//positionner les mains
-	[[self sourcePattern] rightHand];
+	SSPattern *aPat;
+	Hand *rH, *lH; 
+	aPat = [self sourcePattern] ;
+	rH = [aPat rightHand];
+	lH = [aPat leftHand];
+	[rH setPositionX:1.0f positionY:0.0f];
+	[lH setPositionX:0.0f positionY:0.0f];
+	[rH setThrowSpeed:lH inSeconds: 1.0f]; //temps total de la trajectoire
+	[rH trajectoryMovement:self atTime:t];
 }
 
--(void)setSourcePattern:(id *)aPat;
+-(void)setSourcePattern:(id)aPat;
 {
-	sourcePattern = aPat;
+	SSPattern *tPat;
+	tPat = (SSPattern *)aPat;
+	//[tPat retain]; 
+	sourcePattern = tPat;
 }
 -(id)sourcePattern;
 {

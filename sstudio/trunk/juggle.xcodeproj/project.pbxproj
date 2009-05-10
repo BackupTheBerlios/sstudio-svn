@@ -22,7 +22,6 @@
 		DB1F04DD0F0A76AA00484976 /* SSPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04DC0F0A76AA00484976 /* SSPattern.m */; };
 		DB1F04E00F0A76B700484976 /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04DF0F0A76B700484976 /* Movement.m */; };
 		DB1F05650F0A956A00484976 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F05640F0A956A00484976 /* Controller.m */; };
-		DB7E5C6A0F0FDD7600C9BFFB /* Juggler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7E5C690F0FDD7600C9BFFB /* Juggler.m */; };
 		DBA02DAC0F99D1BB00F1AEC0 /* SSView.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA02DAB0F99D1BB00F1AEC0 /* SSView.m */; };
 		DBA23CBD0F1D50C600D4F14D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */; };
 		DBB9473C0F3EEE8D002C2B19 /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041870F0D1EF6006FEFCB /* Hand.m */; };
@@ -60,8 +59,6 @@
 		DB1F04DF0F0A76B700484976 /* Movement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movement.m; sourceTree = "<group>"; };
 		DB1F05630F0A956A00484976 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		DB1F05640F0A956A00484976 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
-		DB7E5C680F0FDD7600C9BFFB /* Juggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Juggler.h; sourceTree = "<group>"; };
-		DB7E5C690F0FDD7600C9BFFB /* Juggler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Juggler.m; sourceTree = "<group>"; };
 		DBA02DAA0F99D1BB00F1AEC0 /* SSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSView.h; sourceTree = "<group>"; };
 		DBA02DAB0F99D1BB00F1AEC0 /* SSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSView.m; sourceTree = "<group>"; };
 		DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
@@ -187,8 +184,6 @@
 		DB1F04E30F0A79EB00484976 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB7E5C680F0FDD7600C9BFFB /* Juggler.h */,
-				DB7E5C690F0FDD7600C9BFFB /* Juggler.m */,
 				DB1041BD0F0D22CE006FEFCB /* Throwable.h */,
 				DB1041BE0F0D22CE006FEFCB /* Throwable.m */,
 				DB1F04DE0F0A76B700484976 /* Movement.h */,
@@ -329,7 +324,6 @@
 				DB1041880F0D1EF6006FEFCB /* Hand.m in Sources */,
 				DB1041BF0F0D22CE006FEFCB /* Throwable.m in Sources */,
 				DB1042F40F0D62B2006FEFCB /* Position.m in Sources */,
-				DB7E5C6A0F0FDD7600C9BFFB /* Juggler.m in Sources */,
 				DBA02DAC0F99D1BB00F1AEC0 /* SSView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

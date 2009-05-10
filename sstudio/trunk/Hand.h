@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Throwable.h"
-#import "Position.h"
+#import "Movement.h"
 
 
 @interface Hand : NSObject {
@@ -17,7 +17,8 @@
 	Throwable *objThrowed;
 }
 
-- (id)throw:(Throwable *)obj to:(Hand *)hDest;
+//- (id)throw:(Throwable *)obj to:(Hand *)hDest;
+- (void)trajectoryMovement:(Movement *)tMove atTime:(float)t; 
 - (float)getPosX;
 - (id)setPosX:(float)posX;
 - (float)getPosY;

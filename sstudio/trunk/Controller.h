@@ -7,15 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Juggler.h"
-#import "Movement.h"
 #import "SSPattern.h"
-#import "Hand.h"
-#import "Throwable.h"
-#import "PatternGrid.h"
-#import "View.h"
 #import "SSView.h"
-
 
 @interface Controller : NSObject {
 	//animation

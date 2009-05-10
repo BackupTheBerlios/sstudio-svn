@@ -6,7 +6,8 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 #import "Hand.h"
-#import "Movement.h"
+#import "Position.h"
+#import "SSPattern.h"
 
 @implementation Hand
 
@@ -57,6 +58,7 @@
 //TODO: a renommer
 //calcule les trajectoires pour une plage donnée
 //=> calculer pr un temps donné
+/*
 - (id)throw:(Throwable *)obj to:(Hand *)hDest
 {
 	float time = 0.0;
@@ -79,6 +81,24 @@
 		[[objThrowed trajectory] addObject: temp];		
 	}
 	return self;	
+}
+ */
+
+- (void)trajectoryMovement:(Movement *)aMove atTime:(float)t; 
+{
+	float newY, newX;
+	Position *temp;
+	Throwable *tObjThrowed;
+	Hand *hDest;
+	tObjThrowed = [[aMove sourcePattern] ballNumber:0];
+	hDest = [[aMove sourcePattern] leftHand];
+	NSLog(@"throw position x:%f y:%f", [self getPosX], [self getPosY]);
+	NSLog(@"catch position x:%f y:%f", [hDest getPosX], [hDest getPosY]);
+	[self setThrowSpeed:hDest inSeconds:1.0];
+	newY = ([tObjThrowed getSpeedY]*t) - (0.5*9.81*t*t)+[self getPosY];
+	newX = [tObjThrowed getSpeedX]*t;
+	NSLog(@"throw: x=%f ; y=%f", newX, newY);
+	temp = [[Position alloc] initTime:t posX:newX posY:newY];
 }
 
 

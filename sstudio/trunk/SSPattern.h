@@ -30,6 +30,7 @@ Pattern: ensemble de siteswap
 -(int)ballNumberNeeded;
 -(Hand *)rightHand;
 -(Hand *)leftHand;
+-(Throwable *)ballNumber:(int)num;
 
 
 @end
