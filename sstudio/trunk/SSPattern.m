@@ -141,4 +141,9 @@
 	return [balls objectAtIndex:num];	
 }
 
+-(void)preprocess;
+{
+	[[movements objectAtIndex:1] preprocess];
+}
+
 @end

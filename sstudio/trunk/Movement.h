@@ -31,6 +31,7 @@
 -(void)juggleItAtTime:(float)t;
 -(void)setSourcePattern:(id)aPat;
 -(id)sourcePattern;
+-(void)preprocess;
 
 /* Getter - Setter */
 -(void)setThrTime:(NSString *)t;

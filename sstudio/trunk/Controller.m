@@ -18,6 +18,7 @@
 {
 	aPattern = [[SSPattern alloc] init];
 	[aPattern defineTestPattern];
+	[aPattern preprocess];
 	NSLog(@"SSPattern de test");
 	NSLog(@"%@", aPattern);
 }
@@ -34,7 +35,7 @@
 
 -(void)startSimulation;
 {
-	const ts =0.05f;
+	const ts =0.025f;
 	countTime = [[NSNumber numberWithFloat:0.0f] retain];
 	timer = [[NSTimer scheduledTimerWithTimeInterval:ts 
 											  target:self

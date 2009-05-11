@@ -95,16 +95,12 @@
 	Hand *hDest;
 	tObjThrowed = [[aMove sourcePattern] ballNumber:0];
 	hDest = [[aMove sourcePattern] leftHand];
-	NSLog(@"trajectoryMovement\n");
-	//NSLog(@"throw position x:%f y:%f", [self getPosX], [self getPosY]);
-	//NSLog(@"catch position x:%f y:%f", [hDest getPosX], [hDest getPosY]);
-	[self setThrowSpeed:hDest inSeconds:2.0];
+	//NSLog(@"trajectoryMovement\n");
 	newY = ([tObjThrowed getSpeedY]*t) - (0.5*9.81*t*t)+[self getPosY];
 	newX = [tObjThrowed getSpeedX]*t;
-	NSLog(@"%f;%f", newX, newY);
+	//NSLog(@"%f;%f", newX, newY);
 	[ tObjThrowed setX:newX];
 	[ tObjThrowed setY:newY];
-	//temp = [[Position alloc] initTime:t posX:newX posY:newY];
 }
 
 
