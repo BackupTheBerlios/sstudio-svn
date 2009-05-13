@@ -42,7 +42,6 @@
 }
 
 - (void)setX:(float)tX;{
-	NSLog(@"setX");
 	[x release];
 	x = [NSNumber numberWithFloat:tX];
 	[x retain];	
@@ -52,7 +51,6 @@
 }
 
 - (void)setY:(float)tY;{
-	NSLog(@"setY");
 	[y release];
 	y = [NSNumber numberWithFloat:tY];
 	[y retain];	
@@ -63,9 +61,12 @@
 
 - (id)setSpeedX:(float)speedX y:(float)speedY
 {
-	[vx initWithFloat:speedX];
-	[vy initWithFloat:speedY];
-	NSLog(@"x:%f y:%f",x,y);
+	[vx release];
+	[vy release];
+	vx = [NSNumber numberWithFloat:speedX];	
+	vy = [NSNumber numberWithFloat:speedY];	
+	[vx retain];
+	[vy retain];	
 	return self;
 }
 

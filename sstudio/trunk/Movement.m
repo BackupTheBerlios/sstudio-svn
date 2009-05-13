@@ -34,8 +34,6 @@
 	Hand *rH, *lH; 
 	aPat = [self sourcePattern] ;
 	rH = [aPat rightHand];
-	//lH = [aPat leftHand];
-	NSLog(@"juggleItAtTime\n");	
 	[rH trajectoryMovement:self atTime:t];
 }
 
@@ -53,14 +51,19 @@
 
 -(void)preprocess;
 {
+	float tTime =2;
 	SSPattern *aPat;
 	Hand *rH, *lH; 
 	aPat = [self sourcePattern] ;
 	rH = [aPat rightHand];	
 	lH = [aPat leftHand];	
-	[rH setPositionX:1.0f positionY:1.2f];
-	[lH setPositionX:0.0f positionY:1.2f];	
-	[rH setThrowSpeed:lH inSeconds: 2.0f]; //temps total de la trajectoire
+	//assigne objThrowed
+	[rH setPositionX:10.0f positionY:1.2f];
+	[lH setPositionX:0.0f positionY:1.2f];		
+	[[aPat ballNumber:0] setX:[rH getPosX]];
+	[[aPat ballNumber:0] setY:[rH getPosY]];
+	[rH setObjThrowed:[aPat ballNumber:0]];
+	[rH setThrowSpeed:lH inSeconds: tTime]; //temps total de la trajectoire
 }
 
 - (NSString *)description;

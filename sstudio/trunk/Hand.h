@@ -23,10 +23,12 @@
 - (id)setPosX:(float)posX;
 - (float)getPosY;
 - (id)setPosY:(float)posY;
+- (void)setObjThrowed:(Throwable *)tBall;
 - (id)setThrowSpeed:(Hand *)hDest inSeconds:(float)t;
-- (float)speedToGoToX:(float)posX inSeconds:(float)t;
+- (float)speedToGoToX:(float)posX inSeconds:(float)timing;
 - (float)speedToGoToY:(float)posY inSeconds:(float)t;
 - (id)setPositionX:(float)posX positionY:(float)posY;
 - (id)placeAtPos:(NSString*)tMark;
+-(void)prepareThrowSiteForMove:(Movement *)move;
 
 @end

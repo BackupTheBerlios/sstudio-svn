@@ -45,6 +45,11 @@
 	return [y floatValue];
 }
 
+- (void)setObjThrowed:(Throwable *)tBall;
+{
+	objThrowed = tBall;
+}
+
 -(void)prepareThrowSiteForMove:(Movement *)move;
 {
 	if ( [[move valueForKey:@"thrSite"] isEqual: @"R"])
@@ -57,40 +62,9 @@
 	}
 }
 
-//TODO: a renommer
-//calcule les trajectoires pour une plage donnée
-//=> calculer pr un temps donné
-/*
-- (id)throw:(Throwable *)obj to:(Hand *)hDest
-{
-	float time = 0.0;
-	float newY, newX;
-	objThrowed = obj;
-	//if (objThrowed = nil) return nil;
-	Position *temp;	
-	NSLog(@"throw");
-	NSLog(@"throw position x:%f y:%f", [self getPosX], [self getPosY]);
-	NSLog(@"catch position x:%f y:%f", [hDest getPosX], [hDest getPosY]);
-	[self setThrowSpeed:hDest inSeconds:1.0];
-	
-	//a mettre dans Throwable
-	for ( time=0.0; time <= 1; time += 0.05)
-	{
-		newY = ([objThrowed getSpeedY]*time) - (0.5*9.81*time*time)+[self getPosY];
-		newX = [objThrowed getSpeedX]*time;
-		NSLog(@"throw: x=%f ; y=%f", newX, newY);
-		temp = [[Position alloc] initTime:time posX:newX posY:newY];
-		[[objThrowed trajectory] addObject: temp];		
-	}
-	return self;	
-}
- */
-
-//ici
 - (void)trajectoryMovement:(Movement *)aMove atTime:(float)t; 
 {
 	float newY, newX;
-	Position *temp;
 	Throwable *tObjThrowed;
 	Hand *hDest;
 	tObjThrowed = [[aMove sourcePattern] ballNumber:0];
@@ -105,12 +79,12 @@
 
 
 
-- (id)setThrowSpeed:(Hand *)hDest inSeconds:(float)t
+- (id)setThrowSpeed:(Hand *)hDest inSeconds:(float)timing
 {
-	NSLog(@"setThrowSpeed\n");
-	float speedx = [self speedToGoToX:[hDest getPosX] inSeconds:t];
+	NSLog(@"setThrowSpeed (time=%f)\n"), timing;
+	float speedx = [self speedToGoToX:[hDest getPosX] inSeconds:timing];
 	//NSLog(@"speedx: %f", speedx);
-	float speedy = [self speedToGoToY:[hDest getPosY] inSeconds:t];
+	float speedy = [self speedToGoToY:[hDest getPosY] inSeconds:timing];
 	//NSLog(@"speedy: %f", speedy);
 	[objThrowed setSpeedX:speedx y:speedy ];
 	return self;
