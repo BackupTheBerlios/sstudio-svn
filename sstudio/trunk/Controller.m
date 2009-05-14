@@ -34,13 +34,27 @@
 
 -(void)startSimulation;
 {
-	const ts =0.025f;
+	const ts =0.05f;
+	float nbSim;
+	float old;
+	Movement *tMove;
 	countTime = [[NSNumber numberWithFloat:0.0f] retain];
+	
 	timer = [[NSTimer scheduledTimerWithTimeInterval:ts 
 											  target:self
 											selector:@selector(tmrInterrupt:)
 											userInfo:nil 
 											 repeats:YES] retain];
+	/*
+	for(nbSim=0; nbSim < 2; nbSim += 0.05){
+		old = [countTime floatValue];
+		[countTime release]; 
+		countTime = [[NSNumber numberWithFloat: (old+0.05)] retain];
+		tMove = [[aPattern movements] objectAtIndex:0];
+		[tMove juggleItAtTime:[countTime floatValue]];
+		[oglShow setNeedsDisplay:YES];		
+	}
+	*/
 }
 
 
@@ -50,11 +64,11 @@
 	Movement *tMove;
 	old = [countTime floatValue];
 	[countTime release]; 
-	countTime = [[NSNumber numberWithFloat: (old+0.025)] retain];
+	countTime = [[NSNumber numberWithFloat: (old+0.05)] retain];
 	
 	//process
 	///calcule +affichage ici
-	tMove = [[aPattern movements] objectAtIndex:1];
+	tMove = [[aPattern movements] objectAtIndex:0];
 	[tMove juggleItAtTime:[countTime floatValue]];
 	[oglShow setNeedsDisplay:YES];
 	if([countTime floatValue] > 2.0f){

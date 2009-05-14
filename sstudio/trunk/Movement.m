@@ -18,6 +18,11 @@
 	return self;
 }
 
+-(void)dealloc;
+{
+	[super dealloc];
+}
+
 -(id)initMovement;
 { 
 	Movement *move;
@@ -32,7 +37,8 @@
 	//positionner les mains
 	SSPattern *aPat;
 	Hand *rH, *lH; 
-	aPat = [self sourcePattern] ;
+
+	aPat = [self sourcePattern];
 	rH = [aPat rightHand];
 	[rH trajectoryMovement:self atTime:t];
 }
@@ -53,17 +59,27 @@
 {
 	float tTime =2;
 	SSPattern *aPat;
-	Hand *rH, *lH; 
-	aPat = [self sourcePattern] ;
+	Hand *throwHand, *catchHand;
+	aPat = [self sourcePattern];
+	//on recup les mains
+	/* old
 	rH = [aPat rightHand];	
 	lH = [aPat leftHand];	
+	 */
+	throwHand = [sourcePattern handForSite:thrSite];
+	[throwHand placeAtPos:thrPos];	
+	catchHand = [sourcePattern handForSite:catSite];
+	[catchHand placeAtPos:catPos];
 	//assigne objThrowed
+	/*old
 	[rH setPositionX:10.0f positionY:1.2f];
 	[lH setPositionX:0.0f positionY:1.2f];		
-	[[aPat ballNumber:0] setX:[rH getPosX]];
-	[[aPat ballNumber:0] setY:[rH getPosY]];
-	[rH setObjThrowed:[aPat ballNumber:0]];
-	[rH setThrowSpeed:lH inSeconds: tTime]; //temps total de la trajectoire
+	 */
+
+	[[aPat ballNumber:0] setX:[throwHand getPosX]];
+	[[aPat ballNumber:0] setY:[throwHand getPosY]];
+	[throwHand setObjThrowed:[aPat ballNumber:0]];
+	[throwHand setThrowSpeed:catchHand inSeconds: tTime]; //temps total de la trajectoire
 }
 
 - (NSString *)description;

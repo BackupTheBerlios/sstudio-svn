@@ -83,10 +83,10 @@
 	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
 	[move setValue:@"1" forKey:@"thrTime"];	
 	[move setValue:@"3" forKey:@"ssBase"];
-	[move setValue:@"R" forKey:@"thrSite"];
-	[move setValue:@"m" forKey:@"thrPos"];
-	[move setValue:@"L" forKey:@"catSite"];
-	[move setValue:@"l" forKey:@"catPos"];
+	[move setValue:@"L" forKey:@"thrSite"];
+	[move setValue:@"l" forKey:@"thrPos"];
+	[move setValue:@"R" forKey:@"catSite"];
+	[move setValue:@"r" forKey:@"catPos"];
 	[self addMovement:move];
 	
 	//2eme mouvement
@@ -94,9 +94,9 @@
 	[move setValue:[NSNumber numberWithInt:2] forKey:@"thrTime"];
 	[move setValue:@"2" forKey:@"thrTime"];	
 	[move setValue:@"3" forKey:@"ssBase"];
-	[move setValue:@"L" forKey:@"thrSite"];
-	[move setValue:@"m" forKey:@"thrPos"];
-	[move setValue:@"R" forKey:@"catSite"];
+	[move setValue:@"R" forKey:@"thrSite"];
+	[move setValue:@"r" forKey:@"thrPos"];
+	[move setValue:@"L" forKey:@"catSite"];
 	[move setValue:@"l" forKey:@"catPos"];
 	[self addMovement:move];	
 	return self;
@@ -105,7 +105,7 @@
 -(void)addMovement:(Movement *)move;
 {
 	[move setSourcePattern: self];
-	[movements addObject:move ];
+	[movements insertObject:move atIndex:[movements count]];
 }
 
 -(id)movements;
@@ -136,6 +136,12 @@
 	return [hands objectAtIndex:1];
 }
 
+-(Hand *)handForSite:(NSString *)tSite;
+{
+	if ( [tSite isEqualToString:@"R"] ) return [self rightHand];
+		else return [self leftHand];
+}
+
 -(Throwable *)ballNumber:(int)num;
 {
 	return [balls objectAtIndex:num];	
@@ -143,7 +149,10 @@
 
 -(void)preprocess;
 {
-	[[movements objectAtIndex:1] preprocess];
+	int numMovement;
+	for(numMovement=0; numMovement< [movements count]; numMovement++){
+		[[movements objectAtIndex:numMovement] preprocess];
+	}
 }
 
 @end

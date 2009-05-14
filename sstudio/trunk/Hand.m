@@ -72,7 +72,7 @@
 	//NSLog(@"trajectoryMovement\n");
 	newY = ([tObjThrowed getSpeedY]*t) - (0.5*9.81*t*t)+[self getPosY];
 	newX = [tObjThrowed getSpeedX]*t;
-	//NSLog(@"%f;%f", newX, newY);
+	NSLog(@"%f;%f", newX, newY);
 	[ tObjThrowed setX:newX];
 	[ tObjThrowed setY:newY];
 }
@@ -119,15 +119,15 @@
 {
 	if ([tMark isEqualToString:@"m"])
 	{
-		[self setPositionX:0.0f positionY:0.0f];
+		[self setPositionX:5.0f positionY:0.0f];
 	}
 	if ([tMark isEqualToString:@"r"])
 	{
-		[self setPositionX:0.5f positionY:0.0f];
+		[self setPositionX:10.0f positionY:0.0f];
 	}
 	if ([tMark isEqualToString:@"l"])
 	{
-		[self setPositionX:-0.5f positionY:0.0f];
+		[self setPositionX:0.0f positionY:0.0f];
 	}
 	return self;
 }

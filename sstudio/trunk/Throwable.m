@@ -26,6 +26,16 @@
 	return self;
 }
 
+-(void)dealloc;
+{
+	NSLog(@"Throwable dealloc \n");
+	[x release];
+	[y release];
+	[vx release];
+	[vy release];
+	[super dealloc];
+}
+
 - (id)initWithNumber:(int)tNum
 {
 	[self init];

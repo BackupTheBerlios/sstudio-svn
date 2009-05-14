@@ -28,8 +28,11 @@ Pattern: ensemble de siteswap
 -(void)addMovement:(Movement *)move;
 -(id)movements;
 -(int)ballNumberNeeded;
+//hand
 -(Hand *)rightHand;
 -(Hand *)leftHand;
+-(Hand *)handForSite:(NSString *)tSite;
+//bal
 -(Throwable *)ballNumber:(int)num;
 -(void)preprocess;
 
