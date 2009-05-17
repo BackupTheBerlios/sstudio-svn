@@ -34,18 +34,15 @@
 
 -(void)startSimulation;
 {
-	const ts =0.05f;
 	float nbSim;
-	float old;
-	Movement *tMove;
-	countTime = [[NSNumber numberWithFloat:0.0f] retain];
-	
-	timer = [[NSTimer scheduledTimerWithTimeInterval:ts 
+	realTime = 0;
+	timer = [[NSTimer scheduledTimerWithTimeInterval:[self sampleTime] 
 											  target:self
 											selector:@selector(tmrInterrupt:)
 											userInfo:nil 
 											 repeats:YES] retain];
 	/*
+	float old;
 	for(nbSim=0; nbSim < 2; nbSim += 0.05){
 		old = [countTime floatValue];
 		[countTime release]; 
@@ -62,18 +59,31 @@
 {
 	float old;
 	Movement *tMove;
-	old = [countTime floatValue];
-	[countTime release]; 
-	countTime = [[NSNumber numberWithFloat: (old+0.05)] retain];
+	old = realTime;
+	realTime = realTime + [self sampleTime];
 	
 	//process
 	///calcule +affichage ici
+	
 	tMove = [[aPattern movements] objectAtIndex:0];
-	[tMove juggleItAtTime:[countTime floatValue]];
+	[tMove juggleItAtTime:realTime];
+	
+	//[aPattern]
 	[oglShow setNeedsDisplay:YES];
-	if([countTime floatValue] > 2.0f){
+	if(realTime > 2.0f){
 		[timer invalidate];
 	}
+}
+
+-(float)sampleTime;
+{
+	return 0.025f;
+}
+
+//duree d'un 1 (cascade: 50 tours/1:45)
+-(float)beatTime;
+{
+	return 0.32f;
 }
 
 @end

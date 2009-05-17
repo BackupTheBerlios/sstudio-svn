@@ -155,4 +155,14 @@
 	}
 }
 
+-(void)juggleAtTime:(float *)f
+{
+	Movement *aMovement;
+	float movementTiming;
+	for(nbMovements 0; nbMovements < [[self movements] count]; nbMovements++){
+		aMovement = [[self movements] objectAtIndex:nbMovements];
+		movementTiming = [aMovement valueForKey:@"thrTime"]
+	}
+}
+
 @end

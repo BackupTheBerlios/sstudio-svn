@@ -20,13 +20,14 @@
 	
 	//timer
 	NSTimer *timer;
-	NSNumber *countTime;
+	float realTime;
+	int ssThrowTime;
 }
 
 -(IBAction)initialize:(id)sender;
 -(IBAction)juggleButtonClick:(id)sender;
-//-(id)definePattern;
-//-(void)juggle;
 -(void)startSimulation;
 
+-(float)sampleTime;
+-(float)beatTime;
 @end
