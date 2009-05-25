@@ -7,6 +7,7 @@
 //
 
 #import "SSPattern.h"
+#import "Controller.h"
 
 
 @implementation SSPattern
@@ -16,7 +17,7 @@
 	NSMutableArray *tHands;
 	NSMutableArray *tBalls;
 	Throwable *tBall;
-	int i, nbBalls = 3;
+	int i, nbBalls;
 	[super init];
 	
 	//alloc hands
@@ -24,14 +25,6 @@
 	[ tHands addObject:[[Hand alloc] init] ];
 	[ tHands addObject:[[Hand alloc] init] ];
 	hands = tHands;
-	
-	//alloc ball
-	tBalls = [[NSMutableArray alloc] initWithCapacity:3];
-	for (i=0; i < nbBalls; i++){
-		tBall = [[Throwable alloc] initWithNumber:i];
-		[ tBalls addObject: tBall];
-	}
-	balls = tBalls;
 	
 	//alloc movements
 	movements = [[NSMutableArray alloc] initWithCapacity:0];
@@ -75,7 +68,6 @@
 -(id)defineTestPattern;
 {
 	Movement *move;
-	//[move setValue:@" " forKey:@" "];	
 	//cascade 3B
 	identifier = [[NSString alloc] initWithString:@"cascade 3 balles"];
 	//1er mouvement
@@ -126,6 +118,24 @@
 	return (sumSS/i);
 }
 
+-(int)ssBeatDuration;
+{
+	/*
+	int nbMove;
+	int sumSs = 0;
+	for (nbMove = 0; nbMove < [movements count]; nbMove++) {
+		sumSs = sumSs + [[movements objectAtIndex:nbMove] valueForKey:@"thrTime"
+	}
+	 */
+	return [[[movements lastObject] valueForKey:@"thrTime"] intValue];
+}
+
+
+-(int)relativeSsTimeForSsTime:(int)absSsTime;
+{
+	return (absSsTime % [self ssBeatDuration]);
+}
+
 -(Hand *)rightHand
 {
 	return [hands objectAtIndex:0];
@@ -150,19 +160,70 @@
 -(void)preprocess;
 {
 	int numMovement;
-	for(numMovement=0; numMovement< [movements count]; numMovement++){
-		[[movements objectAtIndex:numMovement] preprocess];
+	Movement *aMove;
+	for(numMovement=1; numMovement <= [movements count]; numMovement++){
+		aMove = [movements objectAtIndex:numMovement];
+		[aMove preprocess];
 	}
 }
 
--(void)juggleAtTime:(float *)f
+-(void)juggleAtTime:(float)f;
 {
+	int nbMovements;
 	Movement *aMovement;
-	float movementTiming;
-	for(nbMovements 0; nbMovements < [[self movements] count]; nbMovements++){
+	float relativeTime, moveTime;
+	moveTime = 0;
+	relativeTime = 0;
+	/*
+	for(nbMovements = 0; nbMovements < [[self movements] count]; nbMovements++){
 		aMovement = [[self movements] objectAtIndex:nbMovements];
-		movementTiming = [aMovement valueForKey:@"thrTime"]
+		if([aMovement isInHand]){
+		}
+		if([aMovement isInAirAtSsTime:[[self controller] ssThrowTime]])
+		{
+			moveTime = ([[aMovement valueForKey:@"thrTime"] floatValue])*((int)[[self controller] beatTime]);
+			relativeTime = ([[self controller] realTime])+moveTime;
+			[aMovement juggleItAtTime:relativeTime];
+		}
 	}
+	*/	
+	NSUInteger i, count = [movements count];
+	for (i = 0; i < count; i++){
+		Throwable *ball = [movements objectAtIndex:i];
+		[[ball movementAssigned] juggleAtTime:f];
+	}
+}
+
+-(void)throwAndCatchAll;
+{
+	NSUInteger i, tNbBalls = [balls count];
+	NSUInteger tSsRelTime, startSsTime, endSsTime;
+	tSsRelTime = [self relativeSsTimeForSsTime:([[self controller] ssAbsTime])];
+	for (i = 0; i < tNbBalls; i++) {
+		Throwable * aBall = [balls objectAtIndex:i];
+		Movement * aMove = [aBall movementAssigned];
+		startSsTime = [[aMove valueForKey:@"ssBase"] intValue];
+		endSsTime = startSsTime + [aBall ssTimeThrowed];
+		if ( startSsTime == tSsRelTime){
+			[aBall setSsTimeThrowed: tSsRelTime];
+		}
+		if ( endSsTime == tSsRelTime){
+			[aBall setSsTimeThrowed: 0];
+		}
+	}
+}
+	 
+
+/*getter-setter*/
+
+-(void)setController:(id)aController;
+{
+	controller = aController;
+}
+
+-(id)controller;
+{
+	return controller;
 }
 
 @end

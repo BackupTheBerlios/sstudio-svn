@@ -16,6 +16,8 @@
 	NSNumber *vx;
 	NSNumber *vy;
 	NSMutableArray *trajectory;
+	id movementAssigned;
+	int ssTimeThrowed;
 }
 
 - (id)initWithNumber:(int)tNum;
@@ -24,13 +26,19 @@
 - (id)deleteTrajectory;
 
 /*getter - setter*/
- - (void)setX:(float)tX;
- - (float)x;
- - (void)setY:(float)tY;
- - (float)y;
+- (void)setX:(float)tX;
+- (float)x;
+- (void)setY:(float)tY;
+- (float)y;
 - (id)setSpeedX:(float)speedX y:(float)speedY;
 - (float)getSpeedX;
 - (float)getSpeedY;
 - (NSMutableArray *)trajectory;
+
+/* setter - getter */
+-(id)movementAssigned;
+-(void)setMovementAssigned:(id)aMovement;
+-(int)ssTimeThrowed;
+-(void)setSsTimeThrowed:(int)aSsTime;
 
 @end

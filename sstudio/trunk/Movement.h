@@ -23,6 +23,7 @@
 	NSString *catPos;
 	NSString *catSite;
 	NSNumber *airMin;
+	NSNumber *ssTimeThrowed;
 }
 
 
@@ -32,6 +33,8 @@
 -(void)setSourcePattern:(id)aPat;
 -(id)sourcePattern;
 -(void)preprocess;
+-(bool)isInAirAtSsTime:(int)aSsTime;
+//-(void)throwIfNecessary:(int)aSsTime;
 
 /* Getter - Setter */
 -(void)setThrTime:(NSString *)t;
@@ -48,5 +51,7 @@
 -(NSString *)catSite;
 -(void)setAirMin:(NSNumber *)pos;
 -(NSNumber *)airMin;
+-(void)setSsTimeThrowed:(NSNumber *)aSsTime;
+-(NSNumber *)ssTimeThrowed;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "testSiteswap.h"
+#include "SSPattern.h"
 #import "Movement.h"
 
 
@@ -15,6 +16,14 @@
 -(void)testInputSiteswap
 {
 	STAssertEquals(YES, YES, @"Erreur");
+}
+
+-(void)testSiteswapDuration;
+{
+	SSPattern *aPattern;
+	aPattern = [[SSPattern alloc] init];
+	[aPattern defineTestPattern]; //cascade
+	STAssertEquals([aPattern ssBeatDuration], 1, @"SsBeatDuration");
 }
 
 @end

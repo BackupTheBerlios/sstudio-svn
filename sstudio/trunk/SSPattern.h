@@ -21,6 +21,7 @@ Pattern: ensemble de siteswap
 	NSMutableArray *movements;
 	NSArray *hands;
 	NSArray *balls;
+	id controller;
 }
 
 -(NSString *)description;
@@ -28,6 +29,8 @@ Pattern: ensemble de siteswap
 -(void)addMovement:(Movement *)move;
 -(id)movements;
 -(int)ballNumberNeeded;
+-(int)ssBeatDuration;
+-(int)relativeSsTimeForSsTime:(int)absSsTime;
 //hand
 -(Hand *)rightHand;
 -(Hand *)leftHand;
@@ -35,6 +38,9 @@ Pattern: ensemble de siteswap
 //bal
 -(Throwable *)ballNumber:(int)num;
 -(void)preprocess;
+-(void)juggleAtTime:(float)f;
+-(void)setController:(id)aController;
+-(id)controller;
 
 
 @end

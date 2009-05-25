@@ -46,8 +46,7 @@
 -(void)setSourcePattern:(id)aPat;
 {
 	SSPattern *tPat;
-	tPat = (SSPattern *)aPat;
-	//[tPat retain]; 
+	tPat = (SSPattern *)aPat; 
 	sourcePattern = tPat;
 }
 -(id)sourcePattern;
@@ -82,6 +81,37 @@
 	[throwHand setThrowSpeed:catchHand inSeconds: tTime]; //temps total de la trajectoire
 }
 
+-(bool)isInHand;
+{
+	return ([[self valueForKey:@"ssTimeThrowed"] intValue] == 0);
+}
+
+-(bool)mustBeThrowed:(int)aSsTime;
+{
+	if( [self isInHand] ){
+	}
+}
+
+-(bool)isInAirAtSsTime:(int)aSsTime;
+{
+	int thisThrowTime;
+	thisThrowTime = [[self valueForKey:@"thrTime"] intValue];
+	if( (thisThrowTime >= aSsTime) 
+		&& ( aSsTime < (thisThrowTime + [[self valueForKey:@"ssTimeThrowed"] intValue]))){
+			return YES;
+	}
+	else
+		return NO;
+}
+
+/*
+-(void)throwIfNecessary:(int)aSsTime;
+{
+	if([[self valueForKey:@"thrTime"] intValue] == [[self sourcePattern] relativeSsTimeForSsTime:aSsTime])
+	   {
+		   [self setValue:[NSNumber numberWithInt:aSsTime] forKey:<#(NSString *)key#>]
+}
+*/
 - (NSString *)description;
 {
 	NSString *desc = [[NSString alloc] initWithFormat:@"thrPos",thrPos];
@@ -124,4 +154,8 @@
 -(NSNumber *)airMin;
 { return airMin; }
 
+-(void)setSsTimeThrowed:(NSNumber *)aSsTime;
+{ ssTimeThrowed = aSsTime; }
+-(NSNumber *)ssTimeThrowed;
+{ return ssTimeThrowed; }
 @end

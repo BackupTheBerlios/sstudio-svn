@@ -120,4 +120,24 @@
 	return self;
 }
 
+-(id)movementAssigned;
+{
+	return [self movementAssigned];
+}
+
+-(void)setMovementAssigned:(id)aMovement;
+{
+	movementAssigned = aMovement;
+}
+
+-(int)ssTimeThrowed;
+{
+	return ssTimeThrowed;
+}
+
+-(void)setSsTimeThrowed:(int)aSsTime;
+{
+	ssTimeThrowed = aSsTime;
+}
+
 @end

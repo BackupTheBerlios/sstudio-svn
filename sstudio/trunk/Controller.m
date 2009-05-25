@@ -8,7 +8,6 @@
 
 #import "Controller.h"
 #import "Throwable.h"
-#import "View.h"
 
 
 @implementation Controller
@@ -17,7 +16,18 @@
 - (IBAction)initialize:(id)sender
 {
 	aPattern = [[SSPattern alloc] init];
+	[aPattern setController:self];
 	[aPattern defineTestPattern];
+
+	//alloc ball
+	Throwable *aBall;
+	NSUInteger i,nbBalls = [aPattern ballNumberNeeded];
+	balls = [[NSMutableArray alloc] initWithCapacity:nbBalls];
+	for (i=0; i < nbBalls; i++) {
+		aBall = [[Throwable alloc] init];
+		[balls addObject:aBall];
+	}
+
 	[aPattern preprocess];
 	NSLog(@"SSPattern de test");
 	NSLog(@"%@", aPattern);
@@ -36,6 +46,7 @@
 {
 	float nbSim;
 	realTime = 0;
+	ssAbsTime = 1;
 	timer = [[NSTimer scheduledTimerWithTimeInterval:[self sampleTime] 
 											  target:self
 											selector:@selector(tmrInterrupt:)
@@ -54,23 +65,26 @@
 	*/
 }
 
-
 -(void)tmrInterrupt:(NSTimer *)aTimer;
 {
 	float old;
+	float tmpSSRealTime = 0;
 	Movement *tMove;
 	old = realTime;
 	realTime = realTime + [self sampleTime];
-	
 	//process
 	///calcule +affichage ici
-	
-	tMove = [[aPattern movements] objectAtIndex:0];
-	[tMove juggleItAtTime:realTime];
-	
-	//[aPattern]
+	[aPattern juggleAtTime:realTime];
+	tmpSSRealTime = [self ssAbsTime]*[self beatTime];
+	if( tmpSSRealTime < realTime )
+	{
+		ssAbsTime++;
+		NSLog(@"ThrowTime ++:%d\n", ssAbsTime);
+		NSLog(@"relativeThrowTime:%d\n", [aPattern relativeSsTimeForSsTime:ssAbsTime ]);
+	}
 	[oglShow setNeedsDisplay:YES];
-	if(realTime > 2.0f){
+	if(realTime > 2.0f)
+	{
 		[timer invalidate];
 	}
 }
@@ -84,6 +98,16 @@
 -(float)beatTime;
 {
 	return 0.32f;
+}
+
+-(float)realTime;
+{
+	return realTime;
+}
+
+-(int)ssAbsTime;
+{
+	return ssAbsTime;
 }
 
 @end

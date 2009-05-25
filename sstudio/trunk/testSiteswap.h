@@ -14,6 +14,5 @@
 }
 
 -(void)testInputSiteswap;
--(void)inputSiteswap;
 
 @end

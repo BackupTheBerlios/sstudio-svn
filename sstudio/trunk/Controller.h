@@ -17,11 +17,12 @@
 	IBOutlet NSButton *btTest;	
 	//Juggler *myself;
 	SSPattern *aPattern;
+	NSMutableArray *balls;
 	
 	//timer
 	NSTimer *timer;
 	float realTime;
-	int ssThrowTime;
+	int ssAbsTime;
 }
 
 -(IBAction)initialize:(id)sender;
@@ -30,4 +31,6 @@
 
 -(float)sampleTime;
 -(float)beatTime;
+-(float)realTime;
+-(int)ssAbsTime;
 @end
