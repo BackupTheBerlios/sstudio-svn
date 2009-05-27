@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Movement.h"
 
 
 @interface Throwable : NSObject {
@@ -20,22 +21,22 @@
 	int ssTimeThrowed;
 }
 
-- (id)initWithNumber:(int)tNum;
-- (void)positionAtTime:(NSNumber *)time;
-- (NSString *)showTrajectory;
-- (id)deleteTrajectory;
-
-/*getter - setter*/
-- (void)setX:(float)tX;
-- (float)x;
-- (void)setY:(float)tY;
-- (float)y;
-- (id)setSpeedX:(float)speedX y:(float)speedY;
-- (float)getSpeedX;
-- (float)getSpeedY;
-- (NSMutableArray *)trajectory;
+-(id)initWithNumber:(int)tNum;
+-(void)positionAtTime:(NSNumber *)time;
+-(NSString *)showTrajectory;
+-(id)deleteTrajectory;
+-(NSMutableArray *)trajectory;
+-(void)throwAccordingMovement:(Movement*)aMove;
+-(void)catchBall;
 
 /* setter - getter */
+-(void)setX:(float)tX;
+-(float)x;
+-(void)setY:(float)tY;
+-(float)y;
+-(id)setSpeedX:(float)speedX y:(float)speedY;
+-(float)getSpeedX;
+-(float)getSpeedY;
 -(id)movementAssigned;
 -(void)setMovementAssigned:(id)aMovement;
 -(int)ssTimeThrowed;

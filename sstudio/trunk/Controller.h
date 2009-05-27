@@ -28,7 +28,8 @@
 -(IBAction)initialize:(id)sender;
 -(IBAction)juggleButtonClick:(id)sender;
 -(void)startSimulation;
-
+-(void)processRealTime;
+-(void)processSiteswapTime;
 -(float)sampleTime;
 -(float)beatTime;
 -(float)realTime;

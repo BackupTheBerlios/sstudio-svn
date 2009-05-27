@@ -157,11 +157,16 @@
 	return [balls objectAtIndex:num];	
 }
 
+-(Movement *)movementForAbsSiteswapTime;
+{
+	
+}
+
 -(void)preprocess;
 {
 	int numMovement;
 	Movement *aMove;
-	for(numMovement=1; numMovement <= [movements count]; numMovement++){
+	for(numMovement=1; numMovement < [movements count]; numMovement++){
 		aMove = [movements objectAtIndex:numMovement];
 		[aMove preprocess];
 	}
@@ -187,28 +192,57 @@
 		}
 	}
 	*/	
-	NSUInteger i, count = [movements count];
+	NSUInteger i, count = [balls count];
 	for (i = 0; i < count; i++){
-		Throwable *ball = [movements objectAtIndex:i];
-		[[ball movementAssigned] juggleAtTime:f];
+		Throwable *ball = [balls objectAtIndex:i];
+		if([ball movementAssigned]){
+			[[ball movementAssigned] juggleAtTime:f];
+		}
 	}
 }
 
--(void)throwAndCatchAll;
+-(bool)isThrowAtSsTime:(int)aSsTime;
 {
-	NSUInteger i, tNbBalls = [balls count];
-	NSUInteger tSsRelTime, startSsTime, endSsTime;
-	tSsRelTime = [self relativeSsTimeForSsTime:([[self controller] ssAbsTime])];
-	for (i = 0; i < tNbBalls; i++) {
-		Throwable * aBall = [balls objectAtIndex:i];
-		Movement * aMove = [aBall movementAssigned];
-		startSsTime = [[aMove valueForKey:@"ssBase"] intValue];
-		endSsTime = startSsTime + [aBall ssTimeThrowed];
-		if ( startSsTime == tSsRelTime){
-			[aBall setSsTimeThrowed: tSsRelTime];
+	int tRelTime;
+	tRelTime = [self relativeSsTimeForSsTime:aSsTime];
+	NSUInteger i, count = [movements count];
+	for (i = 0; i < count; i++) {
+		Movement *aMove = [movements objectAtIndex:i];
+		if ([[aMove valueForKey:@"thrTime"] intValue] == tRelTime){
+			return YES;
 		}
-		if ( endSsTime == tSsRelTime){
-			[aBall setSsTimeThrowed: 0];
+	}
+	return NO;
+}
+
+-(void)processCatchAndThrow;
+{
+	NSUInteger tSsAbsTime, tSsRelTime, startSsTime, endSsTime;
+	Throwable * aBall;
+	//throw => teste chaque move s'il doit etre lancé
+	NSUInteger i, count = [movements count];
+	NSLog(@"processCatchAndThrow\n");
+	tSsAbsTime = [[self controller] ssAbsTime];
+	for (i = 0; i < count; i++) {
+
+		//TODO: rien n'est jamais assigné => lorsqu'on rattrape on prend en compte assignedMovement, 
+		//lorqu'on lance on prend le curseur du ss
+		//throw
+		aBall = [self isThrowAtSsTime:tSsAbsTime];
+		if (aBall){
+			[aBall setSsTimeThrowed:tSsAbsTime];
+		}
+	}
+	
+	//catch => teste chaque balle si elle doit atterrir
+	for(i=0; i < [balls count]; i++){
+		aBall = [balls objectAtIndex:i];
+		Movement * aMove = [aBall movementAssigned];
+		if(aMove){ 
+			endSsTime = startSsTime + [aBall ssTimeThrowed];
+			if ( endSsTime == tSsRelTime){
+				[aBall setSsTimeThrowed: 0];
+			}
 		}
 	}
 }

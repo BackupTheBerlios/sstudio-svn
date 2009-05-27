@@ -37,8 +37,12 @@ Pattern: ensemble de siteswap
 -(Hand *)handForSite:(NSString *)tSite;
 //bal
 -(Throwable *)ballNumber:(int)num;
+-(Movement *)movementForAbsSiteswapTime;
 -(void)preprocess;
 -(void)juggleAtTime:(float)f;
+-(Movement *)isThrowAtSsTime:(int)aSsTime;
+-(void)processCatchAndThrow;
+
 -(void)setController:(id)aController;
 -(id)controller;
 

@@ -51,6 +51,8 @@
 	return str;
 }
 
+
+
 - (void)setX:(float)tX;{
 	[x release];
 	x = [NSNumber numberWithFloat:tX];
@@ -112,6 +114,14 @@
 		[result appendString:str];
 	}
 	return str;
+}
+
+-(void)throwAccordingMovement:(Movement*)aMove;
+{
+}
+
+-(void)catchBall;
+{
 }
 
 - (id)deleteTrajectory

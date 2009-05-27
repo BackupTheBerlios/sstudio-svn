@@ -35,10 +35,8 @@
 
 -(IBAction)juggleButtonClick:(id)sender
 {
-	Movement *tMove;
 	NSLog(@"juggle started");
 	[oglShow setPattern:aPattern];
-	tMove = [[aPattern movements] objectAtIndex:1];
 	[self startSimulation];
 }
 
@@ -67,26 +65,40 @@
 
 -(void)tmrInterrupt:(NSTimer *)aTimer;
 {
-	float old;
-	float tmpSSRealTime = 0;
-	Movement *tMove;
-	old = realTime;
-	realTime = realTime + [self sampleTime];
-	//process
+	//calcul du temps
+	[self processRealTime];
+	[self processSiteswapTime];
+
 	///calcule +affichage ici
+	[aPattern processCatchAndThrow];
 	[aPattern juggleAtTime:realTime];
-	tmpSSRealTime = [self ssAbsTime]*[self beatTime];
-	if( tmpSSRealTime < realTime )
-	{
-		ssAbsTime++;
-		NSLog(@"ThrowTime ++:%d\n", ssAbsTime);
-		NSLog(@"relativeThrowTime:%d\n", [aPattern relativeSsTimeForSsTime:ssAbsTime ]);
-	}
+
 	[oglShow setNeedsDisplay:YES];
 	if(realTime > 2.0f)
 	{
 		[timer invalidate];
 	}
+}
+
+//fait avancer le ssTime si necessaire (realTime a avancé d'un beat)
+-(void)processSiteswapTime;
+{
+	int tmpSSRealTime = 0;	
+	tmpSSRealTime = [self ssAbsTime]*[self beatTime];	
+	if( tmpSSRealTime < realTime )
+	{
+		ssAbsTime++;
+		NSLog(@"ThrowTime ++:%d\n", ssAbsTime);
+		NSLog(@"relativeThrowTime:%d\n", [aPattern relativeSsTimeForSsTime:ssAbsTime ]);
+	}		
+}
+
+//fait avancer le temps
+-(void)processRealTime;
+{
+	float old;
+	old = realTime;
+	realTime = realTime + [self sampleTime];
 }
 
 -(float)sampleTime;
