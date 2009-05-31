@@ -14,9 +14,8 @@
 	//animation
 	IBOutlet SSView *oglShow;
 	IBOutlet NSButton *btJuggle;
-	IBOutlet NSButton *btTest;	
-	//Juggler *myself;
 	SSPattern *aPattern;
+	NSArray *hands;
 	NSMutableArray *balls;
 	
 	//timer
@@ -25,11 +24,28 @@
 	int ssAbsTime;
 }
 
+//interface
 -(IBAction)initialize:(id)sender;
 -(IBAction)juggleButtonClick:(id)sender;
+
+//hands
+-(Hand *)rightHand;
+-(Hand *)leftHand;
+-(Hand *)handForSite:(NSString *)tSite;
+
+//balls
+-(id)balls;
+
+//juggler
+-(void)initBalls;
+-(void)initHands;
 -(void)startSimulation;
 -(void)processRealTime;
 -(void)processSiteswapTime;
+-(void)simAStep;
+-(void)initBalls;
+
+//constantes
 -(float)sampleTime;
 -(float)beatTime;
 -(float)realTime;

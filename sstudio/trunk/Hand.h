@@ -12,9 +12,11 @@
 
 
 @interface Hand : NSObject {
+	id controller;
 	NSNumber *x;
 	NSNumber *y;
 	Throwable *objThrowed;
+	NSMutableArray *heldBalls;
 }
 
 //- (id)throw:(Throwable *)obj to:(Hand *)hDest;
@@ -30,5 +32,7 @@
 - (id)setPositionX:(float)posX positionY:(float)posY;
 - (id)placeAtPos:(NSString*)tMark;
 -(void)prepareThrowSiteForMove:(Movement *)move;
+-(void)addBall:(Throwable *)aBall;
+-(void)subBall:(Throwable *)aBall;
 
 @end

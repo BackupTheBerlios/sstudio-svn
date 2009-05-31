@@ -7,9 +7,8 @@
 //
 
 #import "testSiteswap.h"
-#include "SSPattern.h"
-#import "Movement.h"
-
+#import "Controller.h"
+#import "Hand.h"
 
 @implementation testSiteswap
 
@@ -18,12 +17,26 @@
 	STAssertEquals(YES, YES, @"Erreur");
 }
 
--(void)testSiteswapDuration;
+-(void)testPattern
 {
 	SSPattern *aPattern;
 	aPattern = [[SSPattern alloc] init];
-	[aPattern defineTestPattern]; //cascade
-	STAssertEquals([aPattern ssBeatDuration], 1, @"SsBeatDuration");
+	[aPattern defineTestPattern];
+	STAssertEquals([aPattern ballNumberNeeded], 3, @"Erreur");
 }
+
+-(void)testHands
+{
+	Controller *aCtrl;
+	Hand *aHand;
+	aCtrl = [[Controller alloc] init];
+	[aCtrl initHands]; 
+	aHand = [aCtrl handForSite:@"R"];
+	STAssertNotNil(aHand, @"Right Hand not found");
+	aHand = [aCtrl handForSite:@"L"];	
+	STAssertNotNil(aHand, @"Left Hand not found");
+}
+
+
 
 @end

@@ -47,7 +47,8 @@
 
 - (NSString *)description
 {
-	NSString *str = [[NSString alloc] initWithFormat: @"position:%d",x ];
+	NSMutableString *str = [[NSMutableString alloc] init];
+	[str appendFormat:@"	Ball %@ - X=%3.2f - Y=%3.2f\n", number, [self x], [self y] ];
 	return str;
 }
 

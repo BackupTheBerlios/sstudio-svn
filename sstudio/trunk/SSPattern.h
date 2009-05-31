@@ -19,8 +19,8 @@ Pattern: ensemble de siteswap
 @interface SSPattern : NSObject {
 	NSString *identifier;
 	NSMutableArray *movements;
-	NSArray *hands;
-	NSArray *balls;
+	//NSArray *hands;
+	//NSArray *balls;
 	id controller;
 }
 
@@ -31,11 +31,10 @@ Pattern: ensemble de siteswap
 -(int)ballNumberNeeded;
 -(int)ssBeatDuration;
 -(int)relativeSsTimeForSsTime:(int)absSsTime;
+
 //hand
--(Hand *)rightHand;
--(Hand *)leftHand;
--(Hand *)handForSite:(NSString *)tSite;
-//bal
+
+//ball
 -(Throwable *)ballNumber:(int)num;
 -(Movement *)movementForAbsSiteswapTime;
 -(void)preprocess;

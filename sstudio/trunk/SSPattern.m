@@ -8,6 +8,7 @@
 
 #import "SSPattern.h"
 #import "Controller.h"
+#import "Throwable.h"
 
 
 @implementation SSPattern
@@ -17,17 +18,16 @@
 	NSMutableArray *tHands;
 	NSMutableArray *tBalls;
 	Throwable *tBall;
-	int i, nbBalls;
+	NSUInteger i,nbBalls = [self ballNumberNeeded];
 	[super init];
-	
-	//alloc hands
-	tHands = [[NSMutableArray alloc] initWithCapacity:2];
-	[ tHands addObject:[[Hand alloc] init] ];
-	[ tHands addObject:[[Hand alloc] init] ];
-	hands = tHands;
-	
 	//alloc movements
 	movements = [[NSMutableArray alloc] initWithCapacity:0];
+	
+	//alloc balls
+	Throwable *aBall;
+
+//	balls = [[NSMutableArray alloc] initWithCapacity:0];
+	
 	return self;
 }
 
@@ -68,6 +68,7 @@
 -(id)defineTestPattern;
 {
 	Movement *move;
+	Throwable *aBall;
 	//cascade 3B
 	identifier = [[NSString alloc] initWithString:@"cascade 3 balles"];
 	//1er mouvement
@@ -90,7 +91,7 @@
 	[move setValue:@"r" forKey:@"thrPos"];
 	[move setValue:@"L" forKey:@"catSite"];
 	[move setValue:@"l" forKey:@"catPos"];
-	[self addMovement:move];	
+	[self addMovement:move];
 	return self;
 }
 
@@ -136,37 +137,21 @@
 	return (absSsTime % [self ssBeatDuration]);
 }
 
--(Hand *)rightHand
-{
-	return [hands objectAtIndex:0];
-}
-
--(Hand *)leftHand
-{
-	return [hands objectAtIndex:1];
-}
-
--(Hand *)handForSite:(NSString *)tSite;
-{
-	if ( [tSite isEqualToString:@"R"] ) return [self rightHand];
-		else return [self leftHand];
-}
-
 -(Throwable *)ballNumber:(int)num;
 {
-	return [balls objectAtIndex:num];	
+	return [[controller balls] objectAtIndex:num];	
 }
 
 -(Movement *)movementForAbsSiteswapTime;
 {
 	
 }
-
+//pre-process chaque move
 -(void)preprocess;
 {
 	int numMovement;
 	Movement *aMove;
-	for(numMovement=1; numMovement < [movements count]; numMovement++){
+	for(numMovement=0; numMovement < [movements count]; numMovement++){
 		aMove = [movements objectAtIndex:numMovement];
 		[aMove preprocess];
 	}
@@ -192,16 +177,16 @@
 		}
 	}
 	*/	
-	NSUInteger i, count = [balls count];
+	NSUInteger i, count = [[controller balls] count];
 	for (i = 0; i < count; i++){
-		Throwable *ball = [balls objectAtIndex:i];
+		Throwable *ball = [self ballNumber:i];
 		if([ball movementAssigned]){
-			[[ball movementAssigned] juggleAtTime:f];
+			[[ball movementAssigned] juggleItAtTime:f];
 		}
 	}
 }
 
--(bool)isThrowAtSsTime:(int)aSsTime;
+-(Movement *)isThrowAtSsTime:(int)aSsTime;
 {
 	int tRelTime;
 	tRelTime = [self relativeSsTimeForSsTime:aSsTime];
@@ -209,34 +194,37 @@
 	for (i = 0; i < count; i++) {
 		Movement *aMove = [movements objectAtIndex:i];
 		if ([[aMove valueForKey:@"thrTime"] intValue] == tRelTime){
-			return YES;
+			return aMove;
 		}
 	}
-	return NO;
+	return nil;
 }
 
 -(void)processCatchAndThrow;
 {
 	NSUInteger tSsAbsTime, tSsRelTime, startSsTime, endSsTime;
-	Throwable * aBall;
 	//throw => teste chaque move s'il doit etre lancé
 	NSUInteger i, count = [movements count];
 	NSLog(@"processCatchAndThrow\n");
 	tSsAbsTime = [[self controller] ssAbsTime];
+	Movement *aMove;
 	for (i = 0; i < count; i++) {
 
 		//TODO: rien n'est jamais assigné => lorsqu'on rattrape on prend en compte assignedMovement, 
 		//lorqu'on lance on prend le curseur du ss
 		//throw
-		aBall = [self isThrowAtSsTime:tSsAbsTime];
-		if (aBall){
-			[aBall setSsTimeThrowed:tSsAbsTime];
+		aMove = [self isThrowAtSsTime:tSsAbsTime];
+		if (aMove){
+			Hand *theThrHand;
+			theThrHand = [[[aMove sourcePattern] controller] handForSite:[aMove valueForKey:@"thrSite"]];
+			//[theThrHand ]
 		}
 	}
 	
 	//catch => teste chaque balle si elle doit atterrir
-	for(i=0; i < [balls count]; i++){
-		aBall = [balls objectAtIndex:i];
+	Throwable * aBall;
+	for(i=0; i < [[controller balls]  count]; i++){
+		aBall = [self ballNumber:i];
 		Movement * aMove = [aBall movementAssigned];
 		if(aMove){ 
 			endSsTime = startSsTime + [aBall ssTimeThrowed];

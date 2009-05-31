@@ -39,7 +39,7 @@
 	Hand *rH, *lH; 
 
 	aPat = [self sourcePattern];
-	rH = [aPat rightHand];
+	rH = [ [aPat controller] rightHand];
 	[rH trajectoryMovement:self atTime:t];
 }
 
@@ -54,27 +54,21 @@
 	return (id)sourcePattern;
 }
 
+//place les mains, 
 -(void)preprocess;
 {
 	float tTime =2;
 	SSPattern *aPat;
 	Hand *throwHand, *catchHand;
 	aPat = [self sourcePattern];
-	//on recup les mains
-	/* old
-	rH = [aPat rightHand];	
-	lH = [aPat leftHand];	
-	 */
-	throwHand = [sourcePattern handForSite:thrSite];
+
+	//place les mains pr calcul speed
+	throwHand = [[sourcePattern controller] handForSite:thrSite];
 	[throwHand placeAtPos:thrPos];	
-	catchHand = [sourcePattern handForSite:catSite];
+	catchHand = [[sourcePattern controller] handForSite:catSite];
 	[catchHand placeAtPos:catPos];
 	//assigne objThrowed
-	/*old
-	[rH setPositionX:10.0f positionY:1.2f];
-	[lH setPositionX:0.0f positionY:1.2f];		
-	 */
-
+	//TODO: prb de main => tjrs la meme
 	[[aPat ballNumber:0] setX:[throwHand getPosX]];
 	[[aPat ballNumber:0] setY:[throwHand getPosY]];
 	[throwHand setObjThrowed:[aPat ballNumber:0]];
@@ -86,11 +80,13 @@
 	return ([[self valueForKey:@"ssTimeThrowed"] intValue] == 0);
 }
 
+/*
 -(bool)mustBeThrowed:(int)aSsTime;
 {
 	if( [self isInHand] ){
 	}
 }
+ */
 
 -(bool)isInAirAtSsTime:(int)aSsTime;
 {

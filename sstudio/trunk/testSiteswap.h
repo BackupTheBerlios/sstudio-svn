@@ -8,11 +8,10 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-
 @interface testSiteswap : SenTestCase {
 
 }
 
 -(void)testInputSiteswap;
-
+-(void)testPattern;
 @end

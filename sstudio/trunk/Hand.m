@@ -20,6 +20,7 @@
 	[x retain];
 	y = [NSNumber numberWithFloat:2.0];
 	[y retain];
+	heldBalls = [[NSMutableArray alloc] initWithCapacity:1];
 	return self;
 }
 
@@ -130,5 +131,20 @@
 		[self setPositionX:0.0f positionY:0.0f];
 	}
 	return self;
+}
+
+-(void)addBall:(Throwable *)aBall;
+{
+	[heldBalls addObject:aBall];
+}
+
+-(void)subBall:(Throwable *)aBall;
+{
+	if ([heldBalls containsObject:aBall]){
+		[heldBalls removeObject:aBall];
+	}
+	else{
+		NSLog(@"subBall: erreur");
+	}
 }
 @end
