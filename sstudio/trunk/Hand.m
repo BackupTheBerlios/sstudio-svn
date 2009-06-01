@@ -5,6 +5,7 @@
 //  Created by clem on 01/01/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
+#import "Controller.h"
 #import "Hand.h"
 #import "Position.h"
 #import "SSPattern.h"
@@ -77,12 +78,13 @@
 }
 
 //place la balle a l'instant t
+/*
 - (void)trajectoryMovement:(Movement *)aMove atTime:(float)t; 
 {
 	float newY, newX;
 	Throwable *tObjThrowed;
 	Hand *hDest;
-	tObjThrowed = [controller ballNumber:0];
+	tObjThrowed = [ ballNumber:0];
 	hDest = [controller leftHand];
 	//NSLog(@"trajectoryMovement\n");
 	newY = ([tObjThrowed getSpeedY]*t) - (0.5*9.81*t*t)+[self getPosY];
@@ -91,7 +93,7 @@
 	[ tObjThrowed setX:newX];
 	[ tObjThrowed setY:newY];
 }
-
+*/
 
 
 - (id)setThrowSpeed:(Hand *)hDest inSeconds:(float)timing
@@ -111,6 +113,7 @@
 	return ( (posX/t)-[objThrowed x]/t);
 }
 
+//TODO: division par 0 
 //equation du mouvement sur Y
 - (float)speedToGoToY:(float)posY inSeconds:(float)t
 {
@@ -142,7 +145,7 @@
 	}
 	if ([tMark isEqualToString:@"l"])
 	{
-		[self setPositionX:0.0f positionY:0.0f];
+		[self setPositionX:1.0f positionY:0.0f];
 	}
 	return self;
 }
@@ -150,6 +153,7 @@
 //met une balle dans la main
 -(void)putBall:(Throwable *)aBall;
 {
+	[aBall setSsTimeThrowed:0];
 	[heldBalls insertObject:aBall atIndex:0];
 }
 

@@ -101,10 +101,10 @@
 
 -(void)logBalls;
 {
-	NSUInteger i, count = [balls count];
+	int i, count = [balls count];
 	for (i = 0; i < count; i++) {
-		Throwable * obj = [balls objectAtIndex:i];
-		NSLog(@"%@", i, balls);
+		Throwable * aBall = [balls objectAtIndex:i];
+		NSLog(@"%d %@", i, aBall);
 	}
 }
 
@@ -125,11 +125,20 @@
 	NSUInteger nbBalls,i;
 	Movement *aMove;
 	Throwable *aBall;
+	
+	//desalloue s'il existe
+	if (balls != nil){
+		[balls release];
+		balls = nil;
+	}
+	balls =[[NSMutableArray alloc] initWithCapacity:0];
 	nbBalls = [aPattern ballNumberNeeded];
 	for (i = 0; i < nbBalls; i++) {
 		aMove = [aPattern getMovementThrowedAtSsTime:(i+1)];
 		if (aMove){
 			aBall = [[Throwable alloc] init];
+			[aBall setValue:[NSNumber numberWithInt:i] forKey:@"number"];
+			[aBall setMovementAssigned:aMove];
 			[balls addObject:aBall];
 			[[aMove throwHand] putBall:aBall];
 		}

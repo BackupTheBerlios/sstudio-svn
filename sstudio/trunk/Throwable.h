@@ -17,16 +17,16 @@
 	NSNumber *vx;
 	NSNumber *vy;
 	NSMutableArray *trajectory;
-	id movementAssigned;
+	Movement *movementAssigned;
 	int ssTimeThrowed;
 }
 
 -(id)initWithNumber:(int)tNum;
--(void)positionAtTime:(NSNumber *)time;
+-(void)positionAtTime:(float)aTime;
 -(NSString *)showTrajectory;
 -(id)deleteTrajectory;
 -(NSMutableArray *)trajectory;
--(void)throwAccordingMovement:(Movement*)aMove;
+-(void)preprocess;
 -(void)catchBall;
 
 /* setter - getter */

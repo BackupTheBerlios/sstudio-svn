@@ -139,14 +139,24 @@
 {
 	return nil;
 }
+
 //pre-process chaque move
 -(void)preprocess;
 {
 	int numMovement;
+	/*
 	Movement *aMove;
 	for(numMovement=0; numMovement < [movements count]; numMovement++){
 		aMove = [movements objectAtIndex:numMovement];
 		[aMove preprocess];
+	}
+	 */
+	Throwable *aBall;
+	int ballsCount, i;
+	ballsCount = [[controller balls] count];
+	for(i=0; i < ballsCount; i++){
+		aBall = [[controller balls] objectAtIndex:i];
+		[aBall preprocess];
 	}
 }
 
@@ -157,24 +167,12 @@
 	float relativeTime, moveTime;
 	moveTime = 0;
 	relativeTime = 0;
-
-	for(nbMovements = 0; nbMovements < [[self movements] count]; nbMovements++){
-		aMovement = [[self movements] objectAtIndex:nbMovements];
-		if([aMovement isInHand]){
-		}
-		if([aMovement isInAirAtSsTime:[controller ssAbsTime]])
-		{
-			moveTime = ([[aMovement valueForKey:@"thrTime"] floatValue])*((int)[[self controller] beatTime]);
-			relativeTime = ([[self controller] realTime])+moveTime;
-			[aMovement juggleItAtTime:relativeTime];
-		}
-	}
 	
 	NSUInteger i, count = [[controller balls] count];
 	for (i = 0; i < count; i++){
-		Throwable *ball = [[self controller] ballNumber:i];
-		if([ball movementAssigned]){
-			[[ball movementAssigned] juggleItAtTime:f];
+		Throwable *aBall = [[self controller] ballNumber:i];
+		if(aBall){
+			[aBall positionAtTime:f];
 		}
 	}
 }
@@ -195,7 +193,6 @@
 }
 
 //TODO: rien n'est jamais assigné => lorsqu'on rattrape on prend en compte assignedMovement, 
-
 -(void)throwBallsAtSsTime:(int)tSsAbsTime;
 {
 	Hand *theThrHand;

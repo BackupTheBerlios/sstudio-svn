@@ -6,7 +6,9 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#import "Controller.h"
 #import "Throwable.h"
+#import "Hand.h"
 
 
 @implementation Throwable
@@ -93,10 +95,17 @@
 	return [vy floatValue];
 }
 
--(void)positionAtTime:(NSNumber *)time
+-(void)positionAtTime:(float)aTime;
 {
-	[self setX: ([self getSpeedX]*[time floatValue])];
-	[self setY: (([self getSpeedY]*[time floatValue]) - (0.5*9.81*[time floatValue]*[time floatValue])+[self y])];
+	float newY, newX;
+	Hand *throwHand;
+	throwHand = [movementAssigned throwHand];
+	//NSLog(@"trajectoryMovement\n");
+	newY = ([self getSpeedY]*aTime) - (0.5*9.81*aTime*aTime)+[throwHand getPosY];
+	newX = [self getSpeedX]*aTime;
+	NSLog(@"%f;%f", newX, newY);
+	[self setX:newX];
+	[self setY:newY];
 }
 
 - (NSMutableArray *)trajectory
@@ -117,8 +126,23 @@
 	return str;
 }
 
--(void)throwAccordingMovement:(Movement*)aMove;
+//place la main et la balle prete etre lancé
+-(void)preprocess;
 {
+	Hand *throwHand, *catchHand;
+	int tBeat;
+	//place les mains pr calcul speed
+	throwHand = [[self movementAssigned] throwHand];
+	[throwHand placeAtPos: [movementAssigned valueForKey:@"thrPos"]];	
+	catchHand =[[self movementAssigned] catchHand];
+	[catchHand placeAtPos: [movementAssigned valueForKey:@"catPos"]];
+	//assigne objThrowed
+	//TODO: prb de main => tjrs la meme
+	[self setX:[throwHand getPosX]];
+	[self setY:[throwHand getPosY]];
+	[throwHand setObjThrowed:self];
+	tBeat = [[[movementAssigned sourcePattern] controller] beatTime];
+	[throwHand setThrowSpeed:catchHand inSeconds: tBeat*[[movementAssigned valueForKey:@"ssBase"] intValue]]; //temps total de la trajectoire
 }
 
 -(void)catchBall;
@@ -133,7 +157,10 @@
 
 -(id)movementAssigned;
 {
-	return [self movementAssigned];
+	if (movementAssigned == nil){
+		NSLog(@"movementAssigned = nil\n");
+	}
+	return movementAssigned;
 }
 
 -(void)setMovementAssigned:(id)aMovement;

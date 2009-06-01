@@ -29,14 +29,13 @@
 
 -(id)init;
 -(id)initMovement;
--(void)juggleItAtTime:(float)t;
+//-(void)juggleItAtTime:(float)t;
 -(void)setSourcePattern:(id)aPat;
 -(id)sourcePattern;
--(void)preprocess;
 -(bool)isInAirAtSsTime:(int)aSsTime;
 -(id)throwHand;
 -(id)catchHand;
-//-(void)throwIfNecessary:(int)aSsTime;
+-(id)controller;
 
 /* Getter - Setter */
 -(void)setThrTime:(NSString *)t;

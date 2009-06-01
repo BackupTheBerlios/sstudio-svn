@@ -33,16 +33,15 @@
 	return move;
 }
 
+/*
 -(void)juggleItAtTime:(float)t;
 {
 	//positionner les mains
-	SSPattern *aPat;
-	Hand *rH, *lH; 
-
-	aPat = [self sourcePattern];
-	rH = [ [aPat controller] rightHand];
-	[rH trajectoryMovement:self atTime:t];
+	Hand *aHand; 
+	aHand = [self throwHand];	
+	[aHand trajectoryMovement:self atTime:t];
 }
+ */
 
 -(void)setSourcePattern:(id)aPat;
 {
@@ -50,30 +49,10 @@
 	tPat = (SSPattern *)aPat; 
 	sourcePattern = tPat;
 }
+
 -(id)sourcePattern;
 {
 	return (id)sourcePattern;
-}
-
-//place les mains, 
--(void)preprocess;
-{
-	float tTime =2;
-	SSPattern *aPat;
-	Hand *throwHand, *catchHand;
-	//aPat = [self sourcePattern];
-	Controller *theController = [sourcePattern controller];
-	//place les mains pr calcul speed
-	throwHand = [theController handForSite:thrSite];
-	[throwHand placeAtPos:thrPos];	
-	catchHand = [theController handForSite:catSite];
-	[catchHand placeAtPos:catPos];
-	//assigne objThrowed
-	//TODO: prb de main => tjrs la meme
-	[[theController ballNumber:0] setX:[throwHand getPosX]];
-	[[theController ballNumber:0] setY:[throwHand getPosY]];
-	[throwHand setObjThrowed:[theController ballNumber:0]];
-	[throwHand setThrowSpeed:catchHand inSeconds: tTime]; //temps total de la trajectoire
 }
 
 -(bool)isInHand;
@@ -81,13 +60,6 @@
 	return ([[self valueForKey:@"ssTimeThrowed"] intValue] == 0);
 }
 
-/*
--(bool)mustBeThrowed:(int)aSsTime;
-{
-	if( [self isInHand] ){
-	}
-}
- */
 
 -(bool)isInAirAtSsTime:(int)aSsTime;
 {
@@ -101,14 +73,6 @@
 		return NO;
 }
 
-/*
--(void)throwIfNecessary:(int)aSsTime;
-{
-	if([[self valueForKey:@"thrTime"] intValue] == [[self sourcePattern] relativeSsTimeForSsTime:aSsTime])
-	   {
-		   [self setValue:[NSNumber numberWithInt:aSsTime] forKey:<#(NSString *)key#>]
-}
-*/
 - (NSString *)description;
 {
 	NSString *desc = [[NSString alloc] initWithFormat:@"thrPos",thrPos];
@@ -133,6 +97,11 @@
 	else{
 		return nil;
 	}
+}
+
+-(id)controller;
+{
+	return [sourcePattern controller];
 }
 
 -(void)setThrTime:(NSString *)t;

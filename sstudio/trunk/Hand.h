@@ -20,7 +20,7 @@
 }
 
 //- (id)throw:(Throwable *)obj to:(Hand *)hDest;
--(void)trajectoryMovement:(Movement *)tMove atTime:(float)t; 
+//-(void)trajectoryMovement:(Movement *)tMove atTime:(float)t; 
 -(float)speedToGoToX:(float)posX inSeconds:(float)timing;
 -(float)speedToGoToY:(float)posY inSeconds:(float)t;
 -(id)placeAtPos:(NSString*)tMark;
