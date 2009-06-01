@@ -119,32 +119,25 @@
 	return (sumSS/i);
 }
 
--(int)ssBeatDuration;
-{
-	/*
-	int nbMove;
-	int sumSs = 0;
-	for (nbMove = 0; nbMove < [movements count]; nbMove++) {
-		sumSs = sumSs + [[movements objectAtIndex:nbMove] valueForKey:@"thrTime"
-	}
-	 */
-	return [[[movements lastObject] valueForKey:@"thrTime"] intValue];
-}
-
-
+//retourne le ssTime relatif au pattern
 -(int)relativeSsTimeForSsTime:(int)absSsTime;
 {
-	return (absSsTime % [self ssBeatDuration]);
-}
-
--(Throwable *)ballNumber:(int)num;
-{
-	return [[controller balls] objectAtIndex:num];	
+	if(absSsTime == 0){
+		return 0;
+	}
+	else{
+		int tTime;
+		tTime = absSsTime % [[self movements] count];
+		if (tTime == 0){
+			tTime = [[self movements] count];
+		}
+		return tTime;
+	}
 }
 
 -(Movement *)movementForAbsSiteswapTime;
 {
-	
+	return nil;
 }
 //pre-process chaque move
 -(void)preprocess;
@@ -164,29 +157,30 @@
 	float relativeTime, moveTime;
 	moveTime = 0;
 	relativeTime = 0;
-	/*
+
 	for(nbMovements = 0; nbMovements < [[self movements] count]; nbMovements++){
 		aMovement = [[self movements] objectAtIndex:nbMovements];
 		if([aMovement isInHand]){
 		}
-		if([aMovement isInAirAtSsTime:[[self controller] ssThrowTime]])
+		if([aMovement isInAirAtSsTime:[controller ssAbsTime]])
 		{
 			moveTime = ([[aMovement valueForKey:@"thrTime"] floatValue])*((int)[[self controller] beatTime]);
 			relativeTime = ([[self controller] realTime])+moveTime;
 			[aMovement juggleItAtTime:relativeTime];
 		}
 	}
-	*/	
+	
 	NSUInteger i, count = [[controller balls] count];
 	for (i = 0; i < count; i++){
-		Throwable *ball = [self ballNumber:i];
+		Throwable *ball = [[self controller] ballNumber:i];
 		if([ball movementAssigned]){
 			[[ball movementAssigned] juggleItAtTime:f];
 		}
 	}
 }
 
--(Movement *)isThrowAtSsTime:(int)aSsTime;
+//renvoie le mouvement si il doit etre lancé, sinon nil
+-(Movement *)getMovementThrowedAtSsTime:(int)aSsTime;
 {
 	int tRelTime;
 	tRelTime = [self relativeSsTimeForSsTime:aSsTime];
@@ -200,44 +194,61 @@
 	return nil;
 }
 
--(void)processCatchAndThrow;
-{
-	NSUInteger tSsAbsTime, tSsRelTime, startSsTime, endSsTime;
-	//throw => teste chaque move s'il doit etre lancé
-	NSUInteger i, count = [movements count];
-	NSLog(@"processCatchAndThrow\n");
-	tSsAbsTime = [[self controller] ssAbsTime];
-	Movement *aMove;
-	for (i = 0; i < count; i++) {
+//TODO: rien n'est jamais assigné => lorsqu'on rattrape on prend en compte assignedMovement, 
 
-		//TODO: rien n'est jamais assigné => lorsqu'on rattrape on prend en compte assignedMovement, 
-		//lorqu'on lance on prend le curseur du ss
-		//throw
-		aMove = [self isThrowAtSsTime:tSsAbsTime];
-		if (aMove){
-			Hand *theThrHand;
-			theThrHand = [[[aMove sourcePattern] controller] handForSite:[aMove valueForKey:@"thrSite"]];
-			//[theThrHand ]
-		}
+-(void)throwBallsAtSsTime:(int)tSsAbsTime;
+{
+	Hand *theThrHand;
+	Movement *aMove;
+	Throwable *aBall;
+	NSUInteger i, movesCount = [movements count];
+	NSLog(@"throwBallsAtSsTime\n");
+	aMove = [self getMovementThrowedAtSsTime:tSsAbsTime];
+	if (aMove){
+		NSLog(@"Ball must be throwed\n");
+		theThrHand = [controller handForSite:[aMove valueForKey:@"thrSite"]];
+		aBall = [theThrHand getBall];
+		[aBall setSsTimeThrowed: tSsAbsTime];
+		[aBall setMovementAssigned:aMove];
 	}
-	
-	//catch => teste chaque balle si elle doit atterrir
-	Throwable * aBall;
-	for(i=0; i < [[controller balls]  count]; i++){
-		aBall = [self ballNumber:i];
-		Movement * aMove = [aBall movementAssigned];
+}
+
+-(void)catchBallsAtSsTime:(int)aSsTime;
+{
+	Movement * aMove;
+	Throwable *aBall;
+	Hand *aCatchHand;
+	int startSsTime, endSsTime, tSsRelTime;
+	NSUInteger i, ballsCount = [[controller balls]  count];
+	NSLog(@"catchBallsAtSsTime\n");
+	tSsRelTime = [self relativeSsTimeForSsTime:aSsTime];
+	for(i=0; i < ballsCount; i++){
+		aBall = [controller ballNumber:i];
+		aMove = [aBall movementAssigned];
 		if(aMove){ 
 			endSsTime = startSsTime + [aBall ssTimeThrowed];
 			if ( endSsTime == tSsRelTime){
 				[aBall setSsTimeThrowed: 0];
+				aCatchHand = [[self controller] handForSite: [[aBall movementAssigned] valueForKey:@"catSite"]];
+				if ( aCatchHand != nil){
+					[aCatchHand putBall:aBall];
+				}
 			}
 		}
-	}
+	}	
+}
+
+-(void)processCatchAndThrow;
+{
+	int tSsAbsTime;
+	NSLog(@"processCatchAndThrow\n");
+	tSsAbsTime = [[self controller] ssAbsTime];
+	[self catchBallsAtSsTime:tSsAbsTime];
+	[self throwBallsAtSsTime:tSsAbsTime];
 }
 	 
 
 /*getter-setter*/
-
 -(void)setController:(id)aController;
 {
 	controller = aController;

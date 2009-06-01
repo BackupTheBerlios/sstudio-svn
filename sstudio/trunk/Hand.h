@@ -20,19 +20,22 @@
 }
 
 //- (id)throw:(Throwable *)obj to:(Hand *)hDest;
-- (void)trajectoryMovement:(Movement *)tMove atTime:(float)t; 
-- (float)getPosX;
-- (id)setPosX:(float)posX;
-- (float)getPosY;
-- (id)setPosY:(float)posY;
-- (void)setObjThrowed:(Throwable *)tBall;
-- (id)setThrowSpeed:(Hand *)hDest inSeconds:(float)t;
-- (float)speedToGoToX:(float)posX inSeconds:(float)timing;
-- (float)speedToGoToY:(float)posY inSeconds:(float)t;
-- (id)setPositionX:(float)posX positionY:(float)posY;
-- (id)placeAtPos:(NSString*)tMark;
+-(void)trajectoryMovement:(Movement *)tMove atTime:(float)t; 
+-(float)speedToGoToX:(float)posX inSeconds:(float)timing;
+-(float)speedToGoToY:(float)posY inSeconds:(float)t;
+-(id)placeAtPos:(NSString*)tMark;
 -(void)prepareThrowSiteForMove:(Movement *)move;
--(void)addBall:(Throwable *)aBall;
--(void)subBall:(Throwable *)aBall;
+-(void)putBall:(Throwable *)aBall;
+-(Throwable *)getBall;
+
+/* getter - setter */
+-(id)heldBalls;
+-(float)getPosX;
+-(id)setPosX:(float)posX;
+-(float)getPosY;
+-(id)setPosY:(float)posY;
+-(void)setObjThrowed:(Throwable *)tBall;
+-(id)setThrowSpeed:(Hand *)hDest inSeconds:(float)t;
+-(id)setPositionX:(float)posX positionY:(float)posY;
 
 @end

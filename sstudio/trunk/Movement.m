@@ -6,6 +6,7 @@
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
+#import "Controller.h"
 #import "Movement.h"
 #import "SSPattern.h"
 
@@ -60,18 +61,18 @@
 	float tTime =2;
 	SSPattern *aPat;
 	Hand *throwHand, *catchHand;
-	aPat = [self sourcePattern];
-
+	//aPat = [self sourcePattern];
+	Controller *theController = [sourcePattern controller];
 	//place les mains pr calcul speed
-	throwHand = [[sourcePattern controller] handForSite:thrSite];
+	throwHand = [theController handForSite:thrSite];
 	[throwHand placeAtPos:thrPos];	
-	catchHand = [[sourcePattern controller] handForSite:catSite];
+	catchHand = [theController handForSite:catSite];
 	[catchHand placeAtPos:catPos];
 	//assigne objThrowed
 	//TODO: prb de main => tjrs la meme
-	[[aPat ballNumber:0] setX:[throwHand getPosX]];
-	[[aPat ballNumber:0] setY:[throwHand getPosY]];
-	[throwHand setObjThrowed:[aPat ballNumber:0]];
+	[[theController ballNumber:0] setX:[throwHand getPosX]];
+	[[theController ballNumber:0] setY:[throwHand getPosY]];
+	[throwHand setObjThrowed:[theController ballNumber:0]];
 	[throwHand setThrowSpeed:catchHand inSeconds: tTime]; //temps total de la trajectoire
 }
 
@@ -112,6 +113,26 @@
 {
 	NSString *desc = [[NSString alloc] initWithFormat:@"thrPos",thrPos];
 	return desc;
+}
+
+-(id)throwHand;
+{
+	if ([sourcePattern controller]){
+		return [[sourcePattern controller] handForSite:[self valueForKey:@"thrSite"]];
+	}
+	else{
+		return nil;
+	}
+}
+
+-(id)catchHand;
+{
+	if ([sourcePattern controller]){
+		return [[sourcePattern controller] handForSite:[self valueForKey:@"catSite"]];
+	}
+	else{
+		return nil;
+	}
 }
 
 -(void)setThrTime:(NSString *)t;

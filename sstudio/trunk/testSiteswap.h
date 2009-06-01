@@ -12,6 +12,15 @@
 
 }
 
--(void)testInputSiteswap;
+//pattern
 -(void)testPattern;
+-(void)testIsThrowAtTime;
+
+//hands
+-(void)isHandsExisting;
+//-(void)testStartBallsNumbers;
+
+//balls
+-(void)testHeldBalls;
+
 @end

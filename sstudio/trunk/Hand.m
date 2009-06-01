@@ -20,8 +20,21 @@
 	[x retain];
 	y = [NSNumber numberWithFloat:2.0];
 	[y retain];
-	heldBalls = [[NSMutableArray alloc] initWithCapacity:1];
+	heldBalls = [[[NSMutableArray alloc] initWithCapacity:0] retain];
 	return self;
+}
+
+-(NSString *)description
+{
+	NSMutableString *str = [[[NSMutableString alloc] init] autorelease];
+	NSUInteger tCount = [heldBalls count];
+	[str appendFormat:@"x=%2.2f y=%2.2f heldBalls:%ld\n", [x intValue], [y intValue], tCount];
+	return [[NSString alloc] initWithString: str];
+}
+
+-(id)heldBalls;
+{
+	return heldBalls;
 }
 
 - (float)getPosX
@@ -63,13 +76,14 @@
 	}
 }
 
+//place la balle a l'instant t
 - (void)trajectoryMovement:(Movement *)aMove atTime:(float)t; 
 {
 	float newY, newX;
 	Throwable *tObjThrowed;
 	Hand *hDest;
-	tObjThrowed = [[aMove sourcePattern] ballNumber:0];
-	hDest = [[aMove sourcePattern] leftHand];
+	tObjThrowed = [controller ballNumber:0];
+	hDest = [controller leftHand];
 	//NSLog(@"trajectoryMovement\n");
 	newY = ([tObjThrowed getSpeedY]*t) - (0.5*9.81*t*t)+[self getPosY];
 	newX = [tObjThrowed getSpeedX]*t;
@@ -133,18 +147,25 @@
 	return self;
 }
 
--(void)addBall:(Throwable *)aBall;
+//met une balle dans la main
+-(void)putBall:(Throwable *)aBall;
 {
-	[heldBalls addObject:aBall];
+	[heldBalls insertObject:aBall atIndex:0];
 }
 
--(void)subBall:(Throwable *)aBall;
+//retire la balle de la main
+-(Throwable *)getBall;
 {
-	if ([heldBalls containsObject:aBall]){
-		[heldBalls removeObject:aBall];
+	Throwable *aBall;
+	if ([heldBalls count] > 0){
+		aBall = [heldBalls lastObject];
+		[heldBalls removeLastObject];
+		NSLog(@"Ball throwed by getBall - retainCount:%d", [heldBalls retainCount]);
+		return aBall;
 	}
 	else{
-		NSLog(@"subBall: erreur");
+		NSLog(@"getBall: erreur");
+		return nil;
 	}
 }
 @end

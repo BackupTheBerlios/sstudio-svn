@@ -34,6 +34,8 @@
 -(id)sourcePattern;
 -(void)preprocess;
 -(bool)isInAirAtSsTime:(int)aSsTime;
+-(id)throwHand;
+-(id)catchHand;
 //-(void)throwIfNecessary:(int)aSsTime;
 
 /* Getter - Setter */

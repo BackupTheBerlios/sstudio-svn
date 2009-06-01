@@ -19,6 +19,8 @@
 	[aPattern setController:self];
 	[self initHands];
 	[aPattern defineTestPattern];
+	
+	//on place les balles dans les mains
 	[self initBalls];	
 	[aPattern preprocess];
 
@@ -57,7 +59,7 @@
 	
 	float nbSim;
 	realTime = 0;
-	ssAbsTime = 1;
+	ssAbsTime = 0;
 	/*
 	timer = [[NSTimer scheduledTimerWithTimeInterval:[self sampleTime] 
 											  target:self
@@ -67,7 +69,7 @@
 	 
 	*/
 	
-	for(realTime=0; realTime < 2; realTime += [self sampleTime]){
+	for(realTime=0; realTime < 1; realTime += [self sampleTime]){
 		[self simAStep];
 	}
 	
@@ -79,32 +81,59 @@
 	[self processSiteswapTime];
 	NSLog(@"%@\n", self);
 	///calcule +affichage ici
+	NSLog(@"count simAStep %u\n", [[[hands objectAtIndex:0] heldBalls] count]);
 	[aPattern processCatchAndThrow];
 	[aPattern juggleAtTime:realTime];
+	[self logBalls];
+	[self logHands];
 	[oglShow setNeedsDisplay:YES];		
 }
 
-//place 1 balle sur 2 dans les mains en commencant par la droite
 -(id)balls;
 {
 	return balls;
 }
 
+-(Throwable *)ballNumber:(int)num;
+{
+	return [balls objectAtIndex:num];	
+}
+
+-(void)logBalls;
+{
+	NSUInteger i, count = [balls count];
+	for (i = 0; i < count; i++) {
+		Throwable * obj = [balls objectAtIndex:i];
+		NSLog(@"%@", i, balls);
+	}
+}
+
+-(void)logHands;
+{
+	NSLog(@"right Hand:%@\n", [self rightHand]);
+	NSLog(@"left Hand:%@\n", [self leftHand]);
+}
+
+-(NSArray *)hands;
+{
+	return hands;
+}
+
+//place 1 balle sur 2 dans les mains en commencant par la droite
 -(void)initBalls;
 {
 	NSUInteger nbBalls,i;
-		//balls = [[NSMutableArray alloc] init];
+	Movement *aMove;
+	Throwable *aBall;
 	nbBalls = [aPattern ballNumberNeeded];
 	for (i = 0; i < nbBalls; i++) {
-		Throwable *aBall = [[Throwable alloc] init];
-		[balls addObject:aBall];
-		if(i%2){
-			[[self rightHand] addBall:aBall];
+		aMove = [aPattern getMovementThrowedAtSsTime:(i+1)];
+		if (aMove){
+			aBall = [[Throwable alloc] init];
+			[balls addObject:aBall];
+			[[aMove throwHand] putBall:aBall];
 		}
-		else{
-			[[self leftHand] addBall:aBall];
-		}
-	}
+	}	
 }
 
 -(void)initHands;
@@ -115,6 +144,7 @@
 	[ tHands addObject:[[Hand alloc] init] ];
 	[ tHands addObject:[[Hand alloc] init] ];
 	hands = [[NSArray alloc] initWithArray: tHands];
+	NSLog(@"count %u\n", [[[hands objectAtIndex:0] heldBalls] count]);
 	[tHands release];
 }
 

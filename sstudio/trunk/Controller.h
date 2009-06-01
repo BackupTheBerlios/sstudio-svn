@@ -32,9 +32,13 @@
 -(Hand *)rightHand;
 -(Hand *)leftHand;
 -(Hand *)handForSite:(NSString *)tSite;
+-(void)logHands;
+-(NSArray *)hands;
 
 //balls
 -(id)balls;
+-(Throwable *)ballNumber:(int)num;
+-(void)logBalls;
 
 //juggler
 -(void)initBalls;
@@ -43,7 +47,6 @@
 -(void)processRealTime;
 -(void)processSiteswapTime;
 -(void)simAStep;
--(void)initBalls;
 
 //constantes
 -(float)sampleTime;
