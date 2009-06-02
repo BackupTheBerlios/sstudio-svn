@@ -110,6 +110,10 @@
 //equation du mouvement sur X
 - (float)speedToGoToX:(float)posX inSeconds:(float)t
 {
+	if(t==0){
+		NSLog(@"Erreur: speedToGoToX t=0\n");
+		return 0;
+	}
 	return ( (posX/t)-[objThrowed x]/t);
 }
 
@@ -117,6 +121,10 @@
 //equation du mouvement sur Y
 - (float)speedToGoToY:(float)posY inSeconds:(float)t
 {
+	if(t==0){
+		NSLog(@"Erreur: speedToGoToY t=0\n");
+		return 0;
+	}
 	return (posY/t+(0.5*9.81*t)-([objThrowed y]/t));
 }
 

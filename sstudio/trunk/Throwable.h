@@ -34,6 +34,7 @@
 -(float)x;
 -(void)setY:(float)tY;
 -(float)y;
+-(id)controller;
 -(id)setSpeedX:(float)speedX y:(float)speedY;
 -(float)getSpeedX;
 -(float)getSpeedY;

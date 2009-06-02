@@ -9,5 +9,5 @@
 -(void) drawRect: (NSRect) bounds;
 
 //c-style
-void drawAnObject();
+void drawBall();
 @end

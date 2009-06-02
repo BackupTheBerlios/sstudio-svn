@@ -74,6 +74,11 @@
 	return [y floatValue];
 }
 
+-(id)controller;
+{
+	return [movementAssigned controller];
+}
+
 - (id)setSpeedX:(float)speedX y:(float)speedY
 {
 	[vx release];
@@ -97,10 +102,12 @@
 
 -(void)positionAtTime:(float)aTime;
 {
-	float newY, newX;
+	float newY, newX, relativeTime;
 	Hand *throwHand;
 	throwHand = [movementAssigned throwHand];
 	//NSLog(@"trajectoryMovement\n");
+	relativeTime = aTime - ssTimeThrowed * [[self controller] beatTime];
+	aTime = relativeTime;
 	newY = ([self getSpeedY]*aTime) - (0.5*9.81*aTime*aTime)+[throwHand getPosY];
 	newX = [self getSpeedX]*aTime;
 	NSLog(@"%f;%f", newX, newY);
@@ -130,7 +137,7 @@
 -(void)preprocess;
 {
 	Hand *throwHand, *catchHand;
-	int tBeat;
+	float tBeat;
 	//place les mains pr calcul speed
 	throwHand = [[self movementAssigned] throwHand];
 	[throwHand placeAtPos: [movementAssigned valueForKey:@"thrPos"]];	
@@ -141,7 +148,7 @@
 	[self setX:[throwHand getPosX]];
 	[self setY:[throwHand getPosY]];
 	[throwHand setObjThrowed:self];
-	tBeat = [[[movementAssigned sourcePattern] controller] beatTime];
+	tBeat = [[movementAssigned controller] beatTime];
 	[throwHand setThrowSpeed:catchHand inSeconds: tBeat*[[movementAssigned valueForKey:@"ssBase"] intValue]]; //temps total de la trajectoire
 }
 

@@ -12,7 +12,6 @@
 
 @implementation Controller
 
-
 - (IBAction)initialize:(id)sender
 {
 	aPattern = [[SSPattern alloc] init];
@@ -60,19 +59,19 @@
 	float nbSim;
 	realTime = 0;
 	ssAbsTime = 0;
-	/*
+	
 	timer = [[NSTimer scheduledTimerWithTimeInterval:[self sampleTime] 
 											  target:self
 											selector:@selector(tmrInterrupt:)
 											userInfo:nil 
 											 repeats:YES] retain];
 	 
-	*/
 	
+	/*
 	for(realTime=0; realTime < 1; realTime += [self sampleTime]){
 		[self simAStep];
 	}
-	
+	*/
 }
 
 -(void)simAStep;
