@@ -23,21 +23,20 @@ Pattern: ensemble de siteswap
 }
 
 -(NSString *)description;
--(id)defineTestPattern;
+-(id)define3bCascadePattern;
 -(void)addMovement:(Movement *)move;
--(id)movements;
 -(int)ballNumberNeeded;
 -(int)relativeSsTimeForSsTime:(int)absSsTime;
 
-//hand
-
 //ball
--(Movement *)movementForAbsSiteswapTime;
 -(void)preprocess;
 -(void)juggleAtTime:(float)f;
 -(Movement *)getMovementThrowedAtSsTime:(int)aSsTime;
 -(void)processCatchAndThrow;
 
+
+// getter - setter
+-(id)movements;
 -(void)setController:(id)aController;
 -(id)controller;
 

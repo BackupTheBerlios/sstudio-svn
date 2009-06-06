@@ -17,7 +17,7 @@
 	aPattern = [[SSPattern alloc] init];
 	[aPattern setController:self];
 	[self initHands];
-	[aPattern defineTestPattern];
+	[aPattern define3bCascadePattern];
 	
 	//on place les balles dans les mains
 	[self initBalls];	
@@ -34,7 +34,6 @@
 	[oglShow setPattern:aPattern];
 	[self startSimulation];
 }
-
 
 -(Hand *)rightHand
 {

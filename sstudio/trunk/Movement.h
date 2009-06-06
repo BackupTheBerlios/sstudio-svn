@@ -29,9 +29,6 @@
 
 -(id)init;
 -(id)initMovement;
-//-(void)juggleItAtTime:(float)t;
--(void)setSourcePattern:(id)aPat;
--(id)sourcePattern;
 -(bool)isInAirAtSsTime:(int)aSsTime;
 -(id)throwHand;
 -(id)catchHand;
@@ -54,5 +51,7 @@
 -(NSNumber *)airMin;
 -(void)setSsTimeThrowed:(NSNumber *)aSsTime;
 -(NSNumber *)ssTimeThrowed;
+-(void)setSourcePattern:(id)aPat;
+-(id)sourcePattern;
 
 @end

@@ -65,7 +65,7 @@
 	return result;
 }
 
--(id)defineTestPattern;
+-(id)define3bCascadePattern;
 {
 	Movement *move;
 	Throwable *aBall;
@@ -133,11 +133,6 @@
 		}
 		return tTime;
 	}
-}
-
--(Movement *)movementForAbsSiteswapTime;
-{
-	return nil;
 }
 
 //pre-process chaque move

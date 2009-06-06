@@ -18,7 +18,7 @@
 {
 	SSPattern *aPattern;
 	aPattern = [[SSPattern alloc] init];
-	[aPattern defineTestPattern];
+	[aPattern define3bCascadePattern];
 	
 	//relative SsTime
 	STAssertEquals([aPattern relativeSsTimeForSsTime:0],0,@"Erreur");
@@ -38,7 +38,7 @@
 {
 	SSPattern *aPattern;
 	aPattern = [[SSPattern alloc] init];
-	[aPattern defineTestPattern];
+	[aPattern define3bCascadePattern];
 	STAssertEquals([aPattern ballNumberNeeded], 3, @"Erreur");
 	
 	

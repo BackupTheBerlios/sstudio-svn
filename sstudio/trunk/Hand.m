@@ -7,7 +7,7 @@
 //
 #import "Controller.h"
 #import "Hand.h"
-#import "Position.h"
+//#import "Position.h"
 #import "SSPattern.h"
 
 @implementation Hand
