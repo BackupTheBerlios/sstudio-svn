@@ -24,6 +24,7 @@ Pattern: ensemble de siteswap
 
 -(NSString *)description;
 -(id)define3bCascadePattern;
+-(id)define4bFoutain;
 -(void)addMovement:(Movement *)move;
 -(int)ballNumberNeeded;
 -(int)relativeSsTimeForSsTime:(int)absSsTime;

@@ -7,50 +7,28 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Juggler.h"
+#import "Hand.h"
+#import "Throwable.h"
 #import "SSPattern.h"
+#import "Movement.h"
 #import "SSView.h"
+#import "ControllerUnitTest.h"
 
 @interface Controller : NSObject {
 	//animation
 	IBOutlet SSView *oglShow;
 	IBOutlet NSButton *btJuggle;
-	SSPattern *aPattern;
-	NSArray *hands;
-	NSMutableArray *balls;
-	
-	//timer
-	NSTimer *timer;
-	float realTime;
-	int ssAbsTime;
+	IBOutlet NSPopUpButton *btSelectPattern;
+	ControllerUnitTest *aCtrlUnitTest;
+	Juggler *aJuggler;
 }
 
-//interface
--(IBAction)initialize:(id)sender;
 -(IBAction)juggleButtonClick:(id)sender;
+-(IBAction)showTestView:(id)sender;
 
-//hands
--(Hand *)rightHand;
--(Hand *)leftHand;
--(Hand *)handForSite:(NSString *)tSite;
--(void)logHands;
--(NSArray *)hands;
 
-//balls
--(id)balls;
--(Throwable *)ballNumber:(int)num;
--(void)logBalls;
 
-//juggler
--(void)initBalls;
--(void)initHands;
--(void)startSimulation;
--(void)processRealTime;
--(void)processSiteswapTime;
--(void)simAStep;
 
-//constantes
--(float)sampleTime;
--(float)beatTime;
--(float)realTime;
--(int)ssAbsTime;
+
 @end

@@ -104,15 +104,16 @@
 {
 	float newY, newX, relativeTime;
 	Hand *throwHand;
-	throwHand = [movementAssigned throwHand];
-	//NSLog(@"trajectoryMovement\n");
-	relativeTime = aTime - ssTimeThrowed * [[self controller] beatTime];
-	aTime = relativeTime;
-	newY = ([self getSpeedY]*aTime) - (0.5*9.81*aTime*aTime)+[throwHand getPosY];
-	newX = [self getSpeedX]*aTime;
-	NSLog(@"%f;%f", newX, newY);
-	[self setX:newX];
-	[self setY:newY];
+	if (aTime >= 0.0f ){
+		throwHand = [movementAssigned throwHand];
+		relativeTime = aTime - ssTimeThrowed * [[self controller] beatTime];
+		aTime = relativeTime;
+		newY = ([self getSpeedY]*aTime) - (0.5*9.81*aTime*aTime)+[[movementAssigned throwHand] getPosY];
+		newX = [self getSpeedX]*aTime + [[movementAssigned throwHand] getPosX];
+		NSLog(@"%f;%f", newX, newY);
+		[self setX:newX];
+		[self setY:newY];
+	}
 }
 
 - (NSMutableArray *)trajectory

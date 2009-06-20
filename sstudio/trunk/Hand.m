@@ -7,7 +7,6 @@
 //
 #import "Controller.h"
 #import "Hand.h"
-//#import "Position.h"
 #import "SSPattern.h"
 
 @implementation Hand
@@ -145,11 +144,11 @@
 {
 	if ([tMark isEqualToString:@"m"])
 	{
-		[self setPositionX:5.0f positionY:0.0f];
+		[self setPositionX:3.0f positionY:0.0f];
 	}
 	if ([tMark isEqualToString:@"r"])
 	{
-		[self setPositionX:10.0f positionY:0.0f];
+		[self setPositionX:6.0f positionY:0.0f];
 	}
 	if ([tMark isEqualToString:@"l"])
 	{

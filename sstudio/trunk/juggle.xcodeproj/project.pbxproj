@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -15,18 +14,21 @@
 		DB0C1FC80F361271000AEEA2 /* testSiteswap.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0C1FC70F361271000AEEA2 /* testSiteswap.m */; };
 		DB1041880F0D1EF6006FEFCB /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041870F0D1EF6006FEFCB /* Hand.m */; };
 		DB1041BF0F0D22CE006FEFCB /* Throwable.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041BE0F0D22CE006FEFCB /* Throwable.m */; };
-		DB1F04B90F0A613200484976 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1F04B70F0A613200484976 /* GLUT.framework */; };
 		DB1F04BA0F0A613200484976 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1F04B80F0A613200484976 /* OpenGL.framework */; };
 		DB1F04DD0F0A76AA00484976 /* SSPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04DC0F0A76AA00484976 /* SSPattern.m */; };
 		DB1F04E00F0A76B700484976 /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04DF0F0A76B700484976 /* Movement.m */; };
 		DB1F05650F0A956A00484976 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F05640F0A956A00484976 /* Controller.m */; };
 		DB21C2740FCDEBBF00886930 /* todo in Resources */ = {isa = PBXBuildFile; fileRef = DB21C2730FCDEBBF00886930 /* todo */; };
+		DB22393E0FECE68C0054F837 /* Juggler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB22393D0FECE68C0054F837 /* Juggler.m */; };
 		DB91BBDA0FD1ED2D00D92A5F /* SSPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04DC0F0A76AA00484976 /* SSPattern.m */; };
 		DB91BBE60FD1ED9B00D92A5F /* Throwable.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041BE0F0D22CE006FEFCB /* Throwable.m */; };
 		DB91BBE80FD1ED9B00D92A5F /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04DF0F0A76B700484976 /* Movement.m */; };
 		DB91BBEA0FD1ED9B00D92A5F /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041870F0D1EF6006FEFCB /* Hand.m */; };
 		DBA02DAC0F99D1BB00F1AEC0 /* SSView.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA02DAB0F99D1BB00F1AEC0 /* SSView.m */; };
 		DBA23CBD0F1D50C600D4F14D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */; };
+		DBCC11730FECF6F7002CD5D2 /* ControllerUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DBCC11720FECF6F7002CD5D2 /* ControllerUnitTest.m */; };
+		DBCC11790FECFA44002CD5D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBCC11770FECFA44002CD5D2 /* MainMenu.xib */; };
+		DBCC119E0FECFD33002CD5D2 /* SSUnitTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBCC119D0FECFD33002CD5D2 /* SSUnitTest.xib */; };
 		DBD3ECD80FD289C700B5AF1A /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F05640F0A956A00484976 /* Controller.m */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +37,6 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* juggle_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = juggle_Prefix.pch; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		DB1041870F0D1EF6006FEFCB /* Hand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hand.m; sourceTree = "<group>"; };
 		DB1041BD0F0D22CE006FEFCB /* Throwable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Throwable.h; sourceTree = "<group>"; };
 		DB1041BE0F0D22CE006FEFCB /* Throwable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Throwable.m; sourceTree = "<group>"; };
-		DB1F04B70F0A613200484976 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
 		DB1F04B80F0A613200484976 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		DB1F04DB0F0A76AA00484976 /* SSPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPattern.h; sourceTree = "<group>"; };
 		DB1F04DC0F0A76AA00484976 /* SSPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPattern.m; sourceTree = "<group>"; };
@@ -59,9 +59,16 @@
 		DB1F05630F0A956A00484976 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		DB1F05640F0A956A00484976 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
 		DB21C2730FCDEBBF00886930 /* todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
+		DB22393C0FECE68C0054F837 /* Juggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Juggler.h; sourceTree = "<group>"; };
+		DB22393D0FECE68C0054F837 /* Juggler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Juggler.m; sourceTree = "<group>"; };
+		DB5F97380FE410B800F0DAE8 /* trajectoires-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "trajectoires-Info.plist"; sourceTree = "<group>"; };
 		DBA02DAA0F99D1BB00F1AEC0 /* SSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSView.h; sourceTree = "<group>"; };
 		DBA02DAB0F99D1BB00F1AEC0 /* SSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSView.m; sourceTree = "<group>"; };
 		DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		DBCC11710FECF6F7002CD5D2 /* ControllerUnitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerUnitTest.h; sourceTree = "<group>"; };
+		DBCC11720FECF6F7002CD5D2 /* ControllerUnitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerUnitTest.m; sourceTree = "<group>"; };
+		DBCC11780FECFA44002CD5D2 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DBCC119D0FECFD33002CD5D2 /* SSUnitTest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SSUnitTest.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +77,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				DB1F04B90F0A613200484976 /* GLUT.framework in Frameworks */,
 				DB1F04BA0F0A613200484976 /* OpenGL.framework in Frameworks */,
 				DBA23CBD0F1D50C600D4F14D /* QuartzCore.framework in Frameworks */,
 			);
@@ -111,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				DB1F04B80F0A613200484976 /* OpenGL.framework */,
-				DB1F04B70F0A613200484976 /* GLUT.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
@@ -139,6 +144,7 @@
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				DB0C1F780F360BB6000AEEA2 /* test-Info.plist */,
 				DB21C2730FCDEBBF00886930 /* todo */,
+				DB5F97380FE410B800F0DAE8 /* trajectoires-Info.plist */,
 			);
 			name = juggle;
 			sourceTree = "<group>";
@@ -146,6 +152,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DBCC119D0FECFD33002CD5D2 /* SSUnitTest.xib */,
 				32CA4F630368D1EE00C91783 /* juggle_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -155,9 +162,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DBCC11770FECFA44002CD5D2 /* MainMenu.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
-				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -183,6 +190,8 @@
 		DB1F04E30F0A79EB00484976 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB22393C0FECE68C0054F837 /* Juggler.h */,
+				DB22393D0FECE68C0054F837 /* Juggler.m */,
 				DB1F04DB0F0A76AA00484976 /* SSPattern.h */,
 				DB1F04DC0F0A76AA00484976 /* SSPattern.m */,
 				DB1041BD0F0D22CE006FEFCB /* Throwable.h */,
@@ -207,6 +216,8 @@
 		DB1F04E50F0A7A0200484976 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DBCC11710FECF6F7002CD5D2 /* ControllerUnitTest.h */,
+				DBCC11720FECF6F7002CD5D2 /* ControllerUnitTest.m */,
 				DB1F05630F0A956A00484976 /* Controller.h */,
 				DB1F05640F0A956A00484976 /* Controller.m */,
 			);
@@ -278,9 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				DB21C2740FCDEBBF00886930 /* todo in Resources */,
+				DBCC11790FECFA44002CD5D2 /* MainMenu.xib in Resources */,
+				DBCC119E0FECFD33002CD5D2 /* SSUnitTest.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +333,8 @@
 				DB1041880F0D1EF6006FEFCB /* Hand.m in Sources */,
 				DB1041BF0F0D22CE006FEFCB /* Throwable.m in Sources */,
 				DBA02DAC0F99D1BB00F1AEC0 /* SSView.m in Sources */,
+				DB22393E0FECE68C0054F837 /* Juggler.m in Sources */,
+				DBCC11730FECF6F7002CD5D2 /* ControllerUnitTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,12 +362,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+		DBCC11770FECFA44002CD5D2 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				29B97319FDCFA39411CA2CEA /* English */,
+				DBCC11780FECFA44002CD5D2 /* English */,
 			);
-			name = MainMenu.nib;
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
