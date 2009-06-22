@@ -9,6 +9,7 @@
 #import "Controller.h"
 #import "Throwable.h"
 #import "Hand.h"
+#import "SSPosition.h"
 
 
 @implementation Throwable
@@ -137,20 +138,20 @@
 //place la main et la balle prete etre lancé
 -(void)preprocess;
 {
-	Hand *throwHand, *catchHand;
+	Hand *throwHand;
+	SSPosition *aDestPos;
 	float tBeat;
+	aDestPos = [[SSPosition alloc] init];
 	//place les mains pr calcul speed
 	throwHand = [[self movementAssigned] throwHand];
-	[throwHand placeAtPos: [movementAssigned valueForKey:@"thrPos"]];	
-	catchHand =[[self movementAssigned] catchHand];
-	[catchHand placeAtPos: [movementAssigned valueForKey:@"catPos"]];
-	//assigne objThrowed
-	//TODO: prb de main => tjrs la meme
+	[[throwHand handPos] placeAtPos: [movementAssigned valueForKey:@"thrPos"]];	
+	[aDestPos placeAtPos: [movementAssigned valueForKey:@"catPos"]];
+
 	[self setX:[throwHand getPosX]];
 	[self setY:[throwHand getPosY]];
 	[throwHand setObjThrowed:self];
 	tBeat = [[movementAssigned controller] beatTime];
-	[throwHand setThrowSpeed:catchHand inSeconds: tBeat*[[movementAssigned valueForKey:@"ssBase"] intValue]]; //temps total de la trajectoire
+	[throwHand setThrowSpeed:aDestPos inSeconds: tBeat*[[movementAssigned valueForKey:@"ssBase"] intValue]]; //temps total de la trajectoire
 }
 
 -(void)catchBall;

@@ -7,6 +7,9 @@
 //
 
 #import "ControllerUnitTest.h"
+#import "Controller.h"
+
+@class SSPattern;
 
 
 @implementation ControllerUnitTest
@@ -22,6 +25,20 @@
 -(IBAction)launchTest:(id)sender;
 {
 	NSLog(@"Test lancé");
+	[self testBasicThrow];
+}
+
+-(void)testBasicThrow;
+{
+	SSPattern *basicPattern;
+	testJuggler = [[Juggler alloc] init];
+	//definit le pattern
+	basicPattern = [[SSPattern alloc] init];
+	[basicPattern define3Throw];
+	[testJuggler initWithPattern:basicPattern];
+	[testJuggler setASSView:aTestView];
+	[[testJuggler aSSView] setPattern:basicPattern];
+	[testJuggler startSimulation];
 }
 
 @end

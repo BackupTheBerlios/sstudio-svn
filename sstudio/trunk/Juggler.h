@@ -26,7 +26,6 @@
 	int ssAbsTime;
 }
 
--(void)loadPatterns;
 -(id)initWithPattern:(id)tPattern;
 
 //hands

@@ -55,6 +55,25 @@
 	return result;
 }
 
+-(id)define3Throw;
+{
+	Movement *move;
+	
+	//cascade 3B
+	identifier = [[NSString alloc] initWithString:@"3 throw"];
+	//1er mouvement
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
+	[move setValue:@"1" forKey:@"thrTime"];	
+	[move setValue:@"3" forKey:@"ssBase"];
+	[move setValue:@"R" forKey:@"thrSite"];
+	[move setValue:@"m" forKey:@"thrPos"];
+	[move setValue:@"L" forKey:@"catSite"];
+	[move setValue:@"l" forKey:@"catPos"];
+	[self addMovement:move];
+	return self;
+}
+
 -(id)define3bCascadePattern;
 {
 	Movement *move;

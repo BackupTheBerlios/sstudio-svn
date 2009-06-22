@@ -23,6 +23,7 @@ Pattern: ensemble de siteswap
 }
 
 -(NSString *)description;
+-(id)define3Throw;
 -(id)define3bCascadePattern;
 -(id)define4bFoutain;
 -(void)addMovement:(Movement *)move;

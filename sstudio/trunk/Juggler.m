@@ -18,7 +18,7 @@
 		[[self aPattern] release];
 	}
 	[self setAPattern: [[SSPattern alloc] init]];
-	[self loadPatterns];
+	//[self loadPatterns];
 	[[self aPattern] define4bFoutain];
 	[[self aPattern] setController:self];
 	[self initHands];
@@ -42,12 +42,6 @@
 	[self initBalls];	
 	[[self aPattern] preprocess];	
 	return self;
-}
-
-
--(void)loadPatterns;
-{
-	//place les patterns dans le selectPattern
 }
 
 -(Hand *)rightHand

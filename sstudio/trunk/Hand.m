@@ -8,18 +8,16 @@
 #import "Controller.h"
 #import "Hand.h"
 #import "SSPattern.h"
+#import "SSPosition.h"
+
+@class SSPosition;
 
 @implementation Hand
 
 - (id)init
 {
 	[super init];
-	//x = [NSNumber alloc];
-	//[x initWithFloat:1.0];
-	x = [NSNumber numberWithFloat:2.0];
-	[x retain];
-	y = [NSNumber numberWithFloat:2.0];
-	[y retain];
+	[self setHandPos: [[SSPosition alloc] initX:2.0 Y:2.0]];
 	heldBalls = [[[NSMutableArray alloc] initWithCapacity:0] retain];
 	return self;
 }
@@ -28,7 +26,7 @@
 {
 	NSMutableString *str = [[[NSMutableString alloc] init] autorelease];
 	NSUInteger tCount = [heldBalls count];
-	[str appendFormat:@"x=%2.2f y=%2.2f heldBalls:%ld\n", [x intValue], [y intValue], tCount];
+	[str appendFormat:@"x=%2.2f y=%2.2f heldBalls:%ld\n", [[self handPos] getX], [[self handPos] getY], tCount];
 	return [[NSString alloc] initWithString: str];
 }
 
@@ -39,24 +37,24 @@
 
 - (float)getPosX
 {
-	return [x floatValue];
+	return [[self handPos] getX];
 }
 
 - (id)setPosX:(float)posX
 {
-	[x initWithFloat: posX];
+	[[self handPos] setX: posX];
 	return self;
 }
 
 - (id)setPosY:(float)posY
 {
-	[y initWithFloat: posY];
+	[[self handPos] setY: posY];
 	return self;
 }
 
 - (float)getPosY
 {
-	return [y floatValue];
+	return [[self handPos] getY];
 }
 
 - (void)setObjThrowed:(Throwable *)tBall;
@@ -76,31 +74,12 @@
 	}
 }
 
-//place la balle a l'instant t
-/*
-- (void)trajectoryMovement:(Movement *)aMove atTime:(float)t; 
-{
-	float newY, newX;
-	Throwable *tObjThrowed;
-	Hand *hDest;
-	tObjThrowed = [ ballNumber:0];
-	hDest = [controller leftHand];
-	//NSLog(@"trajectoryMovement\n");
-	newY = ([tObjThrowed getSpeedY]*t) - (0.5*9.81*t*t)+[self getPosY];
-	newX = [tObjThrowed getSpeedX]*t;
-	NSLog(@"%f;%f", newX, newY);
-	[ tObjThrowed setX:newX];
-	[ tObjThrowed setY:newY];
-}
-*/
-
-
-- (id)setThrowSpeed:(Hand *)hDest inSeconds:(float)timing
+- (id)setThrowSpeed:(SSPosition *)destPosition inSeconds:(float)timing
 {
 	NSLog(@"setThrowSpeed (time=%f)\n"), timing;
-	float speedx = [self speedToGoToX:[hDest getPosX] inSeconds:timing];
+	float speedx = [self speedToGoToX:[destPosition getX] inSeconds:timing];
 	//NSLog(@"speedx: %f", speedx);
-	float speedy = [self speedToGoToY:[hDest getPosY] inSeconds:timing];
+	float speedy = [self speedToGoToY:[destPosition getY] inSeconds:timing];
 	//NSLog(@"speedy: %f", speedy);
 	[objThrowed setSpeedX:speedx y:speedy ];
 	return self;
@@ -130,12 +109,16 @@
 //
 -(id)setPositionX:(float)posX positionY:(float)posY
 {
+	/*
 	[x release];
 	x = [NSNumber numberWithFloat: posX];
 	[x retain];
 	[y release];
 	y = [NSNumber numberWithFloat: posY];
 	[y retain];
+	 */
+	[[self handPos] setX:posX];
+	[[self handPos] setY:posY];
 	return self;
 }
 
@@ -179,4 +162,14 @@
 		return nil;
 	}
 }
+
+- (SSPosition *) handPos {
+  return handPos;
+}
+
+- (void) setHandPos: (SSPosition *) newValue {
+  [handPos autorelease];
+  handPos = [newValue retain];
+}
+
 @end

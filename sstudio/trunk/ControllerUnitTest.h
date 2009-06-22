@@ -8,13 +8,17 @@
 
 #import <Cocoa/Cocoa.h>
 
+
 @class SSView;
+@class Juggler;
 
 @interface ControllerUnitTest : NSWindowController {
 	IBOutlet SSView *aTestView;
 	IBOutlet NSButton *btLaunchTest;
+	Juggler *testJuggler;
 }
 
 -(IBAction)launchTest:(id)sender;
+-(void)testBasicThrow;
 
 @end

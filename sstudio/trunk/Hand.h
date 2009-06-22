@@ -9,12 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import "Throwable.h"
 #import "Movement.h"
+#import "SSPosition.h"
 
 
 @interface Hand : NSObject {
 	id controller;
-	NSNumber *x;
-	NSNumber *y;
+	//NSNumber *x;
+	//NSNumber *y;
+	SSPosition *handPos;
 	Throwable *objThrowed;
 	NSMutableArray *heldBalls;
 }
@@ -33,7 +35,9 @@
 -(float)getPosY;
 -(id)setPosY:(float)posY;
 -(void)setObjThrowed:(Throwable *)tBall;
--(id)setThrowSpeed:(Hand *)hDest inSeconds:(float)t;
+-(id)setThrowSpeed:(SSPosition *)destPosition inSeconds:(float)t;
 -(id)setPositionX:(float)posX positionY:(float)posY;
 
+- (SSPosition *) handPos;
+- (void) setHandPos: (SSPosition *) newValue;
 @end

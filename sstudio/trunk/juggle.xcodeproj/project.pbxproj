@@ -18,7 +18,7 @@
 		DB1F04DD0F0A76AA00484976 /* SSPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04DC0F0A76AA00484976 /* SSPattern.m */; };
 		DB1F04E00F0A76B700484976 /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04DF0F0A76B700484976 /* Movement.m */; };
 		DB1F05650F0A956A00484976 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F05640F0A956A00484976 /* Controller.m */; };
-		DB21C2740FCDEBBF00886930 /* todo in Resources */ = {isa = PBXBuildFile; fileRef = DB21C2730FCDEBBF00886930 /* todo */; };
+		DB21C2740FCDEBBF00886930 /* RoadMap in Resources */ = {isa = PBXBuildFile; fileRef = DB21C2730FCDEBBF00886930 /* RoadMap */; };
 		DB22393E0FECE68C0054F837 /* Juggler.m in Sources */ = {isa = PBXBuildFile; fileRef = DB22393D0FECE68C0054F837 /* Juggler.m */; };
 		DB91BBDA0FD1ED2D00D92A5F /* SSPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F04DC0F0A76AA00484976 /* SSPattern.m */; };
 		DB91BBE60FD1ED9B00D92A5F /* Throwable.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1041BE0F0D22CE006FEFCB /* Throwable.m */; };
@@ -30,6 +30,7 @@
 		DBCC11790FECFA44002CD5D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBCC11770FECFA44002CD5D2 /* MainMenu.xib */; };
 		DBCC119E0FECFD33002CD5D2 /* SSUnitTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBCC119D0FECFD33002CD5D2 /* SSUnitTest.xib */; };
 		DBD3ECD80FD289C700B5AF1A /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F05640F0A956A00484976 /* Controller.m */; };
+		DBE5DDDF0FEFD43E00F81415 /* SSPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DDDE0FEFD43E00F81415 /* SSPosition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,10 +59,9 @@
 		DB1F04DF0F0A76B700484976 /* Movement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movement.m; sourceTree = "<group>"; };
 		DB1F05630F0A956A00484976 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		DB1F05640F0A956A00484976 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
-		DB21C2730FCDEBBF00886930 /* todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
+		DB21C2730FCDEBBF00886930 /* RoadMap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RoadMap; sourceTree = "<group>"; };
 		DB22393C0FECE68C0054F837 /* Juggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Juggler.h; sourceTree = "<group>"; };
 		DB22393D0FECE68C0054F837 /* Juggler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Juggler.m; sourceTree = "<group>"; };
-		DB5F97380FE410B800F0DAE8 /* trajectoires-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "trajectoires-Info.plist"; sourceTree = "<group>"; };
 		DBA02DAA0F99D1BB00F1AEC0 /* SSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSView.h; sourceTree = "<group>"; };
 		DBA02DAB0F99D1BB00F1AEC0 /* SSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSView.m; sourceTree = "<group>"; };
 		DBA23CBC0F1D50C600D4F14D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
@@ -69,6 +69,8 @@
 		DBCC11720FECF6F7002CD5D2 /* ControllerUnitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerUnitTest.m; sourceTree = "<group>"; };
 		DBCC11780FECFA44002CD5D2 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		DBCC119D0FECFD33002CD5D2 /* SSUnitTest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SSUnitTest.xib; sourceTree = "<group>"; };
+		DBE5DDDD0FEFD43E00F81415 /* SSPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPosition.h; sourceTree = "<group>"; };
+		DBE5DDDE0FEFD43E00F81415 /* SSPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPosition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,9 +144,8 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				DBE5DDD90FEFD0D100F81415 /* Documentation */,
 				DB0C1F780F360BB6000AEEA2 /* test-Info.plist */,
-				DB21C2730FCDEBBF00886930 /* todo */,
-				DB5F97380FE410B800F0DAE8 /* trajectoires-Info.plist */,
 			);
 			name = juggle;
 			sourceTree = "<group>";
@@ -190,9 +191,11 @@
 		DB1F04E30F0A79EB00484976 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB22393C0FECE68C0054F837 /* Juggler.h */,
+				DBE5DDDD0FEFD43E00F81415 /* SSPosition.h */,
+				DBE5DDDE0FEFD43E00F81415 /* SSPosition.m */,
 				DB22393D0FECE68C0054F837 /* Juggler.m */,
 				DB1F04DB0F0A76AA00484976 /* SSPattern.h */,
+				DB22393C0FECE68C0054F837 /* Juggler.h */,
 				DB1F04DC0F0A76AA00484976 /* SSPattern.m */,
 				DB1041BD0F0D22CE006FEFCB /* Throwable.h */,
 				DB1041BE0F0D22CE006FEFCB /* Throwable.m */,
@@ -222,6 +225,14 @@
 				DB1F05640F0A956A00484976 /* Controller.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		DBE5DDD90FEFD0D100F81415 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				DB21C2730FCDEBBF00886930 /* RoadMap */,
+			);
+			name = Documentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,7 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
-				DB21C2740FCDEBBF00886930 /* todo in Resources */,
+				DB21C2740FCDEBBF00886930 /* RoadMap in Resources */,
 				DBCC11790FECFA44002CD5D2 /* MainMenu.xib in Resources */,
 				DBCC119E0FECFD33002CD5D2 /* SSUnitTest.xib in Resources */,
 			);
@@ -335,6 +346,7 @@
 				DBA02DAC0F99D1BB00F1AEC0 /* SSView.m in Sources */,
 				DB22393E0FECE68C0054F837 /* Juggler.m in Sources */,
 				DBCC11730FECF6F7002CD5D2 /* ControllerUnitTest.m in Sources */,
+				DBE5DDDF0FEFD43E00F81415 /* SSPosition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

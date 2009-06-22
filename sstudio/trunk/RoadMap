@@ -1,0 +1,13 @@
+RoadMap
+
+Iteration 1 : en cours
+L'application doit jongler les pattern asynchrones.
+La selection des pattern se fera par un menu.
+Les pattern seront codé en dur dans l'appli.
+Pour verifier le modèle une interface de test sera présente fonctionnant sur le meme principe
+
+Iteration 2
+Les pattern pourront etre saisis depuis une interface
+
+Iteration 3
+Les pattern seront stockés à l'aide de core data

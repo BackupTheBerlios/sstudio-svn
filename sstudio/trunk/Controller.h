@@ -14,6 +14,7 @@
 #import "Movement.h"
 #import "SSView.h"
 #import "ControllerUnitTest.h"
+#import "SSPosition.h"
 
 @interface Controller : NSObject {
 	//animation
