@@ -84,12 +84,15 @@
 
 -(void)simAStep;
 {
+	//calcul du temps
 	[self processRealTime];
 	[self processSiteswapTime];
 	NSLog(@"%@\n", self);
 	///calcule +affichage ici
 	NSLog(@"count simAStep %u\n", [[[hands objectAtIndex:0] heldBalls] count]);
+	//gestion des lancers
 	[[self aPattern] processCatchAndThrow];
+	//calcul des trajectoires
 	[[self aPattern] juggleAtTime:realTime];
 	[self logBalls];
 	[self logHands];
@@ -176,7 +179,7 @@
 //fait avancer le ssTime si necessaire (realTime a avancé d'un beat)
 -(void)processSiteswapTime;
 {
-	int tmpSSRealTime = 0;	
+	float tmpSSRealTime = 0;	
 	tmpSSRealTime = [self ssAbsTime]*[self beatTime];	
 	if( tmpSSRealTime < realTime )
 	{

@@ -51,7 +51,8 @@
 - (NSString *)description
 {
 	NSMutableString *str = [[NSMutableString alloc] init];
-	[str appendFormat:@"	Ball %@ - X=%3.2f - Y=%3.2f\n", number, [self x], [self y] ];
+	[str appendFormat:@"	Ball %@ - X=%3.2f - Y=%3.2f\n", number, [self x], [self y]];
+	[str appendFormat:@"	ssTimeThrowed:%d\n", ssTimeThrowed];
 	return str;
 }
 
@@ -105,13 +106,14 @@
 {
 	float newY, newX, relativeTime;
 	Hand *throwHand;
-	if (aTime >= 0.0f ){
-		throwHand = [movementAssigned throwHand];
-		relativeTime = aTime - ssTimeThrowed * [[self controller] beatTime];
-		aTime = relativeTime;
+	throwHand = [movementAssigned throwHand];
+	relativeTime = aTime - ssTimeThrowed * [[self controller] beatTime];
+	aTime = relativeTime;
+	//NSLog("%@", self);
+	if (aTime >= 0.0f){
 		newY = ([self getSpeedY]*aTime) - (0.5*9.81*aTime*aTime)+[[movementAssigned throwHand] getPosY];
 		newX = [self getSpeedX]*aTime + [[movementAssigned throwHand] getPosX];
-		NSLog(@"%f;%f", newX, newY);
+		//NSLog(@"%f;%f", newX, newY);
 		[self setX:newX];
 		[self setY:newY];
 	}

@@ -55,13 +55,13 @@
 	return result;
 }
 
--(id)define3Throw;
+-(id)define3Throw1Ball;
 {
 	Movement *move;
 	
 	//cascade 3B
 	identifier = [[NSString alloc] initWithString:@"3 throw"];
-	//1er mouvement
+	//1er mouvement =>3
 	move = [[Movement alloc] init];
 	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
 	[move setValue:@"1" forKey:@"thrTime"];	
@@ -71,6 +71,71 @@
 	[move setValue:@"L" forKey:@"catSite"];
 	[move setValue:@"l" forKey:@"catPos"];
 	[self addMovement:move];
+	
+	//2eme mouvement
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
+	[move setValue:@"2" forKey:@"thrTime"];	
+	[move setValue:@"0" forKey:@"ssBase"];
+	[move setValue:@"R" forKey:@"thrSite"];
+	[move setValue:@"m" forKey:@"thrPos"];
+	[move setValue:@"L" forKey:@"catSite"];
+	[move setValue:@"l" forKey:@"catPos"];
+	[self addMovement:move];
+	
+	//3eme mouvement
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
+	[move setValue:@"3" forKey:@"thrTime"];	
+	[move setValue:@"0" forKey:@"ssBase"];
+	[move setValue:@"R" forKey:@"thrSite"];
+	[move setValue:@"m" forKey:@"thrPos"];
+	[move setValue:@"L" forKey:@"catSite"];
+	[move setValue:@"l" forKey:@"catPos"];
+	[self addMovement:move];
+	
+	return self;
+}
+
+-(id)define3Throw2Ball;
+{
+	Movement *move;
+	
+	//cascade 3B
+	identifier = [[NSString alloc] initWithString:@"3 throw"];
+	//1er mouvement =>3
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
+	[move setValue:@"1" forKey:@"thrTime"];	
+	[move setValue:@"3" forKey:@"ssBase"];
+	[move setValue:@"R" forKey:@"thrSite"];
+	[move setValue:@"m" forKey:@"thrPos"];
+	[move setValue:@"L" forKey:@"catSite"];
+	[move setValue:@"l" forKey:@"catPos"];
+	[self addMovement:move];
+	
+	//2eme mouvement
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
+	[move setValue:@"2" forKey:@"thrTime"];	
+	[move setValue:@"3" forKey:@"ssBase"];
+	[move setValue:@"R" forKey:@"thrSite"];
+	[move setValue:@"m" forKey:@"thrPos"];
+	[move setValue:@"L" forKey:@"catSite"];
+	[move setValue:@"l" forKey:@"catPos"];
+	[self addMovement:move];
+	
+	//3eme mouvement
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
+	[move setValue:@"3" forKey:@"thrTime"];	
+	[move setValue:@"0" forKey:@"ssBase"];
+	[move setValue:@"R" forKey:@"thrSite"];
+	[move setValue:@"m" forKey:@"thrPos"];
+	[move setValue:@"L" forKey:@"catSite"];
+	[move setValue:@"l" forKey:@"catPos"];
+	[self addMovement:move];
+	
 	return self;
 }
 

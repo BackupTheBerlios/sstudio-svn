@@ -48,7 +48,7 @@ void drawBall()
 		if (aBall){
 			glTranslatef([aBall x]/10,[aBall y]/10, 0.0f);
 			drawBall();
-			NSLog(@"ball:%f;%f",[aBall x],[aBall y] );
+			//NSLog(@"ball:%f;%f",[aBall x],[aBall y] );
 		}
 	}
 
