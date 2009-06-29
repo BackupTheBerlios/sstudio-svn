@@ -30,17 +30,17 @@
 {
 	if ([tMark isEqualToString:@"m"])
 	{
-		[self setX:3.0f];
+		[self setX:0.0f];
 		[self setY:0.0f];
 	}
 	if ([tMark isEqualToString:@"r"])
 	{
-		[self setX:6.0f];
+		[self setX:0.5f];
 		[self setY:0.0f];
 	}
 	if ([tMark isEqualToString:@"l"])
 	{
-		[self setX:1.0f];
+		[self setX:-0.5f];
 		[self setY:0.0f];
 	}
 	return self;

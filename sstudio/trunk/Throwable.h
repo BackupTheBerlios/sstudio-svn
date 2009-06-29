@@ -18,6 +18,7 @@
 	NSNumber *vy;
 	NSMutableArray *trajectory;
 	Movement *movementAssigned;
+	float relativeTime; //for dbging
 	int ssTimeThrowed;
 }
 
@@ -28,6 +29,8 @@
 -(NSMutableArray *)trajectory;
 -(void)preprocess;
 -(void)catchBall;
+-(int)relativeSsTime;
+-(float)relativeRealTime;
 
 /* setter - getter */
 -(void)setX:(float)tX;

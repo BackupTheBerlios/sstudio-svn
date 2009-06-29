@@ -263,7 +263,7 @@
 {
 	float relativeTime, moveTime;
 	moveTime = 0;
-	relativeTime = 0;
+	//relativeTime = 0;
 	
 	NSUInteger i, count = [[controller balls] count];
 	for (i = 0; i < count; i++){
@@ -295,14 +295,18 @@
 	Hand *theThrHand;
 	Movement *aMove;
 	Throwable *aBall;
-	NSLog(@"throwBallsAtSsTime\n");
+	//NSLog(@"throwBallsAtSsTime\n");
 	aMove = [self getMovementThrowedAtSsTime:tSsAbsTime];
 	if (aMove){
-		NSLog(@"Ball must be throwed\n");
-		theThrHand = [controller handForSite:[aMove valueForKey:@"thrSite"]];
-		aBall = [theThrHand getBall];
-		[aBall setSsTimeThrowed: tSsAbsTime];
-		[aBall setMovementAssigned:aMove];
+		if (![aMove ballThrowed])
+		{
+			NSLog(@"Ball must be throwed\n");
+			theThrHand = [controller handForSite:[aMove valueForKey:@"thrSite"]];
+			aBall = [theThrHand getBall];
+			[aMove setBallThrowed:aBall];
+			[aBall setMovementAssigned:aMove];
+			[aBall setSsTimeThrowed:tSsAbsTime];
+		}
 	}
 }
 
@@ -313,7 +317,7 @@
 	Hand *aCatchHand;
 	int startSsTime, endSsTime, tSsRelTime;
 	NSUInteger i, ballsCount = [[controller balls]  count];
-	NSLog(@"catchBallsAtSsTime\n");
+	//NSLog(@"catchBallsAtSsTime\n");
 	tSsRelTime = [self relativeSsTimeForSsTime:aSsTime];
 	for(i=0; i < ballsCount; i++){
 		aBall = [controller ballNumber:i];
@@ -340,6 +344,10 @@
 	[self throwBallsAtSsTime:tSsAbsTime];
 }
 	 
+-(int)beatLenght;
+{
+	return [movements count];
+}
 
 /*getter-setter*/
 -(void)setController:(id)aController;

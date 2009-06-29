@@ -77,4 +77,9 @@
 	STAssertEquals((int)[[leftHand heldBalls] count], 2, @"heldBalls must contains 2 ball");
 }
 
+-(void)testThrow
+{
+	
+}
+
 @end

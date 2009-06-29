@@ -51,8 +51,8 @@
 - (NSString *)description
 {
 	NSMutableString *str = [[NSMutableString alloc] init];
-	[str appendFormat:@"	Ball %@ - X=%3.2f - Y=%3.2f\n", number, [self x], [self y]];
-	[str appendFormat:@"	ssTimeThrowed:%d\n", ssTimeThrowed];
+	[str appendFormat:@"Ball %@ - X=%3.2f - Y=%3.2f ", number, [self x], [self y]];
+	[str appendFormat:@" ssTThred:%d relTime:%f", ssTimeThrowed, relativeTime];
 	return str;
 }
 
@@ -104,13 +104,13 @@
 
 -(void)positionAtTime:(float)aTime;
 {
-	float newY, newX, relativeTime;
+	float newY, newX;
 	Hand *throwHand;
 	throwHand = [movementAssigned throwHand];
-	relativeTime = aTime - ssTimeThrowed * [[self controller] beatTime];
+	relativeTime = [self relativeRealTime];//aTime - ssTimeThrowed * [[self controller] beatTime];
 	aTime = relativeTime;
 	//NSLog("%@", self);
-	if (aTime >= 0.0f){
+	if (aTime >= 0.0f && (aTime <= [[[self movementAssigned] airTimeInSeconds] floatValue])){
 		newY = ([self getSpeedY]*aTime) - (0.5*9.81*aTime*aTime)+[[movementAssigned throwHand] getPosY];
 		newX = [self getSpeedX]*aTime + [[movementAssigned throwHand] getPosX];
 		//NSLog(@"%f;%f", newX, newY);
@@ -154,6 +154,45 @@
 	[throwHand setObjThrowed:self];
 	tBeat = [[movementAssigned controller] beatTime];
 	[throwHand setThrowSpeed:aDestPos inSeconds: tBeat*[[movementAssigned valueForKey:@"ssBase"] intValue]]; //temps total de la trajectoire
+}
+
+//retourne le ss relatif (cad comme s'il n'y avait qu'un cycle)
+-(int)relativeSsTime;
+{
+	int tBeatLenght;
+	int tSsAbsTime;
+	/*
+	 tBeatLenght = [[self controller] ssAbsTime];
+	tSsAbsTime = [[[self movementAssigned] sourcePattern] beatLenght];
+	return ( tBeatLenght % tSsAbsTime);
+	 */
+	return [[self controller] ssAbsTime]-[self ssTimeThrowed];
+}
+
+-(float)relativeRealTime;
+{
+	/*
+	int tBeatTime, fullSsCyclesElapsed;
+	float rTFullCyclesElapsed;
+	tBeatTime =[[self controller] beatTime];
+	//nombre de cycles entier
+	fullSsCyclesElapsed = [[self controller] ssAbsTime] / [[self sourcePattern] beatLenght];
+	
+	//temps reel ecoulée en full cycles
+	rTFullCyclesElapsed = fullSsCyclesElapsed * tBeatTime;
+	//on ajoute le tps du cycle non termine
+	rTFullCyclesElapsed += [self relativeSsTime]*tBeatTime;
+	
+	return [[self controller] realTime]-rTFullCyclesElapsed;
+	 */
+	float t;
+	if ( [self relativeSsTime]){
+		t = [[self controller] realTime] - [[self controller] ssAbsTime]*[[self controller] beatTime];
+		return [self relativeSsTime]*[[self controller] beatTime]+t;
+	}
+	else{
+		return 0.0f;
+	}
 }
 
 -(void)catchBall;

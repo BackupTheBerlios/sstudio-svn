@@ -30,6 +30,7 @@ Pattern: ensemble de siteswap
 -(void)addMovement:(Movement *)move;
 -(int)ballNumberNeeded;
 -(int)relativeSsTimeForSsTime:(int)absSsTime;
+-(int)beatLenght;
 
 //ball
 -(void)preprocess;

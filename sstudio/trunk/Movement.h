@@ -13,9 +13,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class Throwable;
+@class SSPattern;
 
 @interface Movement : NSObject {
-	id sourcePattern;
+	SSPattern *sourcePattern;
 	NSString *thrTime;
 	NSString *ssBase;
 	NSString *thrSite;
@@ -23,7 +25,7 @@
 	NSString *catPos;
 	NSString *catSite;
 	NSNumber *airMin;
-	NSNumber *ssTimeThrowed;
+	Throwable *ballThrowed;
 }
 
 
@@ -33,6 +35,8 @@
 -(id)throwHand;
 -(id)catchHand;
 -(id)controller;
+-(id)airTimeInSeconds;
+
 
 /* Getter - Setter */
 -(void)setThrTime:(NSString *)t;
@@ -53,5 +57,6 @@
 -(NSNumber *)ssTimeThrowed;
 -(void)setSourcePattern:(id)aPat;
 -(id)sourcePattern;
-
+- (Throwable *) ballThrowed;
+- (void) setBallThrowed: (Throwable *) newValue;
 @end

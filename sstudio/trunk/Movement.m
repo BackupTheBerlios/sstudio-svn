@@ -104,6 +104,13 @@
 	return [sourcePattern controller];
 }
 
+-(id)airTimeInSeconds;
+{
+	float t;
+	t = ([[self valueForKey:@"ssBase"] floatValue])*([[self controller] beatTime]);
+	return [NSNumber numberWithFloat:t];
+}
+
 -(void)setThrTime:(NSString *)t;
 { thrTime = t; }
 
@@ -140,8 +147,20 @@
 -(NSNumber *)airMin;
 { return airMin; }
 
+/*
 -(void)setSsTimeThrowed:(NSNumber *)aSsTime;
 { ssTimeThrowed = aSsTime; }
 -(NSNumber *)ssTimeThrowed;
 { return ssTimeThrowed; }
+ */
+
+- (Throwable *) ballThrowed {
+  return ballThrowed;
+}
+
+- (void) setBallThrowed: (Throwable *) newValue {
+  [ballThrowed autorelease];
+  ballThrowed = [newValue retain];
+}
+
 @end

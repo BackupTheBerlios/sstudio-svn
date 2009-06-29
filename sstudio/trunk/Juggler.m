@@ -19,7 +19,7 @@
 	}
 	[self setAPattern: [[SSPattern alloc] init]];
 	//[self loadPatterns];
-	[[self aPattern] define4bFoutain];
+	[[self aPattern] define3bCascadePattern];
 	[[self aPattern] setController:self];
 	[self initHands];
 	[self initBalls];
@@ -27,7 +27,7 @@
 	[[self aPattern] preprocess];	
 	NSLog(@"SSPattern de test");
 	NSLog(@"%@", [self aPattern]);
-	NSLog(@"%@\n", self);	
+	NSLog(@"INIT\n%@\n", self);	
 	return self;	
 }
 
@@ -87,15 +87,16 @@
 	//calcul du temps
 	[self processRealTime];
 	[self processSiteswapTime];
-	NSLog(@"%@\n", self);
+	//NSLog(@"%@\n", self);
 	///calcule +affichage ici
-	NSLog(@"count simAStep %u\n", [[[hands objectAtIndex:0] heldBalls] count]);
+	//NSLog(@"count simAStep %u\n", [[[hands objectAtIndex:0] heldBalls] count]);
 	//gestion des lancers
 	[[self aPattern] processCatchAndThrow];
 	//calcul des trajectoires
 	[[self aPattern] juggleAtTime:realTime];
-	[self logBalls];
-	[self logHands];
+	//[self logBalls];
+	NSLog(@"Juggler\n%@\n", self);
+	//[self logHands];
 	[[self aSSView] setNeedsDisplay:YES];		
 }
 
@@ -199,7 +200,7 @@
 
 -(float)sampleTime;
 {
-	return 0.025f;
+	return 0.15;
 }
 
 //duree d'un 1 (cascade: 50 tours/1:45)
@@ -222,12 +223,12 @@
 {
 	NSMutableString *str;
 	str = [[NSMutableString alloc] init];
-	[str appendFormat:@"\nRealTime:%f\n", realTime];
+	[str appendFormat:@"RealTime:%f\n", realTime];
 	[str appendFormat:@"SiteTime:%d\n", ssAbsTime];
 	NSUInteger i, count = [balls count];
 	for (i = 0; i < count; i++) {
 		Throwable * ball = [balls objectAtIndex:i];
-		NSLog(@"ball %d\n%@\n", i, ball);
+		NSLog(@"%@", ball);
 	}
 	return str;
 }

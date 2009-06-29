@@ -10,5 +10,7 @@
 
 //c-style
 void drawBall();
+void drawOrigin();
+float zoom;
 
 @end

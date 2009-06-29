@@ -17,7 +17,7 @@
 - (id)init
 {
 	[super init];
-	[self setHandPos: [[SSPosition alloc] initX:2.0 Y:2.0]];
+	[self setHandPos: [[SSPosition alloc] initX:0.0 Y:0.0]];
 	heldBalls = [[[NSMutableArray alloc] initWithCapacity:0] retain];
 	return self;
 }
@@ -127,15 +127,15 @@
 {
 	if ([tMark isEqualToString:@"m"])
 	{
-		[self setPositionX:3.0f positionY:0.0f];
+		[self setPositionX:0.0f positionY:0.0f];
 	}
 	if ([tMark isEqualToString:@"r"])
 	{
-		[self setPositionX:6.0f positionY:0.0f];
+		[self setPositionX:0.5f positionY:0.0f];
 	}
 	if ([tMark isEqualToString:@"l"])
 	{
-		[self setPositionX:1.0f positionY:0.0f];
+		[self setPositionX:-0.5f positionY:0.0f];
 	}
 	return self;
 }
