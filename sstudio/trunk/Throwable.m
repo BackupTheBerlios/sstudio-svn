@@ -51,7 +51,9 @@
 - (NSString *)description
 {
 	NSMutableString *str = [[NSMutableString alloc] init];
-	[str appendFormat:@"Ball %@ - X=%3.2f - Y=%3.2f ", number, [self x], [self y]];
+	[str appendFormat:@"Ball %@\n", number ];
+	[str appendFormat:@"Pos X=%3.2f - Y=%3.2f\n", [self x], [self y]];
+	[str appendFormat:@"Vit X=%3.2f - Y=%3.2f\n", [self getSpeedX], [self getSpeedY]];
 	[str appendFormat:@" ssTThred:%d relTime:%f", ssTimeThrowed, relativeTime];
 	return str;
 }
@@ -166,7 +168,12 @@
 	tSsAbsTime = [[[self movementAssigned] sourcePattern] beatLenght];
 	return ( tBeatLenght % tSsAbsTime);
 	 */
-	return [[self controller] ssAbsTime]-[self ssTimeThrowed];
+	tSsAbsTime = [[self controller] ssAbsTime]-[self ssTimeThrowed]+1;
+	
+	if (tSsAbsTime < 0) {
+		tSsAbsTime = 0;
+	}
+	return tSsAbsTime;
 }
 
 -(float)relativeRealTime;
@@ -185,6 +192,7 @@
 	
 	return [[self controller] realTime]-rTFullCyclesElapsed;
 	 */
+	
 	float t;
 	if ( [self relativeSsTime]){
 		t = [[self controller] realTime] - [[self controller] ssAbsTime]*[[self controller] beatTime];

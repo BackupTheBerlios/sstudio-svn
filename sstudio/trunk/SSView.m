@@ -69,6 +69,7 @@ void drawOrigin()
 		if (aBall){
 			glTranslatef([aBall x]*zoom,[aBall y]*zoom, 0.0f*zoom);
 			drawBall();
+			glLoadIdentity();
 			//NSLog(@"ball:%f;%f",[aBall x],[aBall y] );
 		}
 	}
