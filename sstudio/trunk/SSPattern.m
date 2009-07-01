@@ -67,9 +67,9 @@
 	[move setValue:@"1" forKey:@"thrTime"];	
 	[move setValue:@"3" forKey:@"ssBase"];
 	[move setValue:@"R" forKey:@"thrSite"];
-	[move setValue:@"m" forKey:@"thrPos"];
+	[move setValue:@"r" forKey:@"thrPos"];
 	[move setValue:@"L" forKey:@"catSite"];
-	[move setValue:@"l" forKey:@"catPos"];
+	[move setValue:@"m" forKey:@"catPos"];
 	[self addMovement:move];
 	
 	//2eme mouvement
@@ -151,7 +151,7 @@
 	[move setValue:@"1" forKey:@"thrTime"];	
 	[move setValue:@"3" forKey:@"ssBase"];
 	[move setValue:@"L" forKey:@"thrSite"];
-	[move setValue:@"l" forKey:@"thrPos"];
+	[move setValue:@"m" forKey:@"thrPos"];
 	[move setValue:@"R" forKey:@"catSite"];
 	[move setValue:@"r" forKey:@"catPos"];
 	[self addMovement:move];
@@ -162,7 +162,7 @@
 	[move setValue:@"2" forKey:@"thrTime"];	
 	[move setValue:@"3" forKey:@"ssBase"];
 	[move setValue:@"R" forKey:@"thrSite"];
-	[move setValue:@"r" forKey:@"thrPos"];
+	[move setValue:@"m" forKey:@"thrPos"];
 	[move setValue:@"L" forKey:@"catSite"];
 	[move setValue:@"l" forKey:@"catPos"];
 	[self addMovement:move];

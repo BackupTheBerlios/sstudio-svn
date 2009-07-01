@@ -34,7 +34,7 @@
 	testJuggler = [[Juggler alloc] init];
 	//definit le pattern
 	basicPattern = [[SSPattern alloc] init];
-	[basicPattern define3Throw2Ball];
+	[basicPattern define3Throw1Ball];
 	NSLog(@"test Pattern");
 	NSLog(@"%@", basicPattern);
 	[testJuggler initWithPattern:basicPattern];

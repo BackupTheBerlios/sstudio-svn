@@ -773,7 +773,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{335, 500}, {431, 250}}</string>
+				<string key="NSWindowRect">{{335, 247}, {534, 503}}</string>
 				<int key="NSWTFlags">1946157056</int>
 				<string key="NSWindowTitle">sStudio alpha</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -787,7 +787,7 @@
 						<object class="NSButton" id="835504550">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{346, 170}, {71, 32}}</string>
+							<string key="NSFrame">{{139, 12}, {71, 32}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="818079315">
@@ -812,7 +812,7 @@
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">1292</int>
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
-							<string key="NSFrame">{{20, 20}, {266, 210}}</string>
+							<string key="NSFrame">{{20, 60}, {494, 423}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<object class="NSOpenGLPixelFormat" key="NSPixelFormat">
 								<object class="NSData" key="NSPixelAttributes">
@@ -823,7 +823,7 @@
 						<object class="NSPopUpButton" id="402118221">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{291, 146}, {123, 26}}</string>
+							<string key="NSFrame">{{17, 16}, {123, 26}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSPopUpButtonCell" key="NSCell" id="469997028">
@@ -889,7 +889,7 @@
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{431, 250}</string>
+					<string key="NSFrameSize">{534, 503}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1024, 746}}</string>
@@ -2248,13 +2248,13 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{525, 802}, {197, 73}}</string>
-					<string>{{258, 692}, {478, 20}}</string>
+					<string>{{318, 692}, {478, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{74, 862}</string>
 					<string>{{319, 704}, {478, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{554, 629}, {234, 63}}</string>
+					<string>{{614, 629}, {234, 63}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{475, 832}, {234, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2277,8 +2277,8 @@
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{280, 449}, {431, 250}}</string>
-					<string>{{280, 449}, {431, 250}}</string>
+					<string>{{301, 197}, {534, 503}}</string>
+					<string>{{301, 197}, {534, 503}}</string>
 					<reference ref="9"/>
 					<string>{{285, 300}, {480, 400}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

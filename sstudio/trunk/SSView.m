@@ -6,7 +6,7 @@
 -(void)awakeFromNib;
 {
 	NSLog(@"Awake!");
-	zoom = 0.5f;
+	zoom = 0.8f;
 }
 
 -(void) setPattern:(SSPattern *)aPat;
@@ -58,22 +58,31 @@ void drawOrigin()
 	Throwable *aBall;
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
-	glLoadIdentity();
+
 	NSArray *tBalls;
 	tBalls = [[patternToShow controller] balls];
 	int i, count = [tBalls count];
 	//NSLog(@" --== DrawRect ==-- ");
+	glLoadIdentity();			
+	moveOrigin();
 	drawOrigin();
 	for (i = 0; i < count; i++) {
 		aBall = [tBalls objectAtIndex:i];
 		if (aBall){
+			glLoadIdentity();			
+			moveOrigin();
 			glTranslatef([aBall x]*zoom,[aBall y]*zoom, 0.0f*zoom);
 			drawBall();
-			glLoadIdentity();
 			//NSLog(@"ball:%f;%f",[aBall x],[aBall y] );
 		}
 	}
 	glFlush();
+	glLoadIdentity();
+}
+
+void moveOrigin(void)
+{
+	glTranslatef( 0, -0.5*zoom, 0);
 }
 
 
