@@ -19,7 +19,7 @@
 	}
 	[self setAPattern: [[SSPattern alloc] init]];
 	//[self loadPatterns];
-	[[self aPattern] define3bCascadePattern];
+	[[self aPattern] define3bWindmill];
 	[[self aPattern] setController:self];
 	[self initHands];
 	[self initBalls];
@@ -28,6 +28,7 @@
 	NSLog(@"SSPattern de test");
 	NSLog(@"%@", [self aPattern]);
 	NSLog(@"INIT\n%@\n", self);	
+	[self setThrowedAtCurrentSsTime: NO];
 	return self;	
 }
 
@@ -158,11 +159,14 @@
 
 -(void)initHands;
 {
+	Hand *tHand;
 	//alloc hands
 	NSMutableArray *tHands;
 	tHands = [[NSMutableArray alloc] initWithCapacity:2];
-	[ tHands addObject:[[Hand alloc] init] ];
-	[ tHands addObject:[[Hand alloc] init] ];
+	tHand = [[Hand alloc] initWithIdentifier:@"R"];
+	[ tHands addObject: tHand];
+	tHand = [[Hand alloc] initWithIdentifier:@"L"];	
+	[ tHands addObject:tHand];
 	hands = [[NSArray alloc] initWithArray: tHands];
 	NSLog(@"count %u\n", [[[hands objectAtIndex:0] heldBalls] count]);
 	[tHands release];
@@ -171,7 +175,7 @@
 -(void)tmrInterrupt:(NSTimer *)aTimer;
 {
 	[self simAStep];
-	if(realTime > 2.0f)
+	if(realTime > 60.0f)
 	{
 		[timer invalidate];
 	}
@@ -185,6 +189,7 @@
 	if( tmpSSRealTime < realTime )
 	{
 		ssAbsTime++;
+		[self setThrowedAtCurrentSsTime:NO];
 		NSLog(@"ThrowTime ++:%d\n", ssAbsTime);
 		NSLog(@"relativeThrowTime:%d\n", [[self aPattern] relativeSsTimeForSsTime:ssAbsTime ]);
 	}		
@@ -200,13 +205,13 @@
 
 -(float)sampleTime;
 {
-	return 0.05;
+	return 0.10;
 }
 
 //duree d'un 1 (cascade: 50 tours/1:45)
 -(float)beatTime;
 {
-	return 0.32f;
+	return 0.30f;
 }
 
 -(float)realTime;
@@ -252,6 +257,15 @@
 - (void) setASSView: (SSView *) newValue {
   [aSSView autorelease];
   aSSView = [newValue retain];
+}
+
+
+- (int) throwedAtCurrentSsTime {
+  return throwedAtCurrentSsTime;
+}
+
+- (void) setThrowedAtCurrentSsTime: (int) newValue {
+  throwedAtCurrentSsTime = newValue;
 }
 
 @end

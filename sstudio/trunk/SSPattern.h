@@ -26,6 +26,7 @@ Pattern: ensemble de siteswap
 -(id)define3Throw1Ball;
 -(id)define3Throw2Ball;
 -(id)define3bCascadePattern;
+-(id)define3bWindmill;
 -(id)define4bFoutain;
 -(void)addMovement:(Movement *)move;
 -(int)ballNumberNeeded;

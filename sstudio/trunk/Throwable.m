@@ -161,40 +161,20 @@
 //retourne le ss relatif (cad comme s'il n'y avait qu'un cycle)
 -(int)relativeSsTime;
 {
-	int tBeatLenght;
-	int tSsAbsTime;
-	/*
-	 tBeatLenght = [[self controller] ssAbsTime];
-	tSsAbsTime = [[[self movementAssigned] sourcePattern] beatLenght];
-	return ( tBeatLenght % tSsAbsTime);
-	 */
-	tSsAbsTime = [[self controller] ssAbsTime]-[self ssTimeThrowed]+1;
-	
-	if (tSsAbsTime < 0) {
-		tSsAbsTime = 0;
+	int tSsAbsTime=0;
+	if ([self ssTimeThrowed] > 0){
+		tSsAbsTime = [[self controller] ssAbsTime]-[self ssTimeThrowed]+1;
+		if (tSsAbsTime < 0) {
+			tSsAbsTime = 0;
+		}
 	}
 	return tSsAbsTime;
 }
 
 -(float)relativeRealTime;
 {
-	/*
-	int tBeatTime, fullSsCyclesElapsed;
-	float rTFullCyclesElapsed;
-	tBeatTime =[[self controller] beatTime];
-	//nombre de cycles entier
-	fullSsCyclesElapsed = [[self controller] ssAbsTime] / [[self sourcePattern] beatLenght];
-	
-	//temps reel ecoulée en full cycles
-	rTFullCyclesElapsed = fullSsCyclesElapsed * tBeatTime;
-	//on ajoute le tps du cycle non termine
-	rTFullCyclesElapsed += [self relativeSsTime]*tBeatTime;
-	
-	return [[self controller] realTime]-rTFullCyclesElapsed;
-	 */
-	
 	float t;
-	if ( [self relativeSsTime]){
+	if ( [self relativeSsTime] > 0){
 		t = [[self controller] realTime] - [[self controller] ssAbsTime]*[[self controller] beatTime];
 		return [self relativeSsTime]*[[self controller] beatTime]+t;
 	}

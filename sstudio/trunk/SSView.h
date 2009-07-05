@@ -9,7 +9,7 @@
 -(void) drawRect: (NSRect) bounds;
 
 //c-style
-void drawBall(void);
+void drawBall(int number);
 void drawOrigin(void);
 void moveOrigin(void);
 float zoom;

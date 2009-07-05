@@ -14,6 +14,7 @@
 
 @interface ControllerUnitTest : NSWindowController {
 	IBOutlet SSView *aTestView;
+	IBOutlet NSTableView *aBallDebug;
 	IBOutlet NSButton *btLaunchTest;
 	Juggler *testJuggler;
 }

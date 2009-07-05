@@ -22,6 +22,13 @@
 	return self;
 }
 
+-(id)initWithIdentifier:(NSString *)aIdentifier;
+{
+	self = [self init];
+	identifier = [[NSString alloc] initWithString:aIdentifier];
+	return self;
+}
+
 -(NSString *)description
 {
 	NSMutableString *str = [[[NSMutableString alloc] init] autorelease];

@@ -24,6 +24,7 @@
 	NSTimer *timer;
 	float realTime;
 	int ssAbsTime;
+	bool throwedAtCurrentSsTime;
 }
 
 -(id)initWithPattern:(id)tPattern;
@@ -58,4 +59,6 @@
 - (void) setAPattern: (SSPattern *) newValue;
 - (SSView *) aSSView;
 - (void) setASSView: (SSView *) newValue;
+- (int) throwedAtCurrentSsTime;
+- (void) setThrowedAtCurrentSsTime: (int) newValue;
 @end

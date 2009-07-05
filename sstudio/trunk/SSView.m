@@ -6,7 +6,7 @@
 -(void)awakeFromNib;
 {
 	NSLog(@"Awake!");
-	zoom = 0.8f;
+	zoom = 0.5f;
 }
 
 -(void) setPattern:(SSPattern *)aPat;
@@ -15,9 +15,32 @@
 	[patternToShow retain];
 }
 
-void drawBall()
+void drawBall(int ballNumber)
 {
-	glColor3f(1.0f, 0.0f, 0.0f);
+	float ballColor[3];
+	switch(ballNumber){
+		case 0:
+			ballColor[0] = 1;
+			ballColor[1] = 0;
+			ballColor[2] = 0;
+			break;
+		case 1:
+			ballColor[0] = 0;
+			ballColor[1] = 1;
+			ballColor[2] = 0;
+			break;
+		case 2:
+			ballColor[0] = 0;
+			ballColor[1] = 0;
+			ballColor[2] = 1;
+			break;
+		default:
+			ballColor[0] = 1;
+			ballColor[1] = 1;
+			ballColor[2] = 1;
+			break;
+	}
+	glColor3fv(ballColor);
 	float DEG2RAD = (2*3.14)/360;
 	float radius =  0.1;
 	int i;
@@ -72,7 +95,7 @@ void drawOrigin()
 			glLoadIdentity();			
 			moveOrigin();
 			glTranslatef([aBall x]*zoom,[aBall y]*zoom, 0.0f*zoom);
-			drawBall();
+			drawBall([[aBall valueForKey:@"number"] intValue]);
 			//NSLog(@"ball:%f;%f",[aBall x],[aBall y] );
 		}
 	}

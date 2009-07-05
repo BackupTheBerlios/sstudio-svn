@@ -16,11 +16,13 @@
 	id controller;
 	//NSNumber *x;
 	//NSNumber *y;
+	NSString *identifier;
 	SSPosition *handPos;
 	Throwable *objThrowed;
 	NSMutableArray *heldBalls;
 }
 
+-(id)initWithIdentifier:(NSString *)aIdentifier;
 -(float)speedToGoToX:(float)posX inSeconds:(float)timing;
 -(float)speedToGoToY:(float)posY inSeconds:(float)t;
 -(id)placeAtPos:(NSString*)tMark;

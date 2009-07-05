@@ -67,9 +67,9 @@
 	[move setValue:@"1" forKey:@"thrTime"];	
 	[move setValue:@"3" forKey:@"ssBase"];
 	[move setValue:@"R" forKey:@"thrSite"];
-	[move setValue:@"r" forKey:@"thrPos"];
+	[move setValue:@"m" forKey:@"thrPos"];
 	[move setValue:@"L" forKey:@"catSite"];
-	[move setValue:@"m" forKey:@"catPos"];
+	[move setValue:@"l" forKey:@"catPos"];
 	[self addMovement:move];
 	
 	//2eme mouvement
@@ -94,6 +94,38 @@
 	[move setValue:@"l" forKey:@"catPos"];
 	[self addMovement:move];
 	
+	//1er mouvement =>3
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
+	[move setValue:@"1" forKey:@"thrTime"];	
+	[move setValue:@"3" forKey:@"ssBase"];
+	[move setValue:@"L" forKey:@"thrSite"];
+	[move setValue:@"m" forKey:@"thrPos"];
+	[move setValue:@"R" forKey:@"catSite"];
+	[move setValue:@"r" forKey:@"catPos"];
+	[self addMovement:move];
+	
+	//2eme mouvement
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
+	[move setValue:@"2" forKey:@"thrTime"];	
+	[move setValue:@"0" forKey:@"ssBase"];
+	[move setValue:@"R" forKey:@"thrSite"];
+	[move setValue:@"m" forKey:@"thrPos"];
+	[move setValue:@"L" forKey:@"catSite"];
+	[move setValue:@"l" forKey:@"catPos"];
+	[self addMovement:move];
+	
+	//3eme mouvement
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
+	[move setValue:@"3" forKey:@"thrTime"];	
+	[move setValue:@"0" forKey:@"ssBase"];
+	[move setValue:@"R" forKey:@"thrSite"];
+	[move setValue:@"m" forKey:@"thrPos"];
+	[move setValue:@"L" forKey:@"catSite"];
+	[move setValue:@"l" forKey:@"catPos"];
+	[self addMovement:move];
 	return self;
 }
 
@@ -193,6 +225,35 @@
 	[move setValue:@"R" forKey:@"thrSite"];
 	[move setValue:@"r" forKey:@"thrPos"];
 	[move setValue:@"R" forKey:@"catSite"];
+	[move setValue:@"r" forKey:@"catPos"];
+	[self addMovement:move];
+	return self;
+}
+
+-(id)define3bWindmill;
+{
+	Movement *move;
+	
+	identifier = [[NSString alloc] initWithString:@"moulin 3 balles"];
+	//1er mouvement
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
+	[move setValue:@"1" forKey:@"thrTime"];	
+	[move setValue:@"3" forKey:@"ssBase"];
+	[move setValue:@"L" forKey:@"thrSite"];
+	[move setValue:@"l" forKey:@"thrPos"];
+	[move setValue:@"R" forKey:@"catSite"];
+	[move setValue:@"l" forKey:@"catPos"];
+	[self addMovement:move];
+	
+	//2eme mouvement
+	move = [[Movement alloc] init];
+	[move setValue:[NSNumber numberWithInt:2] forKey:@"thrTime"];
+	[move setValue:@"2" forKey:@"thrTime"];	
+	[move setValue:@"3" forKey:@"ssBase"];
+	[move setValue:@"R" forKey:@"thrSite"];
+	[move setValue:@"l" forKey:@"thrPos"];
+	[move setValue:@"L" forKey:@"catSite"];
 	[move setValue:@"r" forKey:@"catPos"];
 	[self addMovement:move];
 	return self;
@@ -298,7 +359,7 @@
 	//NSLog(@"throwBallsAtSsTime\n");
 	aMove = [self getMovementThrowedAtSsTime:tSsAbsTime];
 	if (aMove){
-		if (![aMove ballThrowed])
+		if (![[self controller] throwedAtCurrentSsTime])
 		{
 			NSLog(@"Ball must be throwed\n");
 			theThrHand = [controller handForSite:[aMove valueForKey:@"thrSite"]];
@@ -306,6 +367,8 @@
 			[aMove setBallThrowed:aBall];
 			[aBall setMovementAssigned:aMove];
 			[aBall setSsTimeThrowed:tSsAbsTime];
+			[aBall preprocess];
+			[[self controller] setThrowedAtCurrentSsTime:YES];
 		}
 	}
 }
@@ -318,13 +381,15 @@
 	int startSsTime, endSsTime, tSsRelTime;
 	NSUInteger i, ballsCount = [[controller balls]  count];
 	//NSLog(@"catchBallsAtSsTime\n");
-	tSsRelTime = [self relativeSsTimeForSsTime:aSsTime];
+	//tSsRelTime = [self relativeSsTimeForSsTime:aSsTime];
+	tSsRelTime = [[self controller] ssAbsTime];
 	for(i=0; i < ballsCount; i++){
 		aBall = [controller ballNumber:i];
-		aMove = [aBall movementAssigned];
-		if(aMove){ 
-			endSsTime = startSsTime + [aBall ssTimeThrowed];
-			if ( endSsTime == tSsRelTime){
+		if([aBall ssTimeThrowed] > 0){
+			aMove = [aBall movementAssigned];			
+			endSsTime = [[[aBall movementAssigned] valueForKey:@"ssBase"] intValue] + [aBall ssTimeThrowed];
+			if ( endSsTime  == tSsRelTime){
+				NSLog(@"catch!");
 				[aBall setSsTimeThrowed: 0];
 				aCatchHand = [[self controller] handForSite: [[aBall movementAssigned] valueForKey:@"catSite"]];
 				if ( aCatchHand != nil){
