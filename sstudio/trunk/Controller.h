@@ -21,6 +21,8 @@
 	IBOutlet SSView *oglShow;
 	IBOutlet NSButton *btJuggle;
 	IBOutlet NSPopUpButton *btSelectPattern;
+	IBOutlet NSArrayController *patternArrayCtrl;
+	IBOutlet NSTableView *patternTableView;
 	ControllerUnitTest *aCtrlUnitTest;
 	Juggler *aJuggler;
 }

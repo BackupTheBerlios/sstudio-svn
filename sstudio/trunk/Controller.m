@@ -15,14 +15,16 @@
 -(id)init;
 {
 	aJuggler = [[Juggler alloc] init];
+	patternArrayCtrl = [[NSArrayController alloc] init];
 	return self;
 }
 
 -(IBAction)juggleButtonClick:(id)sender
 {
 	NSLog(@"juggle started");
-	[oglShow setPattern:[aJuggler aPattern]];	
-	[aJuggler setASSView: oglShow];	
+	[oglShow setPattern:[aJuggler aPattern] ];	
+	[aJuggler setASSView: oglShow];
+	[patternArrayCtrl addObjects:[[aJuggler aPattern] movements] ];
 	[aJuggler startSimulation];
 }
 

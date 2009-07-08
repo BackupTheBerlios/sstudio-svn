@@ -97,7 +97,7 @@
 	//1er mouvement =>3
 	move = [[Movement alloc] init];
 	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
-	[move setValue:@"1" forKey:@"thrTime"];	
+	[move setValue:@"4" forKey:@"thrTime"];	
 	[move setValue:@"3" forKey:@"ssBase"];
 	[move setValue:@"L" forKey:@"thrSite"];
 	[move setValue:@"m" forKey:@"thrPos"];
@@ -108,7 +108,7 @@
 	//2eme mouvement
 	move = [[Movement alloc] init];
 	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
-	[move setValue:@"2" forKey:@"thrTime"];	
+	[move setValue:@"5" forKey:@"thrTime"];	
 	[move setValue:@"0" forKey:@"ssBase"];
 	[move setValue:@"R" forKey:@"thrSite"];
 	[move setValue:@"m" forKey:@"thrPos"];
@@ -119,7 +119,7 @@
 	//3eme mouvement
 	move = [[Movement alloc] init];
 	[move setValue:[NSNumber numberWithInt:1] forKey:@"thrTime"];
-	[move setValue:@"3" forKey:@"thrTime"];	
+	[move setValue:@"6" forKey:@"thrTime"];	
 	[move setValue:@"0" forKey:@"ssBase"];
 	[move setValue:@"R" forKey:@"thrSite"];
 	[move setValue:@"m" forKey:@"thrPos"];
@@ -425,4 +425,20 @@
 	return controller;
 }
 
+/*
+- (int)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    return [[self movements] count];
+}
+
+- (id)tableView:(NSTableView *)tableView
+objectValueForTableColumn:(NSTableColumn *)tableColumn
+			row:(int)row
+{	
+	Movement *aMove;
+	aMove = [[self movements] objectAtIndex:row];
+	return [ aMove valueForKey:@"ssBase"];
+}
+*/
+ 
 @end

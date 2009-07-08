@@ -1,5 +1,6 @@
 RoadMap
 
+Phase 1:
 Iteration 1 : en cours
 L'application doit jongler les pattern asynchrones.
 La selection des pattern se fera par un menu.
@@ -8,6 +9,15 @@ Pour verifier le modèle une interface de test sera présente fonctionnant sur l
 
 Iteration 2
 Les pattern pourront etre saisis depuis une interface
+Support des 2
 
 Iteration 3
 Les pattern seront stockés à l'aide de core data
+Support du synchrone??
+
+Phase2
+ajout de la modification des positions en mgraphique
+
+Phase3
+Support des routines
+

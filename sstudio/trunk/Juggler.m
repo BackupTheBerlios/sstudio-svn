@@ -19,7 +19,7 @@
 	}
 	[self setAPattern: [[SSPattern alloc] init]];
 	//[self loadPatterns];
-	[[self aPattern] define3bWindmill];
+	[[self aPattern] define3bCascadePattern];
 	[[self aPattern] setController:self];
 	[self initHands];
 	[self initBalls];
