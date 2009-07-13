@@ -19,12 +19,19 @@
 	return self;
 }
 
+-(void)awakeFromNib;
+{
+	NSLog(@"controller awake");
+	[patternArrayCtrl addObjects:[[aJuggler aPattern] movements] ];
+	//[patternTableView setNeedsDisplay:YES];
+}
+
+
 -(IBAction)juggleButtonClick:(id)sender
 {
 	NSLog(@"juggle started");
 	[oglShow setPattern:[aJuggler aPattern] ];	
 	[aJuggler setASSView: oglShow];
-	[patternArrayCtrl addObjects:[[aJuggler aPattern] movements] ];
 	[aJuggler startSimulation];
 }
 

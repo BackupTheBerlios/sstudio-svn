@@ -19,7 +19,7 @@
 	}
 	[self setAPattern: [[SSPattern alloc] init]];
 	//[self loadPatterns];
-	[[self aPattern] define3bCascadePattern];
+	[[self aPattern] define4bFoutain];
 	[[self aPattern] setController:self];
 	[self initHands];
 	[self initBalls];

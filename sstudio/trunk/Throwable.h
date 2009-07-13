@@ -16,7 +16,6 @@
 	NSNumber *y;
 	NSNumber *vx;
 	NSNumber *vy;
-	NSMutableArray *trajectory;
 	Movement *movementAssigned;
 	float relativeTime; //for dbging
 	int ssTimeThrowed;
@@ -24,11 +23,7 @@
 
 -(id)initWithNumber:(int)tNum;
 -(void)positionAtTime:(float)aTime;
--(NSString *)showTrajectory;
--(id)deleteTrajectory;
--(NSMutableArray *)trajectory;
 -(void)preprocess;
--(void)catchBall;
 -(int)relativeSsTime;
 -(float)relativeRealTime;
 

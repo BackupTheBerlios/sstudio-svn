@@ -60,19 +60,6 @@
 	return ([[self valueForKey:@"ssTimeThrowed"] intValue] == 0);
 }
 
-
--(bool)isInAirAtSsTime:(int)aSsTime;
-{
-	int thisThrowTime;
-	thisThrowTime = [[self valueForKey:@"thrTime"] intValue];
-	if( (thisThrowTime >= aSsTime) 
-		&& ( aSsTime < (thisThrowTime + [[self valueForKey:@"ssTimeThrowed"] intValue]))){
-			return YES;
-	}
-	else
-		return NO;
-}
-
 - (NSString *)description;
 {
 	NSString *desc = [[NSString alloc] initWithFormat:@"thrPos",thrPos];

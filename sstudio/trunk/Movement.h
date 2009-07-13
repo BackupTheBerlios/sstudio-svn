@@ -31,7 +31,6 @@
 
 -(id)init;
 -(id)initMovement;
--(bool)isInAirAtSsTime:(int)aSsTime;
 -(id)throwHand;
 -(id)catchHand;
 -(id)controller;

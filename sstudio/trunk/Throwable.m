@@ -11,7 +11,6 @@
 #import "Hand.h"
 #import "SSPosition.h"
 
-
 @implementation Throwable
 
 - (id)init
@@ -25,7 +24,6 @@
 	[vx retain];
 	vy = [NSNumber numberWithFloat:2.0f];
 	[vy retain];
-	trajectory = [[NSMutableArray alloc] init];
 	return self;
 }
 
@@ -57,8 +55,6 @@
 	[str appendFormat:@" ssTThred:%d relTime:%f", ssTimeThrowed, relativeTime];
 	return str;
 }
-
-
 
 - (void)setX:(float)tX;{
 	[x release];
@@ -121,24 +117,6 @@
 	}
 }
 
-- (NSMutableArray *)trajectory
-{
-	return trajectory;
-}
-
-- (NSString *)showTrajectory
-{
-	int i;
-	NSMutableString *result= [[NSMutableString alloc] init];
-	NSString *str;
-	for ( i=0; i < [trajectory count]; i++)
-	{
-		str = [[NSString alloc] initWithFormat: @"%@", [trajectory objectAtIndex:i]];
-		[result appendString:str];
-	}
-	return str;
-}
-
 //place la main et la balle prete etre lancé
 -(void)preprocess;
 {
@@ -181,16 +159,6 @@
 	else{
 		return 0.0f;
 	}
-}
-
--(void)catchBall;
-{
-}
-
-- (id)deleteTrajectory
-{
-	[trajectory removeAllObjects];
-	return self;
 }
 
 -(id)movementAssigned;

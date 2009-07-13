@@ -14,8 +14,6 @@
 
 @interface Hand : NSObject {
 	id controller;
-	//NSNumber *x;
-	//NSNumber *y;
 	NSString *identifier;
 	SSPosition *handPos;
 	Throwable *objThrowed;
@@ -41,5 +39,5 @@
 -(id)setPositionX:(float)posX positionY:(float)posY;
 
 - (SSPosition *) handPos;
-- (void) setHandPos: (SSPosition *) newValue;
+- (void)setHandPos: (SSPosition *) newValue;
 @end

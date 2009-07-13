@@ -23,6 +23,7 @@ Pattern: ensemble de siteswap
 }
 
 -(NSString *)description;
+-(void)addMovement:(Movement *)move;
 -(id)define3Throw1Ball;
 -(id)define3Throw2Ball;
 -(id)define3bCascadePattern;
@@ -31,14 +32,16 @@ Pattern: ensemble de siteswap
 -(void)addMovement:(Movement *)move;
 -(int)ballNumberNeeded;
 -(int)relativeSsTimeForSsTime:(int)absSsTime;
--(int)beatLenght;
 
 //ball
 -(void)preprocess;
 -(void)juggleAtTime:(float)f;
 -(Movement *)getMovementThrowedAtSsTime:(int)aSsTime;
+-(void)catchBallsAtSsTime:(int)aSsTime;
+-(void)throwBallsAtSsTime:(int)tSsAbsTime;
 -(void)processCatchAndThrow;
 
+-(void)juggleAtTime:(float)f;
 
 // getter - setter
 -(id)movements;

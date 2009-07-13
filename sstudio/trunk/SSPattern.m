@@ -304,13 +304,6 @@
 -(void)preprocess;
 {
 	int numMovement;
-	/*
-	Movement *aMove;
-	for(numMovement=0; numMovement < [movements count]; numMovement++){
-		aMove = [movements objectAtIndex:numMovement];
-		[aMove preprocess];
-	}
-	 */
 	Throwable *aBall;
 	int ballsCount, i;
 	ballsCount = [[controller balls] count];
@@ -350,7 +343,6 @@
 	return nil;
 }
 
-//TODO: rien n'est jamais assigné => lorsqu'on rattrape on prend en compte assignedMovement, 
 -(void)throwBallsAtSsTime:(int)tSsAbsTime;
 {
 	Hand *theThrHand;
@@ -381,7 +373,6 @@
 	int startSsTime, endSsTime, tSsRelTime;
 	NSUInteger i, ballsCount = [[controller balls]  count];
 	//NSLog(@"catchBallsAtSsTime\n");
-	//tSsRelTime = [self relativeSsTimeForSsTime:aSsTime];
 	tSsRelTime = [[self controller] ssAbsTime];
 	for(i=0; i < ballsCount; i++){
 		aBall = [controller ballNumber:i];
@@ -407,11 +398,6 @@
 	tSsAbsTime = [[self controller] ssAbsTime];
 	[self catchBallsAtSsTime:tSsAbsTime];
 	[self throwBallsAtSsTime:tSsAbsTime];
-}
-	 
--(int)beatLenght;
-{
-	return [movements count];
 }
 
 /*getter-setter*/
