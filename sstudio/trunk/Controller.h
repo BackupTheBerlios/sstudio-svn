@@ -24,6 +24,8 @@
 	//IBOutlet NSButton *btAdd;
 	IBOutlet NSArrayController *patternArrayCtrl;
 	IBOutlet NSTableView *patternTableView;
+	IBOutlet NSArrayController *ssPatterns;
+	IBOutlet NSArrayController *movements;
 	ControllerUnitTest *aCtrlUnitTest;
 	Juggler *aJuggler;
 }
@@ -31,6 +33,7 @@
 -(IBAction)juggleButtonClick:(id)sender;
 -(IBAction)stopButtonClick:(id)sender;
 -(IBAction)showTestView:(id)sender;
+-(id)getSelectedPattern;
 
 
 

@@ -18,8 +18,8 @@
 		[[self aPattern] release];
 	}
 	[self setAPattern: [[SSPattern alloc] init]];
-	//[self loadPatterns];
-	[[self aPattern] define4bFoutain];
+	//[[self aPattern] define4bFoutain];
+	/*
 	[[self aPattern] setController:self];
 	[self initHands];
 	[self initBalls];
@@ -28,6 +28,7 @@
 	NSLog(@"SSPattern de test");
 	NSLog(@"%@", [self aPattern]);
 	NSLog(@"INIT\n%@\n", self);	
+	 */
 	[self setThrowedAtCurrentSsTime: NO];
 	return self;	
 }
