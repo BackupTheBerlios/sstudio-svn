@@ -99,47 +99,69 @@
 }
 
 -(void)setThrTime:(NSString *)t;
-{ thrTime = t; }
+{
+	[thrTime autorelease];
+	thrTime = [t retain];
+}
 
 -(NSString *)thrTime
-{ return thrTime; }
+{ 
+	return thrTime;
+}
 
 -(void)setSsBase:(NSString *)base;
-{ ssBase = base; }
+{ 
+	[ssBase autorelease];
+	ssBase = [base retain];
+}
 -(NSString *)ssBase;
-{ return ssBase; }
+{
+	return ssBase; 
+}
 
 -(void)setThrSite:(NSString *)site;
-{ thrSite = site; }
+{
+	[thrSite autorelease];
+	thrSite = [site retain];
+}
 -(NSString *)thrSite;
-{ return thrSite; }
+{
+	return thrSite; 
+	
+}
 
 -(void)setThrPos:(NSString *)pos;
-{ thrPos = pos; }
+{
+	[thrPos autorelease];
+	thrPos = [pos retain]; 
+}
 -(NSString *)thrPos;
 { return thrPos; }
 
 -(void)setCatPos:(NSString *)pos;
-{ catPos = pos; }
+{
+	[catPos autorelease];
+	catPos = [pos retain]; 
+}
 -(NSString *)catPos;
 { return catPos; }
 
 -(void)setCatSite:(NSString *)site;
-{ catSite = site; }
+{ 
+	[catSite autorelease];
+	catSite = [site retain];
+}
 -(NSString *)catSite;
 { return catSite; }
 
 -(void)setAirMin:(NSNumber *)air;
-{ airMin = air; }
+{ 
+	[airMin autorelease];
+	airMin = [air retain]; 
+}
 -(NSNumber *)airMin;
 { return airMin; }
 
-/*
--(void)setSsTimeThrowed:(NSNumber *)aSsTime;
-{ ssTimeThrowed = aSsTime; }
--(NSNumber *)ssTimeThrowed;
-{ return ssTimeThrowed; }
- */
 
 - (Throwable *) ballThrowed {
   return ballThrowed;
@@ -148,6 +170,11 @@
 - (void) setBallThrowed: (Throwable *) newValue {
   [ballThrowed autorelease];
   ballThrowed = [newValue retain];
+}
+
+-(void) valueForUndefinedKey:(NSString *)tKey;
+{
+	NSLog(@"valueForUndefinedKey");
 }
 
 @end

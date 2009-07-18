@@ -20,7 +20,8 @@
 	//animation
 	IBOutlet SSView *oglShow;
 	IBOutlet NSButton *btJuggle;
-	IBOutlet NSPopUpButton *btSelectPattern;
+	IBOutlet NSButton *btStop;
+	//IBOutlet NSButton *btAdd;
 	IBOutlet NSArrayController *patternArrayCtrl;
 	IBOutlet NSTableView *patternTableView;
 	ControllerUnitTest *aCtrlUnitTest;
@@ -28,6 +29,7 @@
 }
 
 -(IBAction)juggleButtonClick:(id)sender;
+-(IBAction)stopButtonClick:(id)sender;
 -(IBAction)showTestView:(id)sender;
 
 

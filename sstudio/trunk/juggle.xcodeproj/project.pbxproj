@@ -30,6 +30,8 @@
 		DBCC11790FECFA44002CD5D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBCC11770FECFA44002CD5D2 /* MainMenu.xib */; };
 		DBCC119E0FECFD33002CD5D2 /* SSUnitTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBCC119D0FECFD33002CD5D2 /* SSUnitTest.xib */; };
 		DBD3ECD80FD289C700B5AF1A /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1F05640F0A956A00484976 /* Controller.m */; };
+		DBD4226010122B400029C6C3 /* sstudio_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD4225F10122B400029C6C3 /* sstudio_AppDelegate.m */; };
+		DBD4226410122BA90029C6C3 /* sstudio_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = DBD4226310122BA90029C6C3 /* sstudio_DataModel.xcdatamodel */; };
 		DBE5DDDF0FEFD43E00F81415 /* SSPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE5DDDE0FEFD43E00F81415 /* SSPosition.m */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,9 @@
 		DBCC11720FECF6F7002CD5D2 /* ControllerUnitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerUnitTest.m; sourceTree = "<group>"; };
 		DBCC11780FECFA44002CD5D2 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		DBCC119D0FECFD33002CD5D2 /* SSUnitTest.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SSUnitTest.xib; sourceTree = "<group>"; };
+		DBD4225E10122B400029C6C3 /* sstudio_AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sstudio_AppDelegate.h; sourceTree = "<group>"; };
+		DBD4225F10122B400029C6C3 /* sstudio_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sstudio_AppDelegate.m; sourceTree = "<group>"; };
+		DBD4226310122BA90029C6C3 /* sstudio_DataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = sstudio_DataModel.xcdatamodel; sourceTree = "<group>"; };
 		DBE5DDDD0FEFD43E00F81415 /* SSPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPosition.h; sourceTree = "<group>"; };
 		DBE5DDDE0FEFD43E00F81415 /* SSPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPosition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +103,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DBD4225E10122B400029C6C3 /* sstudio_AppDelegate.h */,
+				DBD4225F10122B400029C6C3 /* sstudio_AppDelegate.m */,
 				DB1F04E30F0A79EB00484976 /* Model */,
 				DB1F04E40F0A79F600484976 /* View */,
 				DB1F04E50F0A7A0200484976 /* Controller */,
@@ -138,6 +145,7 @@
 		29B97314FDCFA39411CA2CEA /* juggle */ = {
 			isa = PBXGroup;
 			children = (
+				DBD4226210122BA90029C6C3 /* Models */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				DB0C1FC20F360F20000AEEA2 /* Test Cases */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -225,6 +233,14 @@
 				DB1F05640F0A956A00484976 /* Controller.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		DBD4226210122BA90029C6C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DBD4226310122BA90029C6C3 /* sstudio_DataModel.xcdatamodel */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		DBE5DDD90FEFD0D100F81415 /* Documentation */ = {
@@ -347,6 +363,8 @@
 				DB22393E0FECE68C0054F837 /* Juggler.m in Sources */,
 				DBCC11730FECF6F7002CD5D2 /* ControllerUnitTest.m in Sources */,
 				DBE5DDDF0FEFD43E00F81415 /* SSPosition.m in Sources */,
+				DBD4226010122B400029C6C3 /* sstudio_AppDelegate.m in Sources */,
+				DBD4226410122BA90029C6C3 /* sstudio_DataModel.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

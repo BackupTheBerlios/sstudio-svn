@@ -83,6 +83,11 @@
 	 */
 }
 
+-(void)stopSimulation;
+{
+	[timer invalidate];
+}
+
 -(void)simAStep;
 {
 	//calcul du temps

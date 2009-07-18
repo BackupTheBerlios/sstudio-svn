@@ -35,6 +35,11 @@
 	[aJuggler startSimulation];
 }
 
+-(IBAction)stopButtonClick:(id)sender;
+{
+	[aJuggler stopSimulation];
+}
+
 -(IBAction)showTestView:(id)sender;
 {
 	if (!aCtrlUnitTest) {

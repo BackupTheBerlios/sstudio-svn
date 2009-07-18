@@ -45,6 +45,7 @@
 -(void)initBalls;
 -(void)initHands;
 -(void)startSimulation;
+-(void)stopSimulation;
 -(void)processRealTime;
 -(void)processSiteswapTime;
 -(void)simAStep;
