@@ -211,7 +211,7 @@
 
 -(float)sampleTime;
 {
-	return 0.10;
+	return 0.05;
 }
 
 //duree d'un 1 (cascade: 50 tours/1:45)
