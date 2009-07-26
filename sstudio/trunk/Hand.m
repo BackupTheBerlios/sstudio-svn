@@ -22,6 +22,13 @@
 	return self;
 }
 
+-(void)dealloc
+{
+	[heldBalls release];
+	[super dealloc];
+}
+
+
 -(id)initWithIdentifier:(NSString *)aIdentifier;
 {
 	self = [self init];
@@ -85,9 +92,7 @@
 {
 	NSLog(@"setThrowSpeed (time=%f)\n"), timing;
 	float speedx = [self speedToGoToX:[destPosition getX] inSeconds:timing];
-	//NSLog(@"speedx: %f", speedx);
 	float speedy = [self speedToGoToY:[destPosition getY] inSeconds:timing];
-	//NSLog(@"speedy: %f", speedy);
 	[objThrowed setSpeedX:speedx y:speedy ];
 	return self;
 }
@@ -116,14 +121,6 @@
 //
 -(id)setPositionX:(float)posX positionY:(float)posY
 {
-	/*
-	[x release];
-	x = [NSNumber numberWithFloat: posX];
-	[x retain];
-	[y release];
-	y = [NSNumber numberWithFloat: posY];
-	[y retain];
-	 */
 	[[self handPos] setX:posX];
 	[[self handPos] setY:posY];
 	return self;
@@ -175,8 +172,10 @@
 }
 
 - (void) setHandPos: (SSPosition *) newValue {
-  [handPos autorelease];
-  handPos = [newValue retain];
+	if (handPos){
+		[handPos release];
+	}
+	handPos = [newValue retain];
 }
 
 @end

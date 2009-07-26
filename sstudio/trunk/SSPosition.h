@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SSPosition.h"
 
 
 @interface SSPosition : NSObject {
@@ -18,5 +19,7 @@
 - (void) setX: (float) newValue;
 - (float) getY;
 - (void) setY: (float) newValue;
--(id)initX:(float)posX Y:(float)posY;
+- (id)initX:(float)posX Y:(float)posY;
+- (SSPosition*)placeAtPos:(NSString*)tMark;
+
 @end

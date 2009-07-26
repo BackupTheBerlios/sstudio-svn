@@ -54,7 +54,6 @@
 		DB1041870F0D1EF6006FEFCB /* Hand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hand.m; sourceTree = "<group>"; };
 		DB1041BD0F0D22CE006FEFCB /* Throwable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Throwable.h; sourceTree = "<group>"; };
 		DB1041BE0F0D22CE006FEFCB /* Throwable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Throwable.m; sourceTree = "<group>"; };
-		DB1BC4AF101284B500304391 /* PythonInterpreter.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = PythonInterpreter.icns; sourceTree = "<group>"; };
 		DB1BC4C610128B8200304391 /* GenericNetworkIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = GenericNetworkIcon.icns; sourceTree = "<group>"; };
 		DB1F04B80F0A613200484976 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		DB1F04DB0F0A76AA00484976 /* SSPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPattern.h; sourceTree = "<group>"; };
@@ -391,7 +390,6 @@
 			children = (
 				DB1BC4C610128B8200304391 /* GenericNetworkIcon.icns */,
 				089C165DFE840E0CC02AAC07 /* English */,
-				DB1BC4AF101284B500304391 /* PythonInterpreter.icns */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -420,6 +418,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = juggle;
+				SDKROOT = macosx10.5;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -451,7 +450,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
-				SDKROOT = macosx10.4;
+				SDKROOT = macosx10.5;
 				VALID_ARCHS = "ppc ppc64 ppc7400 ppc970 x86_64";
 			};
 			name = Debug;
@@ -533,7 +532,7 @@
 				C01FCF4C08A954540054247B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "juggle" */ = {
 			isa = XCConfigurationList;
@@ -542,7 +541,7 @@
 				C01FCF5008A954540054247B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DB0C1F7B0F360BBA000AEEA2 /* Build configuration list for PBXNativeTarget "test" */ = {
 			isa = XCConfigurationList;
@@ -551,7 +550,7 @@
 				DB0C1F7A0F360BB9000AEEA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

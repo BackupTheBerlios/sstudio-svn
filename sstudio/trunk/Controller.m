@@ -15,14 +15,20 @@
 -(id)init;
 {
 	aJuggler = [[Juggler alloc] init];
-	patternArrayCtrl = [[NSArrayController alloc] init];
+	//patternArrayCtrl = [[NSArrayController alloc] init];
 	return self;
+}
+
+-(void)dealloc;
+{
+	[aJuggler release];
+	[super dealloc];
 }
 
 -(void)awakeFromNib;
 {
 	NSLog(@"controller awake");
-	[patternArrayCtrl addObjects:[[aJuggler aPattern] movements] ];
+	//[patternArrayCtrl addObjects:[[aJuggler aPattern] movements] ];
 	//[patternTableView setNeedsDisplay:YES];
 }
 
@@ -32,7 +38,7 @@
 	SSPattern *tPat;
 	NSLog(@"juggle started");
 	tPat = [[SSPattern alloc] init];
-	[tPat define3bCascadePattern];
+	//[tPat define3bCascadePattern];
 	tPat = [self getSelectedPattern];
 	[aJuggler setAPattern:tPat];
 	[[aJuggler aPattern] setController:aJuggler];
@@ -64,13 +70,12 @@
 	int tThrTime;
 	NSNumber *num;
 
-	tPat = [[SSPattern alloc] init];
-	//[[tPat movements] removeAllObjects];
+	tPat = [[SSPattern alloc] init]; //TODO: memory
 	
 	NSUInteger i, count = [[movements arrangedObjects] count];
 	
 	for (i = 0; i < count; i++) {
-		move = [[Movement alloc] init];
+		move = [[Movement alloc] init]; //TODO: memory
 		NSObject * obj = [[movements arrangedObjects] objectAtIndex:i];
 		//[move setValue:[obj valueForKey:@"thrTime"] forKey:@"thrTime"];
 		tThrTime = [[obj valueForKey:@"thrTime"] intValue];
@@ -83,6 +88,7 @@
 		[move setValue:[obj valueForKey:@"catPos"] forKey:@"catPos"];
 		[move setSourcePattern:tPat];
 		[tPat addMovement:move];
+		[move release];
 	}
 	return tPat;
 }

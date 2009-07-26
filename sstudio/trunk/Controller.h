@@ -21,9 +21,7 @@
 	IBOutlet SSView *oglShow;
 	IBOutlet NSButton *btJuggle;
 	IBOutlet NSButton *btStop;
-	//IBOutlet NSButton *btAdd;
-	IBOutlet NSArrayController *patternArrayCtrl;
-	IBOutlet NSTableView *patternTableView;
+	//IBOutlet NSTableView *patternTableView;
 	IBOutlet NSArrayController *ssPatterns;
 	IBOutlet NSArrayController *movements;
 	ControllerUnitTest *aCtrlUnitTest;

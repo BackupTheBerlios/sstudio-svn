@@ -10,6 +10,7 @@
 
 //c-style
 void drawBall(int number);
+void drawHand(void);
 void drawOrigin(void);
 void moveOrigin(void);
 float zoom;

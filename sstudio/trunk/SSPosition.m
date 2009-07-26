@@ -17,6 +17,11 @@
 	return self;
 }
 
+-(void)dealloc
+{
+	[super dealloc];
+}
+
 -(id)initX:(float)posX Y:(float)posY
 {
 	[self init];

@@ -107,11 +107,9 @@
 	throwHand = [movementAssigned throwHand];
 	relativeTime = [self relativeRealTime];//aTime - ssTimeThrowed * [[self controller] beatTime];
 	aTime = relativeTime;
-	//NSLog("%@", self);
 	if (aTime >= 0.0f && (aTime <= [[[self movementAssigned] airTimeInSeconds] floatValue])){
 		newY = ([self getSpeedY]*aTime) - (0.5*9.81*aTime*aTime)+[[movementAssigned throwHand] getPosY];
 		newX = [self getSpeedX]*aTime + [[movementAssigned throwHand] getPosX];
-		//NSLog(@"%f;%f", newX, newY);
 		[self setX:newX];
 		[self setY:newY];
 	}

@@ -534,7 +534,7 @@
 						<object class="NSButton" id="916386796">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{226, 200}, {96, 32}}</string>
+							<string key="NSFrame">{{354, 200}, {96, 32}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="1047043716">
@@ -2031,9 +2031,9 @@
 							<reference ref="493545882"/>
 							<reference ref="693993007"/>
 							<reference ref="835504550"/>
-							<reference ref="916386796"/>
 							<reference ref="758386679"/>
 							<reference ref="41790320"/>
+							<reference ref="916386796"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -2437,6 +2437,10 @@
 					<string>390.IBPluginDependency</string>
 					<string>444.CustomClassName</string>
 					<string>444.IBPluginDependency</string>
+					<string>444.IBViewIntegration.shadowBlurRadius</string>
+					<string>444.IBViewIntegration.shadowColor</string>
+					<string>444.IBViewIntegration.shadowOffsetHeight</string>
+					<string>444.IBViewIntegration.shadowOffsetWidth</string>
 					<string>489.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.ImportedFromIB2</string>
@@ -2593,8 +2597,8 @@
 					<string>{{545, 296}, {92, 23}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{475, 832}, {234, 43}}</string>
-					<string>{{308, 127}, {464, 507}}</string>
-					<string>{{308, 127}, {464, 507}}</string>
+					<string>{{334, 149}, {464, 507}}</string>
+					<string>{{334, 149}, {464, 507}}</string>
 					<reference ref="9"/>
 					<string>{{285, 300}, {480, 400}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2603,6 +2607,13 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>SSView</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<real value="0.000000e+00"/>
+					<object class="NSColor">
+						<int key="NSColorSpace">1</int>
+						<bytes key="NSRGB">MC45NTU2NDUxNCAwLjkxNTMyMjYgMC43NjIwOTY3NgA</bytes>
+					</object>
+					<real value="0.000000e+00"/>
+					<real value="0.000000e+00"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>

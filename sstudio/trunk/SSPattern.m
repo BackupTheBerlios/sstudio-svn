@@ -21,6 +21,12 @@
 	return self;
 }
 
+-(void)dealloc
+{
+	[movements release];
+	[super dealloc];
+}
+
 //affichage du siteswap sous forme de tableau recapitulatif
  - (NSString *)description;
 {
@@ -370,7 +376,7 @@
 	Movement * aMove;
 	Throwable *aBall;
 	Hand *aCatchHand;
-	int startSsTime, endSsTime, tSsRelTime;
+	int endSsTime, tSsRelTime;
 	NSUInteger i, ballsCount = [[controller balls]  count];
 	//NSLog(@"catchBallsAtSsTime\n");
 	tSsRelTime = [[self controller] ssAbsTime];
